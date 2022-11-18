@@ -1,0 +1,64 @@
+# My notes
+
+## Utilities
+Quit All                    | :qa
+Terminal                    | :18sp|:term
+Edit Config                 | :e ~/.config/nvim/init.lua
+
+## t-mux @tmux
+New Session                 | tmux new -s{{SESSION_NAME}}
+List Sessions               | <C-b> s or tmux ls
+Session and Window Preview  | <C-b> w
+Rename Session              | <C-b> $
+Detach from Session         | <C-b> d
+Kill Session                | tmux kill-session -t{{SESSION_NAME}}
+New Window                  | <C-b> c
+Close Window                | <C-b> &
+Rename Window               | <C-b> ,
+Next Window                 | <C-b> n
+Previous Window             | <C-b> p
+Last Window                 | <C-b> l
+Horizontal Pane             | <C-b> "
+Vertical Pane               | <C-b> %
+Close Pane                  | <C-b> x
+Resize Pane                 | <C-b> <C-Up|Down|Left|Right>
+Last Pane                   | <C-b> ;
+Show Pane Numbers           | <C-b> q
+Select Pane by Number       | <C-b> q 0..9
+Move Pane Left|Right        | <C-b> {|}
+Switch to Pane in direction | <C-b> Up|Down|Left|Rights
+
+## json
+Pretty Print                | :%!jq
+Minify                      | :%!jq -r tostring
+
+## lsp
+Go to Definition            | gD
+Hover                       | K
+Implementations             | gi
+References                  | gr
+Document Symbol             | gd
+Document Symbols            | gds
+Workspace Symbols           | gws
+Run                         | <leader> cl
+Signature help              | <leader> sh
+Rename                      | <leader> rn
+Format                      | <leader> f
+Code action                 | <leader> ca
+Workspace Diagnostics       | <leader> aa
+Workspace Errors            | <leader> ae
+Workspace Warnings          | <leader> aw
+Buffer Diagnostics          | <leader> d
+Previous Diagnostic         | [c
+Next Diagnostic             | ]c
+Symbols Outline             | <leader> o
+
+## Abolish/Coercion
+Camel Case                  | crc
+Pascal Case                 | crm
+Snake Case                  | crs
+Uppercase                   | cru
+Kebab Case                  | crk
+Dot case                    | cr.
+Space Case                  | cr<space>
+Title Case                  | crt
