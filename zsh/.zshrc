@@ -8,8 +8,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="agnoster"
-ZSH_THEME="bullet-train"
+ZSH_THEME="agnoster"
+# ZSH_THEME="bullet-train"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -99,16 +99,23 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
+# Load other files/scripts
 [ -f $HOME/.commonrc ] && source $HOME/.commonrc
-
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+[ -f $HOME/.work_stuff.sh ] && source $HOME/.work_stuff.sh
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -f $HOME/.work_stuff.sh ] && source $HOME/.work_stuff.sh
 
+# Path
 export PATH="/usr/local/opt/qt/bin:$PATH"
 PATH="$HOME/.local/bin:$PATH"
 
+# Environment Variables
 export VISUAL=nvim
+export NVM_DIR="$HOME/.nvm"
 
+# Alias
 alias getIteratorLatestFor='aws kinesis get-shard-iterator --shard-id shardId-000000000000 --shard-iterator-type LATEST --stream-name'
 alias getIteratorLatestForLocal='USE_SSL=true awslocal kinesis get-shard-iterator --shard-id shardId-000000000000 --shard-iterator-type LATEST --stream-name'
 alias getIteratorTrimHorizonFor='aws kinesis get-shard-iterator --shard-id shardId-000000000000 --shard-iterator-type TRIM_HORIZON --stream-name'
@@ -121,6 +128,8 @@ alias vi='nvim'
 alias x='exit'
 alias c='clear'
 alias ll="ls -GflAsh"
+alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES && killall Finder /System/Library/CoreServices/Finder.app'
+alias hideHiddenFiles='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder /System/Library/CoreServices/Finder.app'
 
 
 decode64 () {
@@ -133,15 +142,6 @@ eval "$(pyenv init -)"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
-
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-[ -f $HOME/.work_stuff.sh ] && source $HOME/.work_stuff.sh
 
 neofetch
 
