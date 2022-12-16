@@ -14,4 +14,4 @@ set.splitright = true             -- splits automatically go to the right
 set.splitbelow = true             -- splits automatically go to the bottom
 set.listchars:append "tab:» "
 set.listchars:append "trail: "
-
+set.clipboard='unnamedplus'
