@@ -17,3 +17,5 @@ require "user.smart-splits"
 require "user.peek"
 require "user.nvim-surround"
 require "user.nvim-treesitter-textobjects"
+require "user.autoclose"
+

@@ -1,4 +1,4 @@
-    # If you come from bash you might have to change your $PATH.
+  # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -10,7 +10,10 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="agnoster"
 ZSH_THEME="bullet-train"
-
+BULLETTRAIN_PROMPT_ORDER=(
+  dir
+  git
+)
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -103,10 +106,11 @@ source $ZSH/oh-my-zsh.sh
 [ -f $HOME/.commonrc ] && source $HOME/.commonrc
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -f $HOME/.work_stuff.sh ] && source $HOME/.work_stuff.sh
-[ -f $HOME/.work_stuff.sh ] && source $HOME/.work_stuff.sh
+[ -f $HOME/.environment.sh ] && source $HOME/.environment.sh
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Path
 export PATH="/usr/local/opt/qt/bin:$PATH"
@@ -143,6 +147,7 @@ eval "$(pyenv init -)"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
+
 
 neofetch
 

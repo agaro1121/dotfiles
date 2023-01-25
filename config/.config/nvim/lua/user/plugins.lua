@@ -33,6 +33,7 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+  Plug 'm4xshen/autoclose.nvim'
   -- themes
   Plug('dracula/vim', { as = 'dracula' })
   Plug('rakr/vim-one')
