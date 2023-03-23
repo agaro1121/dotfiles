@@ -72,7 +72,7 @@ BULLETTRAIN_PROMPT_ORDER=(
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aws git-extras encode64)
+plugins=(git aws git-extras encode64 poetry)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -138,7 +138,7 @@ alias c='clear'
 alias ll="ls -GflAsh"
 alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES && killall Finder /System/Library/CoreServices/Finder.app'
 alias hideHiddenFiles='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder /System/Library/CoreServices/Finder.app'
-
+alias pip=pip3
 
 decode64 () {
   tput setaf 2 #green
