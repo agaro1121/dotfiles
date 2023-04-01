@@ -37,3 +37,4 @@ require'lspconfig'.lua_ls.setup {
 
 -- requires java 17
 -- require'lspconfig'.jdtls.setup{}
+require'lspconfig'.pylsp.setup{}
