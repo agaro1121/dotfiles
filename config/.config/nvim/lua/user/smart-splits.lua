@@ -18,7 +18,7 @@ require('smart-splits').setup({
     'WinEnter',
   },
   -- enable or disable the tmux integration
-  tmux_integration = true,
+  multiplexer_integration = 'tmux'
 })
 
 
