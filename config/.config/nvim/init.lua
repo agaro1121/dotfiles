@@ -19,3 +19,4 @@ require "user.nvim-surround"
 require "user.nvim-treesitter-textobjects"
 require "user.autoclose"
 
+vim.cmd('source ~/.config/nvim/vimrc.vim')
