@@ -1,18 +1,20 @@
-require('lspconfig').terraformls.setup{}
--- vim.api.nvim_create_autocmd({"BufWritePre"}, {
-  -- pattern = {"*.tf", "*.tfvars"},
-  -- callback = vim.lsp.buf.formatting_sync,
--- })
+require("mason").setup()
 
-require('lspconfig').jsonls.setup{}
+require("mason-lspconfig").setup()
 
-require('lspconfig').yamlls.setup{}
+require('lspconfig').terraformls.setup {}
 
-require'lspconfig'.eslint.setup{}
+require('lspconfig').dockerls.setup {}
 
-require'lspconfig'.marksman.setup{}
+require('lspconfig').jsonls.setup {}
 
-require'lspconfig'.lua_ls.setup {
+require('lspconfig').yamlls.setup {}
+
+require 'lspconfig'.eslint.setup {}
+
+require 'lspconfig'.marksman.setup {}
+
+require 'lspconfig'.lua_ls.setup {
   settings = {
     Lua = {
       runtime = {
@@ -21,7 +23,7 @@ require'lspconfig'.lua_ls.setup {
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = { 'vim' },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
@@ -37,4 +39,4 @@ require'lspconfig'.lua_ls.setup {
 
 -- requires java 17
 -- require'lspconfig'.jdtls.setup{}
-require'lspconfig'.pylsp.setup{}
+require 'lspconfig'.pylsp.setup {}
