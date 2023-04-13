@@ -4,8 +4,6 @@ require("mason-lspconfig").setup()
 
 require('lspconfig').terraformls.setup {}
 
-require('lspconfig').dockerls.setup {}
-
 require('lspconfig').jsonls.setup {}
 
 require('lspconfig').yamlls.setup {}
