@@ -30,8 +30,3 @@ map("i", "<Down>",  "<NOP>")
 map("i", "<Left>",  "<NOP>")
 map("i", "<Right>", "<NOP>")
 
--- copy/cut to clipboard
-map("v", "<leader>c", [["+y<cr>]])
-map("v", "<leader>d", [["+yy<cr>]])
-map("v", "<leader>p", [["+p<cr>]])
-
