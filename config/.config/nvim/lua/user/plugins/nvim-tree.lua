@@ -1,5 +1,3 @@
--- examples for your init.lua
-
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -7,33 +5,7 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
--- OR setup with some options
--- require("nvim-tree").setup({
---   sort_by = "case_sensitive",
---   view = {
---     width = 30,
---     mappings = {
---       list = {
---         { key = "u", action = "dir_up" },
---       },
---     },
---   },
---   renderer = {
---     group_empty = true,
---   },
---   filters = {
---     dotfiles = false,
---     git_clean = false,
---   },
---   git = {
---     enable = true,
---     ignore = false,
---     show_on_dirs = true,
---     timeout = 400
---   }
--- })
-
-require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
+local opts = {
   auto_reload_on_write = true,
   disable_netrw = false,
   hijack_cursor = false,
@@ -267,22 +239,19 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       watcher = false,
     },
   },
-} -- END_DEFAULT_OPTS
+}
 
-local function open_nvim_tree(data)
-
-  -- buffer is a directory
-  local directory = vim.fn.isdirectory(data.file) == 1
-
-  if not directory then
-    return
-  end
-
-  -- change to the directory
-  vim.cmd.cd(data.file)
-
-  -- open the tree
-  require("nvim-tree.api").tree.open({ focus = false, find_file = true, })
-end
-
-vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+return {
+  "nvim-tree/nvim-tree.lua",
+  keys = {
+    {"<leader>e", ":NvimTreeToggle<cr>", desc = "NvimTree Toggele"},
+    {"<leader>s", ":NvimTreeFindFile<cr>", desc = "Show file in NvimTree"},
+  },
+  version = "*",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+  },
+  config = function()
+    require("nvim-tree").setup(opts)
+  end,
+}
