@@ -62,3 +62,7 @@ Kebab Case                  | crk
 Dot case                    | cr.
 Space Case                  | cr<space>
 Title Case                  | crt
+
+## Fold
+Fold Close                  | zc
+Preview Fold                | h
