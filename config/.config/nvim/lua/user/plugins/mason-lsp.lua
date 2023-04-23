@@ -16,6 +16,7 @@ return {
       require('lspconfig').yamlls.setup {}
       require 'lspconfig'.eslint.setup {}
       require 'lspconfig'.marksman.setup {}
+      require 'lspconfig'.smithy_ls.setup {}
       require("lspconfig").lua_ls.setup({
         settings = {
           Lua = {
