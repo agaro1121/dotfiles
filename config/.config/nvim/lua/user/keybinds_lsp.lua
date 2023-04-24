@@ -6,8 +6,11 @@ function map(mode, lhs, rhs, opts)
 end
 
 -- LSP
-map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<cr>")
+-- map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<cr>")
+map("n", "gD", [[<cmd>lua require"telescope.builtin".lsp_definitions()<CR>]])
 map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+map("n", "gp", "<cmd>lua require('goto-preview').goto_preview_definition()<CR>")
+map("n", "gP", "<cmd>lua require('goto-preview').close_all_win()<CR>")
 --map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 map("n", "gi", [[<cmd>lua require"telescope.builtin".lsp_implementations()<CR>]])
 --map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
