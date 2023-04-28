@@ -1,9 +1,17 @@
+local breadcrumb = function()
+  local breadcrumb_status_ok, breadcrumb = pcall(require, "breadcrumb")
+  if not breadcrumb_status_ok then
+    return
+  end
+  return breadcrumb.get_breadcrumb()
+end
+
 local opts = {
   options = {
     icons_enabled = true,
     theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     disabled_filetypes = {
       statusline = {},
       winbar = {},
@@ -18,31 +26,43 @@ local opts = {
     }
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_a = { 'mode' },
+    lualine_b = { 'branch', 'diff',
+      {
+        'diagnostics',
+        sources = { 'nvim_lsp' },
+        sections = { 'error', 'warn' },
+        always_visible = false
+      }
+    },
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = { 'encoding', 'fileformat' },
+    lualine_z = { 'location', 'progress' }
   },
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = { 'filename' },
+    lualine_z = { 'location' }
   },
-  tabline = {},
-  winbar = {},
+  tabline = {
+    lualine_a = { { 'filename', path = 0 } },
+    lualine_b = { { 'filename', path = 3 } },
+  },
+  winbar = {
+    lualine_c = { breadcrumb }
+  },
   inactive_winbar = {},
   extensions = {}
 }
 
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
+  dependencies = { "nvim-tree/nvim-web-devicons", "loctvl842/breadcrumb.nvim" },
   config = function()
-             require('lualine').setup(opts)
-           end,
+    require('lualine').setup(opts)
+  end,
 }

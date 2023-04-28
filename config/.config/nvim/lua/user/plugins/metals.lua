@@ -1,6 +1,6 @@
 return {
   "scalameta/nvim-metals",
-  dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap" },
+  dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap", "loctvl842/breadcrumb.nvim" },
   config = function()
     local api = vim.api
     ----------------------------------
@@ -17,6 +17,9 @@ return {
     -- Example of settings
     metals_config.settings = {
       showImplicitArguments = true,
+      showInferredType = true,
+      superMethodLensesEnabled = true,
+      showImplicitConversionsAndClasses = true,
     }
 
     -- *READ THIS*
@@ -54,6 +57,12 @@ return {
 
     metals_config.on_attach = function(client, bufnr)
       require("metals").setup_dap()
+
+      -- this has to be here because metals doesn't get loaded with the other lsp servers
+      local breadcrumb = require("breadcrumb")
+      if client.server_capabilities.documentSymbolProvider then
+        breadcrumb.attach(client, bufnr)
+      end
     end
 
     -- Autocmd that will actually be in charging of starting the whole thing
