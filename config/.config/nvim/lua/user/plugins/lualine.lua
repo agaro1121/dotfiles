@@ -37,7 +37,7 @@ local opts = {
     },
     lualine_c = {},
     lualine_x = {},
-    lualine_y = { 'encoding', 'fileformat' },
+    lualine_y = { 'filename', 'filesize', 'encoding' },
     lualine_z = { 'location', 'progress' }
   },
   inactive_sections = {
@@ -45,18 +45,16 @@ local opts = {
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
-    lualine_y = { 'filename' },
+    lualine_y = { },
     lualine_z = { 'location' }
   },
   tabline = {
-    lualine_a = { { 'filename', path = 0 } },
-    lualine_b = { { 'filename', path = 3 } },
-  },
-  winbar = {
+    lualine_z = { { 'filename', path = 3 } },
     lualine_c = { breadcrumb }
   },
-  inactive_winbar = {},
-  extensions = {}
+  winbar = { },
+  inactive_winbar = { },
+  extensions = {'nvim-tree', 'symbols-outline', 'quickfix'}
 }
 
 return {

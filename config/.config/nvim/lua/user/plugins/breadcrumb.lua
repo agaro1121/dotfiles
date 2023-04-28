@@ -45,6 +45,6 @@ return {
       },
     })
 
-    require("breadcrumb").init()
+    -- require("breadcrumb").init() -- inserts it into tabline automatically. Not needed for lualine.
   end
 }
