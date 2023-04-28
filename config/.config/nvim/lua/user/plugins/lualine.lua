@@ -27,17 +27,10 @@ local opts = {
   },
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = { 'branch', 'diff',
-      {
-        'diagnostics',
-        sources = { 'nvim_lsp' },
-        sections = { 'error', 'warn' },
-        always_visible = false
-      }
-    },
+    lualine_b = { 'branch', 'diff' },
     lualine_c = {},
-    lualine_x = {},
-    lualine_y = { 'filename', 'filesize', 'encoding' },
+    lualine_x = { },
+    lualine_y = { 'diagnostics', { 'filename', path = 0 }, 'filesize', 'encoding' },
     lualine_z = { 'location', 'progress' }
   },
   inactive_sections = {
@@ -45,16 +38,17 @@ local opts = {
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
-    lualine_y = { },
+    lualine_y = {},
     lualine_z = { 'location' }
   },
   tabline = {
-    lualine_z = { { 'filename', path = 3 } },
-    lualine_c = { breadcrumb }
+    lualine_y = { { 'filename', path = 3 } },
   },
-  winbar = { },
-  inactive_winbar = { },
-  extensions = {'nvim-tree', 'symbols-outline', 'quickfix'}
+  winbar = {
+    lualine_c = { breadcrumb },
+  },
+  inactive_winbar = {},
+  extensions = { 'nvim-tree', 'symbols-outline', 'quickfix' }
 }
 
 return {
