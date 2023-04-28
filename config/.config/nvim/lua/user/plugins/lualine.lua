@@ -42,10 +42,9 @@ local opts = {
     lualine_z = { 'location' }
   },
   tabline = {
-    lualine_y = { { 'filename', path = 3 } },
+    lualine_c = { breadcrumb },
   },
   winbar = {
-    lualine_c = { breadcrumb },
   },
   inactive_winbar = {},
   extensions = { 'nvim-tree', 'symbols-outline', 'quickfix' }
