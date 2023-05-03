@@ -18,7 +18,7 @@ local opts = {
     },
     ignore_focus = {},
     always_divide_middle = true,
-    globalstatus = false,
+    globalstatus = true,
     refresh = {
       statusline = 1000,
       tabline = 1000,
@@ -30,8 +30,8 @@ local opts = {
     lualine_b = { 'branch', 'diff' },
     lualine_c = {},
     lualine_x = { 'g:metals_status' },
-    lualine_y = { 'diagnostics', { 'filename', path = 0 }, 'filesize', 'encoding' },
-    lualine_z = { 'location', 'progress' }
+    lualine_y = { 'diagnostics', { 'filename', path = 1 }, 'encoding', 'filesize' },
+    lualine_z = { '%LL', 'location', 'progress' }
   },
   inactive_sections = {
     lualine_a = {},
@@ -45,7 +45,7 @@ local opts = {
     lualine_c = { breadcrumb },
   },
   winbar = {
-    lualine_c = {'%f'},
+    -- lualine_c = {'%f'},
   },
   inactive_winbar = {},
   extensions = { 'nvim-tree', 'symbols-outline', 'quickfix' }

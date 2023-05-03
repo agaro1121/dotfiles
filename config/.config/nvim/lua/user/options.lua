@@ -17,3 +17,4 @@ set.listchars:append "trail: "
 set.clipboard='unnamedplus'
 set.autowriteall=true
 set.lazyredraw=true               -- might help speed up macros
+set.laststatus=0
