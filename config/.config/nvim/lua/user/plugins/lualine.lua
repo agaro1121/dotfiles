@@ -29,7 +29,7 @@ local opts = {
     lualine_a = { 'mode' },
     lualine_b = { 'branch', 'diff' },
     lualine_c = {},
-    lualine_x = { },
+    lualine_x = { 'g:metals_status' },
     lualine_y = { 'diagnostics', { 'filename', path = 0 }, 'filesize', 'encoding' },
     lualine_z = { 'location', 'progress' }
   },
@@ -45,6 +45,7 @@ local opts = {
     lualine_c = { breadcrumb },
   },
   winbar = {
+    lualine_c = {'%f'},
   },
   inactive_winbar = {},
   extensions = { 'nvim-tree', 'symbols-outline', 'quickfix' }
