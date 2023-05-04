@@ -4,13 +4,41 @@ return {
   dependencies = "nvim-treesitter/nvim-treesitter",
   config = function()
     require("nvim-treesitter.configs").setup({
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<CR>",
+          node_incremental = "<CR>",
+          node_decremental = "<BS>",
+          scope_incremental = "<TAB>",
+        },
+      },
       textobjects = {
+        enable = true,
+        move = {
+          enable = true,
+          set_jumps = true, -- whether to set jumps in the jumplist
+          goto_next_start = {
+            ["]m"] = "@function.outer",
+            ["]]"] = "@class.outer",
+          },
+          goto_next_end = {
+            ["]M"] = "@function.outer",
+            ["]["] = "@class.outer",
+          },
+          goto_previous_start = {
+            ["[m"] = "@function.outer",
+            ["[["] = "@class.outer",
+          },
+          goto_previous_end = {
+            ["[M"] = "@function.outer",
+            ["[]"] = "@class.outer",
+          },
+        },
         select = {
           enable = true,
-
           -- Automatically jump forward to textobj, similar to targets.vim
-          lookahead = false,
-
+          lookahead = true,
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
             ["af"] = "@function.outer",
@@ -32,7 +60,7 @@ return {
           -- mapping query_strings to modes.
           selection_modes = {
             ['@parameter.outer'] = 'v', -- charwise
-            ['@function.outer'] = 'V', -- linewise
+            ['@function.outer'] = 'V',  -- linewise
             ['@class.outer'] = '<c-v>', -- blockwise
           },
           -- If you set this to `true` (default is `false`) then any textobject is
