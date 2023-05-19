@@ -2,7 +2,11 @@ return {
   {
     "m4xshen/autoclose.nvim",
     config = function()
-      require("autoclose").setup({})
+      require("autoclose").setup({
+        keys = {
+          ["'"] = { escape = true, close = false, pair = "''"}
+        }
+      })
     end,
   }
 }
