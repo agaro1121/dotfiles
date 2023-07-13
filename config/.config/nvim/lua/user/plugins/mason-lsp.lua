@@ -7,6 +7,9 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    opts = {
+      inlay_hints = { enabled = true },
+    },
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup()
