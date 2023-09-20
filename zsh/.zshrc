@@ -133,7 +133,7 @@ alias getRecordsWithLocal='USE_SSL=true awslocal kinesis get-records --shard-ite
 alias v='nvim'
 alias vim='nvim'
 alias vi='nvim'
-alias x='exit'
+alias q='exit'
 alias c='clear'
 alias ll="ls -GflAsh"
 alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES && killall Finder /System/Library/CoreServices/Finder.app'
