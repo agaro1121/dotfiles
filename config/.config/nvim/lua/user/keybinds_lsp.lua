@@ -35,7 +35,9 @@ map("n", "<leader>aw", [[<cmd>lua require"telescope.builtin".diagnostics({severi
 map("n", "<leader>d", "<cmd>lua vim.diagnostic.setloclist()<CR>") -- buffer diagnostics only
 map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>")
 map("n", "]d", "<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>")
-map("n", "<leader>o", ":SymbolsOutline<CR>")
+-- map("n", "<leader>o", ":SymbolsOutline<CR>")
+map("n", "<leader>o", ":AerialToggle<CR>")
+map("n", "<leader>O", ":AerialNavToggle<CR>")
 map("n", "<leader>mc", [[<cmd>lua require"telescope".extensions.metals.commands()<CR>]])
 
 -- Example mappings for usage with nvim-dap. If you don't use that, you can

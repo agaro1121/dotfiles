@@ -237,7 +237,7 @@ return {
       -- The autocmds that trigger symbols update (not used for LSP backend)
       update_events = "TextChanged,InsertLeave",
       -- Show box drawing characters for the tree hierarchy
-      show_guides = true,
+      show_guides = false,
       -- Customize the characters used when show_guides = true
       guides = {
         -- When the child item has a sibling below it
