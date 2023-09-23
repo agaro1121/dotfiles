@@ -6,7 +6,7 @@ local breadcrumb = function()
   return breadcrumb.get_breadcrumb()
 end
 
-local git_blame = require('gitblame')
+-- local git_blame = require('gitblame')
 
 local opts = {
   options = {
@@ -45,7 +45,7 @@ local opts = {
   },
   tabline = {
     lualine_c = { breadcrumb },
-    lualine_x = { { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available } }
+    -- lualine_x = { { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available } }
   },
   winbar = {
     -- lualine_c = {'%f'},
@@ -56,7 +56,7 @@ local opts = {
 
 return {
   'nvim-lualine/lualine.nvim',
-  dependencies = { "nvim-tree/nvim-web-devicons", "loctvl842/breadcrumb.nvim", "f-person/git-blame.nvim" },
+  dependencies = { "nvim-tree/nvim-web-devicons", "loctvl842/breadcrumb.nvim" },
   config = function()
     require('lualine').setup(opts)
   end,
