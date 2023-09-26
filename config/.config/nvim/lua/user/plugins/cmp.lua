@@ -21,6 +21,7 @@ return {
        { name = "rg" },
        { name = 'buffer' },
        { name = 'path' },
+       { name = 'nvim_lua' },
      },
      snippet = {
        expand = function(args)

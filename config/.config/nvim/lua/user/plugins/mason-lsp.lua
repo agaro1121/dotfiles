@@ -7,18 +7,19 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      inlay_hints = { enabled = true },
-    },
     config = function()
       require("mason").setup()
-      require("mason-lspconfig").setup()
+      require("mason-lspconfig").setup({
+        automatic_installation = true,
+      })
+
       require('lspconfig').terraformls.setup {}
       require('lspconfig').jsonls.setup {}
       require('lspconfig').yamlls.setup {}
       require 'lspconfig'.eslint.setup {}
       require 'lspconfig'.marksman.setup {}
       require 'lspconfig'.smithy_ls.setup {}
+
       require 'lspconfig'.pylsp.setup {
         settings = {
           pylsp = {
@@ -43,36 +44,31 @@ return {
       }
 
       require 'lspconfig'.pyright.setup {
-        venvPath = ".",
-        venv = ".venv",
-        -- on_attach = on_attach,
         settings = {
-          venvPath = ".",
-          venv = ".venv",
-            python = {
-              analysis = {
-                typeCheckingMode = 'basic',
-                diagnosticSeverityOverrides = {
-                  reportConstantRedefinition = 'warning',
-                  reportDuplicateImport = 'warning',
-                  reportMissingSuperCall = 'warning',
-                  reportUnnecessaryCast = 'warning',
-                  reportUnnecessaryComparison = 'warning',
-                  reportUnnecessaryContains = 'warning',
-                  reportCallInDefaultInitializer = 'info',
-                  reportFunctionMemberAccess = 'info',
-                  reportImportCycles = 'info',
-                  reportMatchNotExhaustive = 'info',
-                  reportShadowedImports = 'info',
-                  reportUninitializedInstanceVariable = 'info',
-                  reportUnnecessaryIsInstance = 'info',
-                  reportUnusedClass = 'info',
-                  reportUnusedFunction = 'info',
-                  reportUnusedImport = 'info',
-                  reportUnusedVariable = 'info',
-                },
+          python = {
+            analysis = {
+              typeCheckingMode = 'basic',
+              diagnosticSeverityOverrides = {
+                reportConstantRedefinition = 'warning',
+                reportDuplicateImport = 'warning',
+                reportMissingSuperCall = 'warning',
+                reportUnnecessaryCast = 'warning',
+                reportUnnecessaryComparison = 'warning',
+                reportUnnecessaryContains = 'warning',
+                reportCallInDefaultInitializer = 'info',
+                reportFunctionMemberAccess = 'info',
+                reportImportCycles = 'info',
+                reportMatchNotExhaustive = 'info',
+                reportShadowedImports = 'info',
+                reportUninitializedInstanceVariable = 'info',
+                reportUnnecessaryIsInstance = 'info',
+                reportUnusedClass = 'info',
+                reportUnusedFunction = 'info',
+                reportUnusedImport = 'info',
+                reportUnusedVariable = 'info',
               },
             },
+          },
         }
       }
 
@@ -96,9 +92,11 @@ return {
               enable = false,
             },
           },
-        },
+        }
       })
+
     end,
   },
 
 }
+
