@@ -30,6 +30,10 @@ return {
   {
     "tiagovla/tokyodark.nvim",
     lazy = true
+  },
+  {
+    "polirritmico/monokai-nightasty.nvim",
+    lazy = true
   }
 
 
