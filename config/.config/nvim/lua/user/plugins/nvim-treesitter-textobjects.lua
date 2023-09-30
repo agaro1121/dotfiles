@@ -15,6 +15,15 @@ return {
       },
       textobjects = {
         enable = true,
+        swap = {
+          enable = true,
+          swap_next = {
+            ["<leader>a"] = "@parameter.inner",
+          },
+          swap_previous = {
+            ["<leader>A"] = "@parameter.inner",
+          },
+        },
         move = {
           enable = true,
           set_jumps = true, -- whether to set jumps in the jumplist
@@ -41,12 +50,23 @@ return {
           lookahead = true,
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
+           
+            -- "@class.inner"
+            -- "@class.outer"
+            -- "@comment.outer"
+            -- "@conditional.inner"
+            -- "@conditional.outer"
+            -- "@function.inner"
+            -- "@function.outer"
+            -- "@parameter.inner"
+            -- "@parameter.outer"
+
             ["af"] = "@function.outer",
             ["if"] = "@function.inner",
-            ["ac"] = "@class.outer",
             ["iP"] = "@parameter.inner",
             ["aP"] = "@parameter.outer",
             ["aC"] = "@comment.outer",
+            ["ac"] = "@class.outer",
             -- You can optionally set descriptions to the mappings (used in the desc parameter of
             -- nvim_buf_set_keymap) which plugins like which-key display
             ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
