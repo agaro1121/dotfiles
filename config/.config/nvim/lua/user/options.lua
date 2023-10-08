@@ -18,3 +18,4 @@ set.clipboard='unnamedplus'
 set.autowriteall=true
 set.lazyredraw=true               -- might help speed up macros
 set.laststatus=0
+set.showmode=false                -- disables the '-- INSERT --' text under the status line
