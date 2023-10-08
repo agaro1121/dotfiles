@@ -29,7 +29,7 @@ local opts = {
   },
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = { 'branch', 'diff' },
+    lualine_b = { 'branch'--[[ , 'diff' ]] }, --diff causes perf issues when operating on many files
     lualine_c = {},
     lualine_x = { 'g:metals_status' },
     lualine_y = { 'diagnostics', { 'filename', path = 1 }, 'encoding', 'filesize' },
