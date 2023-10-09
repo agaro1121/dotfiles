@@ -1,8 +1,9 @@
 return {
   "loctvl842/breadcrumb.nvim",
-  depedencies = { "nvim-tree/nvim-web-devicons" },
+  depedencies = { "nvim-tree/nvim-web-devicons", "williamboman/mason-lspconfig.nvim" },
   config = function()
-    require("breadcrumb").setup({
+    local breadcrumb = require("breadcrumb")
+    breadcrumb.setup({
       disabled_filetype = {
         "",
         "help",

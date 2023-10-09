@@ -19,3 +19,6 @@ set.autowriteall=true
 set.lazyredraw=true               -- might help speed up macros
 set.laststatus=0
 set.showmode=false                -- disables the '-- INSERT --' text under the status line
+vim.opt_global.shortmess:remove("F") --	don't give the file info when editing a file
+vim.opt_global.shortmess:append("c") --	don't give |ins-completion-menu| messages; for		*shm-c*
+

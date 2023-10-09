@@ -1,20 +1,11 @@
 return {
   "scalameta/nvim-metals",
-  dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap"},
+  dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap", "loctvl842/breadcrumb.nvim" },
   config = function()
     local api = vim.api
-    ----------------------------------
-    -- OPTIONS -----------------------
-    ----------------------------------
-    -- global
-    vim.opt_global.completeopt = { "menuone", "noinsert", "noselect" }
-    vim.opt_global.shortmess:remove("F")
-    vim.opt_global.shortmess:append("c")
-    -- LSP Setup ---------------------
-    ----------------------------------
+
     local metals_config = require("metals").bare_config()
 
-    -- Example of settings
     metals_config.settings = {
       showImplicitArguments = true,
       showInferredType = true,
@@ -30,7 +21,9 @@ return {
     metals_config.init_options.statusBarProvider = "on"
 
     -- Example if you are using cmp how to make sure the correct capabilities for snippets are set
-    metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
+    metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
     -- Debug settings if you're using nvim-dap
     local dap = require("dap")
@@ -55,9 +48,17 @@ return {
       },
     }
 
-    metals_config.on_attach = function(client, bufnr)
+    local on_attach = function(client, bufnr)
+      -- breadcrumbs in lualine
+      if client.server_capabilities.documentSymbolProvider then
+        local breadcrumb = require("breadcrumb")
+        breadcrumb.attach(client, bufnr)
+      end
+      -- breadcrumbs in lualine
       require("metals").setup_dap()
     end
+
+    metals_config.on_attach = on_attach
 
     -- Autocmd that will actually be in charging of starting the whole thing
     local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })
@@ -72,5 +73,8 @@ return {
       end,
       group = nvim_metals_group,
     })
+
+    map("n", "<leader>mc", [[<cmd>lua require"telescope".extensions.metals.commands()<CR>]])
+    map("n", "<leader>ws", '<cmd>lua require"metals".hover_worksheet()<CR>')
   end,
 }

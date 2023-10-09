@@ -334,5 +334,9 @@ return {
         update_delay = 300,
       },
     })
+
+    map("n", "<leader>o", ":AerialToggle<CR>")
+    map("n", "<leader>O", ":AerialNavToggle<CR>")
+
   end,
 }
