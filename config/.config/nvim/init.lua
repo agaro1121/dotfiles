@@ -14,7 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 require("user.options")
 require("user.keybinds")
 require("lazy").setup("user.plugins")
-require("user.colorscheme")
 
 vim.cmd('source ~/.config/nvim/vimrc.vim')
 
