@@ -23,10 +23,19 @@ return {
     -- docs about this
     metals_config.init_options.statusBarProvider = "on"
 
-    -- Example if you are using cmp how to make sure the correct capabilities for snippets are set
+    -- code completion
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
-    metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+    cmp_capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+
+    -- code folding
+    -- needs to be on cmp_capabilities or it will get overwritten
+    cmp_capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true
+    }
+
+    metals_config.capabilities = cmp_capabilities
 
     -- Debug settings if you're using nvim-dap
     local dap = require("dap")

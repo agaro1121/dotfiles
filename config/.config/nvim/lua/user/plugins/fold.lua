@@ -22,10 +22,11 @@ return {
     config = function()
       vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
       vim.o.foldcolumn = '1' -- '0' is not bad
-      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
       vim.o.foldlevelstart = 99
       vim.o.foldenable = true
 
+      local ufo = require("ufo")
 
       local handler = function(virtText, lnum, endLnum, width, truncate)
         local newVirtText = {}
@@ -55,14 +56,16 @@ return {
         return newVirtText
       end
 
-      local ufo = require("ufo")
 
       ufo.setup({
         fold_virt_text_handler = handler
       })
 
-      map('n', 'zR', ufo.openAllFolds)
-      map('n', 'zM', ufo.closeAllFolds)
+      map('n', 'zO', ufo.openAllFolds)
+      map('n', 'zC', ufo.closeAllFolds)
+      map('n', 'zh', ufo.peekFoldedLinesUnderCursor)
+      map('n', 'zn', require('ufo.action').goNextClosedFold)
+      map('n', 'zp', require('ufo.action').goPreviousClosedFold)
       --
     end,
   },
@@ -71,6 +74,5 @@ return {
   -- On second press the preview will be closed and fold will be opened.
   -- When preview is opened, the l key will close it and open fold. In all other cases these keys will work as usual.
   -- https://github.com/kevinhwang91/nvim-ufo/issues/4#issuecomment-1512772530
-  { "anuvyklack/fold-preview.nvim", dependencies = "anuvyklack/keymap-amend.nvim", config = true },
+  -- { "anuvyklack/fold-preview.nvim", dependencies = "anuvyklack/keymap-amend.nvim", config = true },
 }
-

@@ -12,7 +12,7 @@ return {
     dependencies = {
       { "williamboman/mason.nvim", build = ":MasonUpdate" },
       "loctvl842/breadcrumb.nvim", -- lua line
-      "kevinhwang91/nvim-ufo", -- code folding
+      "kevinhwang91/nvim-ufo",     -- code folding
     }
   },
   {
@@ -156,13 +156,17 @@ return {
       -- enable completion on all lsp instances
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+      local cmp_lsp = require("cmp_nvim_lsp")
+      local cmp_capabilities = cmp_lsp.default_capabilities(capabilities)
+
       -- enable code folding
-      capabilities.textDocument.foldingRange = {
+      -- needs to be on cmp_capabilities or it will get overwritten
+      cmp_capabilities.textDocument.foldingRange = {
           dynamicRegistration = false,
           lineFoldingOnly = true
       }
 
-      local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
       local handlers = {
         -- default handler
         function(server_name)
