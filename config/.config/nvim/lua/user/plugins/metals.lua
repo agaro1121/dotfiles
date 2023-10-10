@@ -2,6 +2,9 @@ return {
   "scalameta/nvim-metals",
   dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap", "loctvl842/breadcrumb.nvim" },
   config = function()
+    vim.opt_global.shortmess:remove("F") --	don't give the file info when editing a file
+    vim.opt_global.shortmess:append("c") --	don't give |ins-completion-menu| messages; for		*shm-c*
+
     local api = vim.api
 
     local metals_config = require("metals").bare_config()
