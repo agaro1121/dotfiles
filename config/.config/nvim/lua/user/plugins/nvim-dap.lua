@@ -1,12 +1,15 @@
 return {
   "mfussenegger/nvim-dap",
   config = function()
-    map("n", "<leader>dc", [[<cmd>lua require"dap".continue()<CR>]])
-    map("n", "<leader>dr", [[<cmd>lua require"dap".repl.toggle()<CR>]])
-    map("n", "<leader>dK", [[<cmd>lua require"dap.ui.widgets".hover()<CR>]])
-    map("n", "<leader>dt", [[<cmd>lua require"dap".toggle_breakpoint()<CR>]])
-    map("n", "<leader>dso", [[<cmd>lua require"dap".step_over()<CR>]])
-    map("n", "<leader>dsi", [[<cmd>lua require"dap".step_into()<CR>]])
-    map("n", "<leader>dl", [[<cmd>lua require"dap".run_last()<CR>]])
+    map("n",        "<leader>dc", require("dap").continue)
+    map("n",        "<leader>dr", require("dap").repl.toggle)
+    map("n",        "<leader>db", require("dap").toggle_breakpoint)
+    map("n",        "<leader>do", require("dap").step_over)
+    map("n",        "<leader>di", require("dap").step_into)
+    map("n",        "<leader>dl", require("dap").run_last)
+    map("n",        "<leader>ds", require("dap").close)
+    map("n",        "<leader>dt", require("dap").terminate)
+    map({"n", "v"}, "<Leader>dh", require("dap.ui.widgets").hover)
+    map({"n", "v"}, "<Leader>dp", require("dap.ui.widgets").preview)
   end
 }

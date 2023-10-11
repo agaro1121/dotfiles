@@ -151,12 +151,10 @@ return {
           breadcrumb.attach(client, bufnr)
         end
       end
-      -- breadcrumbs in lualine
 
       -- enable completion on all lsp instances
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.completion.completionItem.snippetSupport = true
-
       local cmp_lsp = require("cmp_nvim_lsp")
       local cmp_capabilities = cmp_lsp.default_capabilities(capabilities)
 

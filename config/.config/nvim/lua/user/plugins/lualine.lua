@@ -6,7 +6,12 @@ local breadcrumb = function()
   return breadcrumb.get_breadcrumb()
 end
 
--- local git_blame = require('gitblame')
+local git_blame = require('gitblame')
+local is_git_blame_enabled = function ()
+  if vim.g.gitblame_enabled == 0 then
+    return false else return true
+  end
+end
 
 local opts = {
   options = {
@@ -45,7 +50,7 @@ local opts = {
   },
   tabline = {
     lualine_c = { breadcrumb },
-    -- lualine_x = { { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available } }
+    lualine_x = { { git_blame.get_current_blame_text, cond = is_git_blame_enabled } }
   },
   winbar = {
     -- lualine_c = {'%f'},
