@@ -4,7 +4,7 @@ return {
   config = function()
     local dapPython = require("dap-python")
 
-    dapPython.setup("~/.virtualenvs/debugpy/bin/python")
+    dapPython.setup("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
     dapPython.test_runner = "pytest"
     map("n", "<leader>dm", function()
       require('dap-python').test_method({ config = { justMyCode = false } })

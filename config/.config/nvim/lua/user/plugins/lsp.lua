@@ -11,15 +11,48 @@ return {
     "williamboman/mason-lspconfig.nvim",
     dependencies = {
       { "williamboman/mason.nvim", build = ":MasonUpdate" },
-      "SmiteshP/nvim-navic", -- lua line
-      "kevinhwang91/nvim-ufo",     -- code folding
+      "SmiteshP/nvim-navic",   -- lua line
+      "kevinhwang91/nvim-ufo", -- code folding
     }
   },
   {
     "neovim/nvim-lspconfig",
     dependencies = { "hrsh7th/cmp-nvim-lsp" },
     config = function()
-      require("mason").setup()
+      mason = require("mason")
+      local mason_options = {
+        ensure_installed = { "debugpy" }, -- not an option from mason.nvim
+        max_concurrent_installers = 10,
+      }
+      mason.setup(mason_options)
+
+      vim.api.nvim_create_user_command("MasonInstallAll", function()
+        vim.cmd("MasonInstall " .. table.concat(mason_options.ensure_installed, " "))
+      end, {})
+
+      -- call the above command on neovim startup - runs every time even if a package is already installed. And brings up the Mason UI
+      -- vim.api.nvim_create_autocmd("VimEnter", {
+      --   callback = function()
+      --     vim.cmd("MasonInstallAll")
+      --   end
+      -- })
+
+      -- Runs on startup but does not notify you
+      local registry = require("mason-registry")
+
+      local packages = {
+        "debugpy",
+      }
+
+      registry.refresh(function()
+        for _, pkg_name in ipairs(packages) do
+          local pkg = registry.get_package(pkg_name)
+          if not pkg:is_installed() then
+            pkg:install()
+          end
+        end
+      end)
+
       local mason_lspconfig = require("mason-lspconfig")
       mason_lspconfig.setup({
         automatic_installation = true,
@@ -161,8 +194,8 @@ return {
       -- enable code folding
       -- needs to be on cmp_capabilities or it will get overwritten
       cmp_capabilities.textDocument.foldingRange = {
-          dynamicRegistration = false,
-          lineFoldingOnly = true
+        dynamicRegistration = false,
+        lineFoldingOnly = true
       }
 
       local handlers = {
