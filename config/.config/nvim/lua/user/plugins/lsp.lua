@@ -11,7 +11,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     dependencies = {
       { "williamboman/mason.nvim", build = ":MasonUpdate" },
-      "loctvl842/breadcrumb.nvim", -- lua line
+      "SmiteshP/nvim-navic", -- lua line
       "kevinhwang91/nvim-ufo",     -- code folding
     }
   },
@@ -145,10 +145,10 @@ return {
       })
 
       -- breadcrumbs in lualine
-      local breadcrumb = require("breadcrumb")
+      local navic = require("nvim-navic")
       local on_attach = function(client, bufnr)
         if client.server_capabilities.documentSymbolProvider then
-          breadcrumb.attach(client, bufnr)
+          navic.attach(client, bufnr)
         end
       end
 

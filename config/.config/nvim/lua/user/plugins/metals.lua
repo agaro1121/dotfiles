@@ -1,6 +1,6 @@
 return {
   "scalameta/nvim-metals",
-  dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap", "loctvl842/breadcrumb.nvim" },
+  dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap", "SmiteshP/nvim-navic" },
   config = function()
     vim.opt_global.shortmess:remove("F") --	don't give the file info when editing a file
     vim.opt_global.shortmess:append("c") --	don't give |ins-completion-menu| messages; for		*shm-c*
@@ -63,10 +63,10 @@ return {
     local on_attach = function(client, bufnr)
       -- breadcrumbs in lualine
       if client.server_capabilities.documentSymbolProvider then
-        local breadcrumb = require("breadcrumb")
-        breadcrumb.attach(client, bufnr)
+        local navic = require("nvim-navic")
+        navic.attach(client, bufnr)
       end
-      -- breadcrumbs in lualine
+
       require("metals").setup_dap()
     end
 
