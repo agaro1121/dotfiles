@@ -3,7 +3,7 @@ return {
   dependencies = { "neovim/nvim-lspconfig" },
   config = function()
     local navic = require("nvim-navic")
-    -- vim.g.navic_silence = true -- TODO: figure out how to exclude navic from pylsp and pyright
+    vim.g.navic_silence = true -- TODO: figure out how to attach navic to only one lsp client when pyright and pylsp are attached to a buffer
 
     navic.setup {
       icons = {
