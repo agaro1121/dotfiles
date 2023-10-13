@@ -1,10 +1,3 @@
-function map(mode, lhs, rhs, opts)
-    local options = { noremap = true, silent = true }
-    if opts then
-        options = vim.tbl_extend("force", options, opts) end
-    vim.keymap.set(mode, lhs, rhs, options)
-end
-
 -- window navigation
 map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
