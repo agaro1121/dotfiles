@@ -21,6 +21,7 @@ return {
       { "<leader>bs", "<cmd>lua require('telescope.builtin').buffers({show_all_buffers = false, sort_mru=true, ignore_current_buffer=false})<cr>" },
       { "<leader>sp", "<cmd>lua require('telescope.builtin').spell_suggest()<cr>" },
       { "<leader>fb", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>" },
+      { "<leader>lgs", "<cmd>lua require('telescope.builtin').grep_string()<cr>" },
     },
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
