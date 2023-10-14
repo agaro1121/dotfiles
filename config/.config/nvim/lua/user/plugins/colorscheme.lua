@@ -36,7 +36,17 @@ return {
   {
     "polirritmico/monokai-nightasty.nvim",
     lazy = true
-  }
-
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000
+  },
+  {
+    "rebelot/kanagawa.nvim"
+  },
+  {
+    "ribru17/bamboo.nvim"
+  },
 
 }

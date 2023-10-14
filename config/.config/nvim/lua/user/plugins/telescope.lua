@@ -16,16 +16,41 @@ return {
     tag = '0.1.3',
     keys = {
       { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>" },
+      { "<leader>ffg", "<cmd>lua require('telescope.builtin').git_files({show_untracked=true})<cr>" },
       { "<leader>of", "<cmd>lua require('telescope.builtin').oldfiles({only_cwd=true})<cr>" },
       { "<leader>lg", "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
-      { "<leader>bs", "<cmd>lua require('telescope.builtin').buffers({show_all_buffers = false, sort_mru=true, ignore_current_buffer=false})<cr>" },
-      { "<leader>sp", "<cmd>lua require('telescope.builtin').spell_suggest()<cr>" },
-      { "<leader>fb", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>" },
+      { "<leader>bs",
+        "<cmd>lua require('telescope.builtin').buffers({show_all_buffers = false, sort_mru=true, ignore_current_buffer=false})<cr>" },
+      { "<leader>sp",  "<cmd>lua require('telescope.builtin').spell_suggest()<cr>" },
+      { "<leader>fb",  "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>" },
       { "<leader>lgs", "<cmd>lua require('telescope.builtin').grep_string()<cr>" },
     },
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
-      require("telescope").load_extension("ui-select")
+      local telescope = require("telescope")
+
+      telescope.setup({
+        defaults = {
+          -- args for live_grep and grep_string
+          vimgrep_arguments = { -- install ripgrep!
+            'rg',
+            '--color=never',
+            '--no-heading',
+            '--with-filename',
+            '--line-number',
+            '--column',
+            '--smart-case',
+            '--hidden',
+            -- '--glob',
+            -- '!{**/.git/*, **/.metals/*}', --do not search git,metals directory
+          },
+          file_ignore_patterns = {
+            ".git/.*"
+          }
+        }
+      })
+
+      telescope.load_extension("ui-select")
     end
   }
 }
