@@ -11,7 +11,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = { "hrsh7th/cmp-nvim-lsp" },
     config = function()
-      mason = require("mason")
+      local mason = require("mason")
       local mason_options = {
         ensure_installed = { "debugpy" }, -- not an option from mason.nvim
         max_concurrent_installers = 10,
@@ -100,6 +100,7 @@ return {
       lspconfig.eslint.setup {}
       lspconfig.marksman.setup {}
       lspconfig.smithy_ls.setup {}
+
 
       lspconfig.pylsp.setup {
         settings = {
