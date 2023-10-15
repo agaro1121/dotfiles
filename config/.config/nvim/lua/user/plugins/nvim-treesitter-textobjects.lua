@@ -14,39 +14,28 @@ return {
         },
       },
       textobjects = {
-        enable = true,
-        swap = {
-          enable = true,
-          swap_next = {
-            ["<leader>a"] = "@parameter.inner",
-          },
-          swap_previous = {
-            ["<leader>A"] = "@parameter.inner",
-          },
-        },
         move = {
           enable = true,
           set_jumps = true, -- whether to set jumps in the jumplist
           goto_next_start = {
-            ["]m"] = "@function.outer",
-            ["]]"] = "@class.outer",
+            ["]f"] = "@function.inner",
+            ["]c"] = "@class.inner",
           },
           goto_next_end = {
-            ["]M"] = "@function.outer",
-            ["]["] = "@class.outer",
+            ["]F"] = "@function.outer",
+            ["]C"] = "@class.outer",
           },
           goto_previous_start = {
-            ["[m"] = "@function.outer",
-            ["[["] = "@class.outer",
+            ["[f"] = "@function.inner",
+            ["[["] = "@class.inner",
           },
           goto_previous_end = {
-            ["[M"] = "@function.outer",
-            ["[]"] = "@class.outer",
+            ["[F"] = "@function.outer",
+            ["[C"] = "@class.outer",
           },
         },
         select = {
           enable = true,
-          -- Automatically jump forward to textobj, similar to targets.vim
           lookahead = true,
           keymaps = {
             -- You can use the capture groups defined in textobjects.scm
