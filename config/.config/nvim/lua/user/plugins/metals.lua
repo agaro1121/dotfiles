@@ -26,7 +26,7 @@ return {
     -- code completion
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
-    cmp_capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+    local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
     -- code folding
     -- needs to be on cmp_capabilities or it will get overwritten
