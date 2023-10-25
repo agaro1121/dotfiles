@@ -133,6 +133,7 @@ alias getRecordsWithLocal='USE_SSL=true awslocal kinesis get-records --shard-ite
 alias v='nvim'
 alias vim='nvim'
 alias vi='nvim'
+alias t='tmux'
 alias q='exit'
 alias c='clear'
 alias ll="ls -GflAsh"
