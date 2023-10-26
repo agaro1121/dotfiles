@@ -6,6 +6,8 @@ return {
     config = function()
       vim.g.sonokai_style = 'andromeda' -- andromeda, atlantis
       vim.cmd("colorscheme sonokai")
+      vim.cmd("hi Visual guibg=White")
+      vim.cmd("hi Visual guifg=#2b2d3a")
     end
   },
   {
