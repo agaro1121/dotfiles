@@ -72,7 +72,7 @@ BULLETTRAIN_PROMPT_ORDER=(
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aws git-extras encode64 poetry)
+plugins=(git aws encode64 fzf ripgrep tmux gh)
 
 source $ZSH/oh-my-zsh.sh
 
