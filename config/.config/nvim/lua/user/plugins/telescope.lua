@@ -44,8 +44,7 @@ return {
           '--column',
           '--smart-case',
           '--hidden',
-          -- '--glob',
-          '!{**/.git/*, **/.metals/*}', --do not search git,metals directory
+          -- '--glob', '!{**/.git/*, **/.metals/*}', --do not search git,metals directory. FIXME: Adding this seems to mess up live grep.
         },
         file_ignore_patterns = {
           --getting this wrong causes telescope.builtin lsp actions to stop working on metals

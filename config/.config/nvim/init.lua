@@ -25,12 +25,14 @@ require("lazy").setup("user.plugins", {
   checker = {
     -- automatically check for plugin updates
     enabled = true,
-    notify = false, -- get a notification when new updates are found
+    -- get a notification when new updates are found
+    notify = false,
   },
   change_detection = {
     -- automatically check for config file changes and reload the ui
     enabled = true,
-    notify = false, -- get a notification when changes are found
+    -- get a notification when changes are found
+    notify = false,
   },
 })
 
