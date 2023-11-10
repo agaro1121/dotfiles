@@ -33,7 +33,7 @@ return {
         }
       },
       defaults = {
-        -- args for live_grep and grep_string
+      --   -- args for live_grep and grep_string
         vimgrep_arguments = { -- install ripgrep!
           'rg',
           '--color=never',
@@ -44,10 +44,15 @@ return {
           '--smart-case',
           '--hidden',
           -- '--glob',
-          -- '!{**/.git/*, **/.metals/*}', --do not search git,metals directory
+          '!{**/.git/*, **/.metals/*}', --do not search git,metals directory
         },
         file_ignore_patterns = {
-          ".git/.*"
+          --getting this wrong causes telescope.builtin lsp actions to stop working on metals
+          "%.git/",
+          "%.class",
+          "%.semanticdb",
+          "%.cache",
+          "%.jar",
         }
       }
     })
