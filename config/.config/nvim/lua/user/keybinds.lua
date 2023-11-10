@@ -12,6 +12,8 @@ map({"n", "i"}, "<Down>",  "<NOP>")
 map({"n", "i"}, "<Left>",  "<NOP>")
 map({"n", "i"}, "<Right>", "<NOP>")
 
+-- better experience
+map({"n", "v"}, "<Space>", "<Nop>")
 
 -- move line(s)
 map("v", "J", ":mo '>+1<CR>gv=gv", {desc="Move highlighted lines down"})
