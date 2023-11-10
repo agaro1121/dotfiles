@@ -10,6 +10,7 @@ return {
     { "<leader>sp", "<cmd>lua require('telescope.builtin').spell_suggest()<cr>" },
     { "<leader>fb", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>" },
     { "<leader>gs", "<cmd>lua require('telescope.builtin').grep_string()<cr>" },
+    { "<leader>tq", require("telescope.builtin").quickfix },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",

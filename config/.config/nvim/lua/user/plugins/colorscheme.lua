@@ -8,6 +8,8 @@ return {
       vim.cmd("colorscheme sonokai")
       vim.cmd("hi Visual guibg=White")
       vim.cmd("hi Visual guifg=#2b2d3a")
+      vim.cmd("hi LspReferenceRead guibg=White") -- vim.lsp.buf.document_highlight
+      vim.cmd("hi LspReferenceRead guifg=#2b2d3a") -- vim.lsp.buf.document_highlight
     end
   },
   {

@@ -55,6 +55,8 @@ return {
       map("n", "gD", [[<cmd>lua require"telescope.builtin".lsp_definitions()<CR>]])
       map("n", "gt", [[<cmd>lua require"telescope.builtin".lsp_type_definitions()<CR>]])
       map("n", "gi", [[<cmd>lua require"telescope.builtin".lsp_implementations()<CR>]])
+      map("n", "gic", vim.lsp.buf.incoming_calls, {desc = "who calls this symbol?"})
+      map("n", "goc", vim.lsp.buf.outgoing_calls, {desc = "What does this symbol call?"})
       map("n", "gr", [[<cmd>lua require"telescope.builtin".lsp_references()<CR>]])
       map("n", "gds", [[<cmd>lua require"telescope.builtin".lsp_document_symbols()<CR>]])
       map("n", "gwds", [[<cmd>lua require"telescope.builtin".lsp_dynamic_workspace_symbols()<CR>]])
@@ -87,6 +89,8 @@ return {
       map("n", "<leader>sh", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]])
       map("n", "<leader>rn", [[<cmd>lua vim.lsp.buf.rename()<CR>]])
       map("n", "<leader>f", [[<cmd>lua vim.lsp.buf.format{ async = true }<CR>]])
+      map("n", "<leader>H", vim.lsp.buf.document_highlight, {desc = "Highlights the current symbol in the entire buffer"})
+      map("n", "<leader>nH", vim.lsp.buf.clear_references, {desc = "Clear symbol highlights"})
 
       -- map({"n", "v"}, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
       map({ "n", "v" }, "<leader>ca", [[<cmd> lua require"actions-preview".code_actions()<CR>]])
