@@ -15,7 +15,6 @@ return {
     vim.keymap.set("n", "<leader>mdd", fns.details_tags_toggle)
   end,
 }
--- NOTE:
--- requires Bun
+-- NOTE: requires Bun
 -- brew tap oven-sh/bun
 -- brew install bun
