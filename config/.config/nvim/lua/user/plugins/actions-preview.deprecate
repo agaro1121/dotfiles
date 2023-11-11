@@ -20,5 +20,6 @@ return {
         },
       },
     }
+    map({ "n", "v" }, "<leader>ca", [[<cmd> lua require"actions-preview".code_actions()<CR>]])
   end,
 }

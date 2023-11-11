@@ -7,26 +7,26 @@ Edit Config                 | :e ~/.config/nvim/init.lua
 
 ## t-mux @tmux
 New Session                 | tmux new -s{{SESSION_NAME}}
-List Sessions               | <C-b> s or tmux ls
-Session and Window Preview  | <C-b> w
-Rename Session              | <C-b> $
-Detach from Session         | <C-b> d
+List Sessions               | <prefix> s or tmux ls
+Session and Window Preview  | <prefix> w
+Rename Session              | <prefix> $
+Detach from Session         | <prefix> d
 Kill Session                | tmux kill-session -t{{SESSION_NAME}}
-New Window                  | <C-b> c
-Close Window                | <C-b> &
-Rename Window               | <C-b> ,
-Next Window                 | <C-b> n
-Previous Window             | <C-b> p
-Last Window                 | <C-b> l
-Horizontal Pane             | <C-b> "
-Vertical Pane               | <C-b> %
-Close Pane                  | <C-b> x
-Resize Pane                 | <C-b> <C-Up|Down|Left|Right>
-Last Pane                   | <C-b> ;
-Show Pane Numbers           | <C-b> q
-Select Pane by Number       | <C-b> q 0..9
-Move Pane Left|Right        | <C-b> {|}
-Switch to Pane in direction | <C-b> Up|Down|Left|Rights
+New Window                  | <prefix> c
+Close Window                | <prefix> &
+Rename Window               | <prefix> ,
+Next Window                 | <prefix> n
+Previous Window             | <prefix> p
+Last Window                 | <prefix> l
+Horizontal Pane             | <prefix> "
+Vertical Pane               | <prefix> %
+Close Pane                  | <prefix> x
+Resize Pane                 | <prefix> <C-Up|Down|Left|Right>
+Last Pane                   | <prefix> ;
+Show Pane Numbers           | <prefix> q
+Select Pane by Number       | <prefix> q 0..9
+Move Pane Left|Right        | <prefix> {|}
+Switch to Pane in direction | <prefix> Up|Down|Left|Rights
 
 ## json
 Pretty Print                | :%!jq

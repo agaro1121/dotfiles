@@ -1,10 +1,10 @@
 return {
-  'nvim-lualine/lualine.nvim',
+  "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
   config = function()
     local navic = require("nvim-navic")
 
-    local git_blame = require('gitblame')
+    local git_blame = require("gitblame")
     local is_git_blame_enabled = function()
       if vim.g.gitblame_enabled == 0 then
         return false
@@ -13,12 +13,12 @@ return {
       end
     end
 
-    require('lualine').setup {
+    require("lualine").setup {
       options = {
         icons_enabled = true,
-        theme = 'auto',
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
+        theme = "auto",
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -33,12 +33,12 @@ return {
         }
       },
       sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch' --[[ , 'diff' ]] }, --diff causes perf issues when operating on many files
+        lualine_a = { "mode" },
+        lualine_b = { "branch" --[[ , 'diff' ]] }, --diff causes perf issues when operating on many files
         lualine_c = {},
-        lualine_x = { 'g:metals_status' },
-        lualine_y = { 'diagnostics', { 'filename', path = 1 }, 'encoding', 'filesize' },
-        lualine_z = { '%LL', 'location', 'progress' }
+        lualine_x = { "g:metals_status" },
+        lualine_y = { "diagnostics", { "filename", path = 1 }, "encoding", "filesize" },
+        lualine_z = { "%LL", "location", "progress" }
       },
       inactive_sections = {
         lualine_a = {},
@@ -46,7 +46,7 @@ return {
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = { 'location' }
+        lualine_z = { "location" }
       },
       tabline = {
         lualine_c = { {
@@ -63,7 +63,7 @@ return {
         -- lualine_c = {'%f'},
       },
       inactive_winbar = {},
-      extensions = { 'nvim-tree', 'quickfix' }
+      extensions = { "nvim-tree", "quickfix" }
     }
   end,
 }

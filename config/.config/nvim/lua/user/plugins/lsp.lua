@@ -50,20 +50,18 @@ return {
         automatic_installation = true,
       })
 
-      -------------------------------------- KEYBINDS
-      -- telescope.builtin
-      map("n", "gD", [[<cmd>lua require"telescope.builtin".lsp_definitions()<CR>]])
-      map("n", "gt", [[<cmd>lua require"telescope.builtin".lsp_type_definitions()<CR>]])
-      map("n", "gi", [[<cmd>lua require"telescope.builtin".lsp_implementations()<CR>]])
-      map("n", "gic", vim.lsp.buf.incoming_calls, {desc = "who calls this symbol?"})
-      map("n", "goc", vim.lsp.buf.outgoing_calls, {desc = "What does this symbol call?"})
-      map("n", "gr", [[<cmd>lua require"telescope.builtin".lsp_references()<CR>]])
-      map("n", "gds", [[<cmd>lua require"telescope.builtin".lsp_document_symbols()<CR>]])
-      map("n", "gwds", [[<cmd>lua require"telescope.builtin".lsp_dynamic_workspace_symbols()<CR>]])
-      map("n", "<leader>aa", [[<cmd>lua require"telescope.builtin".diagnostics()<CR>]])                 -- all workspace diagnostics
-      map("n", "<leader>ae", [[<cmd>lua require"telescope.builtin".diagnostics({severity = "E"})<CR>]]) -- all workspace errors
-      map("n", "<leader>aw", [[<cmd>lua require"telescope.builtin".diagnostics({severity = "W"})<CR>]]) -- all workspace errors
-
+      -------------------------------------- KEYBINDS --------------------------------------
+      map("n", "gD",         require("telescope.builtin").lsp_definitions)
+      map("n", "gt",         require("telescope.builtin").lsp_type_definitions)
+      map("n", "gi",         require("telescope.builtin").lsp_implementations)
+      map("n", "gic",        vim.lsp.buf.incoming_calls, {desc = "who calls this symbol?"})
+      map("n", "goc",        vim.lsp.buf.outgoing_calls, {desc = "What does this symbol call?"})
+      map("n", "gr",         require("telescope.builtin").lsp_references)
+      map("n", "gds",        require("telescope.builtin").lsp_document_symbols)
+      map("n", "gwds",       require("telescope.builtin").lsp_dynamic_workspace_symbols)
+      map("n", "<leader>aa", require("telescope.builtin").diagnostics)                 -- all workspace diagnostics
+      map("n", "<leader>ae", function() require("telescope.builtin").diagnostics({severity = "E"}) end) -- all workspace errors
+      map("n", "<leader>aw", function() require("telescope.builtin").diagnostics({severity = "W"}) end) -- all workspace errors
 
       map("n", "gws", function()
         vim.ui.input({ prompt = "Workspace symbols: " }, function(query)
@@ -80,21 +78,21 @@ return {
       -- map("n", "<leader>ae", [[<cmd>lua vim.diagnostic.setqflist({severity = "E"})<CR>]]) -- all workspace errors
       -- map("n", "<leader>aw", [[<cmd>lua vim.diagnostic.setqflist({severity = "W"})<CR>]]) -- all workspace warnings
 
-      map("n", "<leader>d", [[<cmd>lua vim.diagnostic.setqflist()<CR>]]) -- buffer diagnostics only
-      map("n", "[d", [[<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>]])
-      map("n", "]d", [[<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>]])
-      map("n", "K", [[<cmd>lua vim.lsp.buf.hover()<CR>]])
+      map("n", "<leader>d", vim.diagnostic.setqflist) -- buffer diagnostics only
+      map("n", "[d",        function() vim.diagnostic.goto_prev { wrap = false } end)
+      map("n", "]d",        function() vim.diagnostic.goto_next { wrap = false } end)
+      map("n", "K",         vim.lsp.buf.hover)
 
-      map("n", "<leader>cl", [[<cmd>lua vim.lsp.codelens.run()<CR>]])
-      map("n", "<leader>sh", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]])
-      map("n", "<leader>rn", [[<cmd>lua vim.lsp.buf.rename()<CR>]])
-      map("n", "<leader>f", [[<cmd>lua vim.lsp.buf.format{ async = true }<CR>]])
-      map("n", "<leader>H", vim.lsp.buf.document_highlight, {desc = "Highlights the current symbol in the entire buffer"})
-      map("n", "<leader>nH", vim.lsp.buf.clear_references, {desc = "Clear symbol highlights"})
+      map("n", "<leader>cl", vim.lsp.codelens.run)
+      map("n", "<leader>sh", vim.lsp.buf.signature_help)
+      map("n", "<leader>rn", vim.lsp.buf.rename)
+      map("n", "<leader>f",  function() vim.lsp.buf.format{ async = true } end)
+      map("n", "<leader>H",  vim.lsp.buf.document_highlight, {desc = "Highlights the current symbol in the entire buffer"})
+      map("n", "<leader>nH", vim.lsp.buf.clear_references,   {desc = "Clear symbol highlights"})
 
-      -- map({"n", "v"}, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-      map({ "n", "v" }, "<leader>ca", [[<cmd> lua require"actions-preview".code_actions()<CR>]])
-      -------------------------------------- KEYBINDS
+      map({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action)
+      -------------------------------------- KEYBINDS --------------------------------------
+
 
       local lspconfig = require("lspconfig")
 
@@ -211,6 +209,7 @@ return {
           })
         end,
       }
+
       mason_lspconfig.setup_handlers(handlers)
       -- enable completion on all lsp instances
     end,

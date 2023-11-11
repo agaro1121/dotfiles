@@ -1,11 +1,11 @@
 return {
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
     config = function()
-        require('Comment').setup({
-          ignore = '^$'
+        require("Comment").setup({
+          ignore = "^$"
         })
-        local ft = require('Comment.ft')
-        ft.sbt = {'//%s', '/*%s*/'}
-        ft.smithy = {'//%s', '/*%s*/'}
+        local ft = require("Comment.ft")
+        ft.sbt = {"//%s", "/*%s*/"}
+        ft.smithy = {"//%s", "/*%s*/"}
     end
 }

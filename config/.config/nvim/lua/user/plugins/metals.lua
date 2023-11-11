@@ -86,7 +86,7 @@ return {
       group = nvim_metals_group,
     })
 
-    map("n", "<leader>mc", [[<cmd>lua require"telescope".extensions.metals.commands()<CR>]])
-    map("n", "<leader>ws", '<cmd>lua require"metals".hover_worksheet()<CR>')
+    map("n", "<leader>mc", require("telescope").extensions.metals.commands)
+    map("n", "<leader>ws", require("metals").hover_worksheet)
   end,
 }

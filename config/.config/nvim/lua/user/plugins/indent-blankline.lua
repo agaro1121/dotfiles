@@ -1,5 +1,3 @@
--- vim.opt.list = true
-
 return {
   "lukas-reineke/indent-blankline.nvim",
   main = "ibl",
@@ -12,8 +10,6 @@ return {
       whitespace = {
         remove_blankline_trail = false
       },
-      -- show_trailing_blankline_indent = false,
-      -- space_char_blankline = " ",
     })
   end,
 }

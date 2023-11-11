@@ -1,9 +1,9 @@
 return {
   "echasnovski/mini.files",
   config = function()
-    require('mini.files').setup({
+    require("mini.files").setup({
       mappings = {
-        close       = 'e',
+        close       = "e",
       },
       options = {
         -- Whether to delete permanently or move into module-specific trash

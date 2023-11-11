@@ -1,9 +1,8 @@
 return {
-  -- UFO Folding
   {
-    'kevinhwang91/nvim-ufo',
+    "kevinhwang91/nvim-ufo",
     dependencies = {
-      'kevinhwang91/promise-async',
+      "kevinhwang91/promise-async",
       {
         "luukvbaal/statuscol.nvim",
         config = function()
@@ -52,7 +51,7 @@ return {
           end
           curWidth = curWidth + chunkWidth
         end
-        table.insert(newVirtText, { suffix, 'MoreMsg' })
+        table.insert(newVirtText, { suffix, "MoreMsg" })
         return newVirtText
       end
 
@@ -61,11 +60,11 @@ return {
         fold_virt_text_handler = handler
       })
 
-      map('n', 'zO', ufo.openAllFolds)
-      map('n', 'zC', ufo.closeAllFolds)
-      map('n', 'zh', ufo.peekFoldedLinesUnderCursor)
-      map('n', 'zn', require('ufo.action').goNextClosedFold)
-      map('n', 'zp', require('ufo.action').goPreviousClosedFold)
+      map("n", "zO", ufo.openAllFolds)
+      map("n", "zC", ufo.closeAllFolds)
+      map("n", "zh", ufo.peekFoldedLinesUnderCursor)
+      map("n", "zn", require("ufo.action").goNextClosedFold)
+      map("n", "zp", require("ufo.action").goPreviousClosedFold)
       --
     end,
   },
