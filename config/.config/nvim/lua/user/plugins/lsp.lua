@@ -80,7 +80,7 @@ return {
       -- map("n", "<leader>ae", [[<cmd>lua vim.diagnostic.setqflist({severity = "E"})<CR>]]) -- all workspace errors
       -- map("n", "<leader>aw", [[<cmd>lua vim.diagnostic.setqflist({severity = "W"})<CR>]]) -- all workspace warnings
 
-      map("n", "<leader>d", [[<cmd>lua vim.diagnostic.setloclist()<CR>]]) -- buffer diagnostics only
+      map("n", "<leader>d", [[<cmd>lua vim.diagnostic.setqflist()<CR>]]) -- buffer diagnostics only
       map("n", "[d", [[<cmd>lua vim.diagnostic.goto_prev { wrap = false }<CR>]])
       map("n", "]d", [[<cmd>lua vim.diagnostic.goto_next { wrap = false }<CR>]])
       map("n", "K", [[<cmd>lua vim.lsp.buf.hover()<CR>]])
