@@ -57,7 +57,7 @@ return {
           enable = true,
           lookahead = true,
           keymaps = {
-            -- You can use the capture groups defined in textobjects.scm
+            -- scala support
             -- "@class.inner"
             -- "@class.outer"
             -- "@comment.outer"

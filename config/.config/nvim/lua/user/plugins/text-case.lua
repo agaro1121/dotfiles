@@ -5,7 +5,7 @@ return {
    { "ga.", "<cmd>TextCaseOpenTelescope<CR>", desc = "Teslescope", mode = "v"},
   },
   config = function()
-    require('textcase').setup {}
-    require('telescope').load_extension('textcase')
+    require("textcase").setup {}
+    require("telescope").load_extension("textcase")
   end
 }

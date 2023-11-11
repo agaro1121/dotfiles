@@ -1,9 +1,9 @@
 return {
-  'mrjones2014/smart-splits.nvim',
+  "mrjones2014/smart-splits.nvim",
   config = function()
-    require('smart-splits').setup({
+    require("smart-splits").setup({
       -- Ignored buffer types (only while resizing)
-      ignored_buftypes = { 'NvimTree' },
+      ignored_buftypes = { "NvimTree" },
       -- the default number of lines/columns to resize by at a time
       default_amount = 2,
       -- when moving cursor between splits left or right,
@@ -17,22 +17,22 @@ return {
       -- and un-ignored on completed. This only applies to resize events,
       -- not cursor movement events.
       ignored_events = {
-        'BufEnter',
-        'WinEnter',
+        "BufEnter",
+        "WinEnter",
       },
       -- enable or disable the tmux integration
-      multiplexer_integration = 'tmux'
+      multiplexer_integration = "tmux"
     })
     -- recommended mappings
     -- resizing splits
-    vim.keymap.set('n', '<A-h>', require('smart-splits').resize_left)
-    vim.keymap.set('n', '<A-j>', require('smart-splits').resize_down)
-    vim.keymap.set('n', '<A-k>', require('smart-splits').resize_up)
-    vim.keymap.set('n', '<A-l>', require('smart-splits').resize_right)
+    vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left)
+    vim.keymap.set("n", "<A-j>", require("smart-splits").resize_down)
+    vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up)
+    vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right)
     -- moving between splits
-    vim.keymap.set('n', '<C-h>', require('smart-splits').move_cursor_left)
-    vim.keymap.set('n', '<C-j>', require('smart-splits').move_cursor_down)
-    vim.keymap.set('n', '<C-k>', require('smart-splits').move_cursor_up)
-    vim.keymap.set('n', '<C-l>', require('smart-splits').move_cursor_right)
+    vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
+    vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
+    vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
+    vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
   end,
 }
