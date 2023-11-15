@@ -52,6 +52,7 @@ return {
 
       -------------------------------------- KEYBINDS --------------------------------------
       map("n", "gD",         require("telescope.builtin").lsp_definitions)
+      map("n", "gV",         ":vsplit | lua vim.lsp.buf.definition()<CR>")
       map("n", "gt",         require("telescope.builtin").lsp_type_definitions)
       map("n", "gi",         require("telescope.builtin").lsp_implementations)
       map("n", "gic",        vim.lsp.buf.incoming_calls, {desc = "who calls this symbol?"})
