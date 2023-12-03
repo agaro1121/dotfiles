@@ -2,7 +2,7 @@ return {
   "sunjon/shade.nvim",
   config = function()
     require("shade").setup({
-      overlay_opacity = 50,
+      overlay_opacity = 35,
       opacity_step = 1,
       keys = {
         brightness_up   = '<C-Up>',
