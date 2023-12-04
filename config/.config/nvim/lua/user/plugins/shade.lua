@@ -1,7 +1,8 @@
 return {
   "sunjon/shade.nvim",
   config = function()
-    require("shade").setup({
+    local Shade = require("shade")
+    Shade.setup({
       overlay_opacity = 35,
       opacity_step = 1,
       keys = {
@@ -10,5 +11,8 @@ return {
         toggle          = '<leader>S',
       }
     })
+
+   --NOTE: Start disabled. Clashes with floating windows like nvim-tree
+   Shade.toggle()
   end
 }
