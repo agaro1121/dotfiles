@@ -11,12 +11,15 @@ return {
     { "<leader>fb", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>" },
     { "<leader>gs", "<cmd>lua require('telescope.builtin').grep_string()<cr>" },
     { "<leader>tq", require("telescope.builtin").quickfix },
+    { "<leader>fb",  ":Telescope file_browser<CR>" },
+    { "<leader>fbc", ":Telescope file_browser path=%:p:h select_buffer=true<CR>" }
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-tree/nvim-web-devicons",
+    "nvim-telescope/telescope-file-browser.nvim",
   },
   config = function()
     local telescope = require("telescope")
