@@ -34,5 +34,8 @@ return {
     lazy = true,
     name = "catppuccin",
   },
-
+  {
+    "Mofiqul/vscode.nvim",
+    lazy = true
+  },
 }
