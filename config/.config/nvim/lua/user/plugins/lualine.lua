@@ -1,5 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
   config = function()
     local navic = require("nvim-navic")
