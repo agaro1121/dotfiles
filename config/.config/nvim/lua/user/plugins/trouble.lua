@@ -11,6 +11,7 @@ return {
         open_folds = { "zO" }, -- open all folds
         toggle_fold = { "zo" }, -- toggle fold of current file
       },
+      auto_preview = false,
     })
     map("n", "<leader>tr", require("trouble").toggle)
   end

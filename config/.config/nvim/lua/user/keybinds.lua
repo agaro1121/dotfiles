@@ -7,10 +7,10 @@ map("n", "<leader>th", "<C-w>t<C-w>H", {desc="Switches horizontal panes to verti
 map("n", "<leader>tk", "<C-w>t<C-w>K", {desc="Switches vertical panes to horizontal panes"})
 
 -- window sizing
-map({"n", "i"}, "<Up>",    ":resize -2<CR>")
-map({"n", "i"}, "<Down>",  ":resize +2<CR>")
-map({"n", "i"}, "<Left>",  ":vertical resize +2<CR>")
-map({"n", "i"}, "<Right>", ":vertical resize -2<CR>")
+map({"n"}, "<Up>",    ":resize -2<CR>")
+map({"n"}, "<Down>",  ":resize +2<CR>")
+map({"n"}, "<Left>",  ":vertical resize +2<CR>")
+map({"n"}, "<Right>", ":vertical resize -2<CR>")
 
 -- better experience
 map({"n", "v"}, "<Space>", "<Nop>")
