@@ -31,7 +31,7 @@ return {
             }
           end
         },
-        ['-'] = {
+        ['gh'] = {
           mode = 'n',
           fn = function(target)
             vim.g.triptych_close()
@@ -40,7 +40,7 @@ return {
             end)
           end,
         },
-        ['|'] = {
+        ['gv'] = {
           mode = 'n',
           fn = function(target)
             vim.g.triptych_close()
@@ -55,7 +55,7 @@ return {
         show_hidden = false,
         line_numbers = {
           enabled = true,
-          relative = false,
+          relative = true,
         },
         file_icons = {
           enabled = true,
