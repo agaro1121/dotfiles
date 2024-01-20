@@ -1,10 +1,11 @@
 return {
   "echasnovski/mini.files",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local MiniFiles = require("mini.files")
     MiniFiles.setup({
       mappings = {
-        -- close = "q",
+        go_in_plus = 'L'
       },
       options = {
         -- Whether to delete permanently or move into module-specific trash
@@ -18,34 +19,39 @@ return {
       }
     })
 
-    local split_vertical = function (buf_id, lhs)
-      local rhs = function ()
+    local split_vertical = function ()
         local fs_entry = MiniFiles.get_fs_entry()
         vim.schedule(function()
           vim.cmd('vsplit '..fs_entry.path)
         end)
       end
-      map('n', lhs, rhs, { buffer = buf_id, desc = 'split vertical' })
-    end
 
-    local split_horizontal = function (buf_id, lhs)
-      local rhs = function ()
+    local split_horizontal = function ()
         local fs_entry = MiniFiles.get_fs_entry()
         vim.schedule(function()
           vim.cmd('split '..fs_entry.path)
         end)
       end
-      map('n', lhs, rhs, { buffer = buf_id, desc = 'split horizontal' })
+
+    local go_in_plus = function()
+      for _ = 1, vim.v.count1 do
+        MiniFiles.go_in({ close_on_file = true })
+      end
     end
 
     vim.api.nvim_create_autocmd('User', {
       pattern = 'MiniFilesBufferCreate',
       callback = function(args)
-        local buf_id = args.data.buf_id
-        split_vertical(buf_id, 'gv')
-        split_horizontal(buf_id, 'gs')
+        local map_buf = function(lhs, rhs) vim.keymap.set('n', lhs, rhs, { buffer = args.data.buf_id }) end
+        map_buf('gv', split_vertical)
+        map_buf('gs', split_horizontal)
       end,
     })
-    map("n", "<leader>mf", require("mini.files").open)
+
+    -- opens mini.files at current file location
+    map("n", "<leader>-", function()
+      MiniFiles.open(vim.api.nvim_buf_get_name(0))
+      MiniFiles.reveal_cwd()
+    end)
   end
 }
