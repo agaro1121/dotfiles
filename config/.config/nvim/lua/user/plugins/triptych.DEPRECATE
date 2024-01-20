@@ -85,6 +85,6 @@ return {
         enabled = true,
       }
     }
-    map('n', '<leader>-', ':Triptych<CR>')
+    map('n', '<leader>tc', ':Triptych<CR>')
   end
 }
