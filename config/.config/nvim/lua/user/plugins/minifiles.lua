@@ -4,9 +4,7 @@ return {
   config = function()
     local MiniFiles = require("mini.files")
     MiniFiles.setup({
-      mappings = {
-        go_in_plus = 'L'
-      },
+      mappings = { },
       options = {
         -- Whether to delete permanently or move into module-specific trash
         permanent_delete = true,
@@ -45,6 +43,7 @@ return {
         local map_buf = function(lhs, rhs) vim.keymap.set('n', lhs, rhs, { buffer = args.data.buf_id }) end
         map_buf('gv', split_vertical)
         map_buf('gs', split_horizontal)
+        map_buf('L', go_in_plus)
       end,
     })
 
