@@ -19,7 +19,10 @@ set.autowriteall=true
 set.laststatus=0
 set.showmode=false                -- disables the '-- INSERT --' text under the status line
 set.mouse = ""                    -- disables mouse in neovim
-
+set.breakindent = true            -- Every wrapped line will continue visually indented. Makes for horizontal blocks.
+-- case-insensitive search
+set.ignorecase = true
+set.smartcase = true
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 -- Taken from: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua

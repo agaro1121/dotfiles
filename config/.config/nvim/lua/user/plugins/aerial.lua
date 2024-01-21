@@ -1,6 +1,6 @@
 return {
   'stevearc/aerial.nvim',
-  lazy = true,
+  -- lazy = true,
   -- Optional dependencies
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
@@ -96,34 +96,35 @@ return {
       -- To see all available values, see :help SymbolKind
       filter_kind = false,
       -- {
-      --   "File",
-      --   "Module",
-      --   "Namespace",
-      --   "Package",
-      --   "Class",
-      --   "Method",
-      --   "Property",
-      --   "Field",
-      --   "Constructor",
-      --   "Enum",
-      --   "Interface",
-      --   "Function",
-      --   "Variable",
-      --   "Constant",
-      --   "String",
-      --   "Number",
-      --   "Boolean",
-      --   "Array",
-      --   "Object",
-      --   "Key",
-      --   "Null",
-      --   "EnumMember",
-      --   "Struct",
-      --   "Event",
-      --   "Operator",
-      --   "TypeParameter",
-      --   "Component",
-      --   "Fragment",
+        -- "Class",
+        -- "Method",
+        -- "Property",
+        -- "Field",
+        -- "Enum",
+        -- "Interface",
+        -- "Function",
+        -- "Variable",
+        -- "Constant",
+        -- "EnumMember",
+        -- Haven't used the ones below
+        -- "File",
+        -- "Module",
+        -- "Namespace",
+        -- "Package",
+        -- "Constructor",
+        -- "String",
+        -- "Number",
+        -- "Boolean",
+        -- "Array",
+        -- "Object",
+        -- "Key",
+        -- "Null",
+        -- "Struct",
+        -- "Event",
+        -- "Operator",
+        -- "TypeParameter",
+        -- "Component",
+        -- "Fragment",
       -- },
       -- Determines line highlighting mode when multiple splits are visible.
       -- split_width   Each open window will have its cursor location marked in the
@@ -237,7 +238,7 @@ return {
       -- The autocmds that trigger symbols update (not used for LSP backend)
       update_events = "TextChanged,InsertLeave",
       -- Show box drawing characters for the tree hierarchy
-      show_guides = false,
+      show_guides = true,
       -- Customize the characters used when show_guides = true
       guides = {
         -- When the child item has a sibling below it
@@ -335,7 +336,7 @@ return {
       },
     })
 
-    map("n", "<leader>o", ":AerialToggle<CR>")
+    map("n", "<leader>oo", ":AerialToggle<CR>")
     map("n", "<leader>O", ":AerialNavToggle<CR>")
 
   end,
