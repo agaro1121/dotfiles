@@ -61,9 +61,13 @@ return {
       map("n", "gr",         require("telescope.builtin").lsp_references)
       map("n", "gds",        require("telescope.builtin").lsp_document_symbols)
       map("n", "gwds",       require("telescope.builtin").lsp_dynamic_workspace_symbols)
-      map("n", "<leader>aa", require("telescope.builtin").diagnostics)                 -- all workspace diagnostics
-      map("n", "<leader>ae", function() require("telescope.builtin").diagnostics({severity = "E"}) end) -- all workspace errors
-      map("n", "<leader>aw", function() require("telescope.builtin").diagnostics({severity = "W"}) end) -- all workspace errors
+      map("n", "<leader>aa", require("telescope.builtin").diagnostics)                                  -- workspace diagnostics
+      map("n", "<leader>ae", function() require("telescope.builtin").diagnostics({severity = "E"}) end) -- workspace errors
+      map("n", "<leader>aw", function() require("telescope.builtin").diagnostics({severity = "W"}) end) -- workspace errors
+
+      map("n", "<leader>ba",  function() require("telescope.builtin").diagnostics({bufnr=0}) end)                   -- buffer diagnostics
+      map("n", "<leader>be",  function() require("telescope.builtin").diagnostics({bufnr=0, severity = "E"}) end)   -- buffer errors
+      map("n", "<leader>bw",  function() require("telescope.builtin").diagnostics({bufnr=0, severity = "W"}) end)   -- buffer warnings
 
       map("n", "gws", function()
         vim.ui.input({ prompt = "Workspace symbols: " }, function(query)
@@ -80,8 +84,8 @@ return {
       -- map("n", "<leader>ae", [[<cmd>lua vim.diagnostic.setqflist({severity = "E"})<CR>]]) -- all workspace errors
       -- map("n", "<leader>aw", [[<cmd>lua vim.diagnostic.setqflist({severity = "W"})<CR>]]) -- all workspace warnings
 
-      -- map("n", "<leader>d", vim.diagnostic.setqflist) -- buffer diagnostics only
-      map("n", "<leader>d", vim.diagnostic.setloclist) -- buffer diagnostics only
+      -- map("n", "<leader>d", vim.diagnostic.setqflist) -- all diagnostics
+      -- map("n", "<leader>d", vim.diagnostic.setloclist) -- buffer diagnostics only
       map("n", "[d",        function() vim.diagnostic.goto_prev { wrap = false } end)
       map("n", "]d",        function() vim.diagnostic.goto_next { wrap = false } end)
       map("n", "K",         vim.lsp.buf.hover)
