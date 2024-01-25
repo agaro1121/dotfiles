@@ -1,16 +1,34 @@
+ -- NOTE: All git things cause perf issues when operating on many files ie 'diff' component
 return {
   "nvim-lualine/lualine.nvim",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
   config = function()
     local navic = require("nvim-navic")
+    local navic_component = {
+      function()
+        return navic.get_location()
+      end,
+      cond = function()
+        return navic.is_available()
+      end
+    }
 
     local git_blame = require("gitblame")
-    local is_git_blame_enabled = function()
+    local git_blame_enabled = function()
       if vim.g.gitblame_enabled == 0 then
         return false
       else
         return true
+      end
+    end
+    local git_blame_component = function()
+      local empty_result = ""       -- needed otherwise lua line shows 'nil' on the bar and does not auto-hide as intended
+      if git_blame_enabled() then
+        local r = git_blame.get_current_blame_text()
+        return r and r or empty_result
+      else
+        return empty_result
       end
     end
 
@@ -35,11 +53,13 @@ return {
       },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "branch" --[[ , 'diff' ]] }, --diff causes perf issues when operating on many files
-        lualine_c = {},
-        lualine_x = { "g:metals_status" },
-        lualine_y = { "diagnostics", { "filename", path = 1 }, "encoding", "filesize" },
-        lualine_z = { "%LL", "location", "progress" }
+        lualine_b = {
+          { "diagnostics", sources = { "nvim_lsp" } }
+        },
+        lualine_c = { "g:metals_status" },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = { "location", "progress", "%LL", "encoding", "filetype" }
       },
       inactive_sections = {
         lualine_a = {},
@@ -47,24 +67,18 @@ return {
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = { "location" }
+        lualine_z = {}
       },
-      tabline = {
-        lualine_c = { {
-              function()
-                  return navic.get_location()
-              end,
-              cond = function()
-                  return navic.is_available()
-              end
-            } },
-        lualine_x = { { git_blame.get_current_blame_text, cond = is_git_blame_enabled } }
+      tabline = { -- inserts items at the very top like the OSX menu
+        lualine_b = { { "filename", path = 1 } --[[ navic_section ]] },
+        lualine_c = { navic_component },
+        lualine_z = { git_blame_component }
       },
-      winbar = {
-        -- lualine_c = {'%f'},
+      winbar = { -- sits right below the tabline
+        -- lualine_c = { "%f" }, -- same '%f' is the relative file path
       },
-      inactive_winbar = {},
-      extensions = { "nvim-tree", "quickfix" }
+      inactive_winbar = { },
+      extensions = { "nvim-tree", "quickfix", "oil", "symbols-outline", "nvim-dap-ui", "lazy", "mason", "trouble" }
     }
   end,
 }
