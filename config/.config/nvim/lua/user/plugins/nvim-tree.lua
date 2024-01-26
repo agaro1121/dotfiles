@@ -215,7 +215,7 @@ local opts = {
   },
   live_filter = {
     prefix = "[FILTER]: ",
-    always_show_folders = true,
+    always_show_folders = false,
   },
   tab = {
     sync = {
