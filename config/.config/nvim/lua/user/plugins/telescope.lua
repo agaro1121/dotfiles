@@ -1,5 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
+  branch = "0.1.x",
   keys = {
     { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files({hidden=true})<cr>" },
     { "<leader>fg", "<cmd>lua require('telescope.builtin').git_files({show_untracked=true})<cr>" },
