@@ -61,9 +61,9 @@ return {
       map("n", "gr",         require("telescope.builtin").lsp_references)
       map("n", "gds",        require("telescope.builtin").lsp_document_symbols)
       map("n", "gwds",       require("telescope.builtin").lsp_dynamic_workspace_symbols)
-      map("n", "<leader>aa", require("telescope.builtin").diagnostics)                                  -- workspace diagnostics
-      map("n", "<leader>ae", function() require("telescope.builtin").diagnostics({severity = "E"}) end) -- workspace errors
-      map("n", "<leader>aw", function() require("telescope.builtin").diagnostics({severity = "W"}) end) -- workspace errors
+      map("n", "<leader>wa", require("telescope.builtin").diagnostics)                                  -- workspace diagnostics
+      map("n", "<leader>we", function() require("telescope.builtin").diagnostics({severity = "E"}) end) -- workspace errors
+      map("n", "<leader>ww", function() require("telescope.builtin").diagnostics({severity = "W"}) end) -- workspace errors
 
       map("n", "<leader>ba",  function() require("telescope.builtin").diagnostics({bufnr=0}) end)                   -- buffer diagnostics
       map("n", "<leader>be",  function() require("telescope.builtin").diagnostics({bufnr=0, severity = "E"}) end)   -- buffer errors
