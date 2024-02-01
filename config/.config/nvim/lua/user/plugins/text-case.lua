@@ -1,11 +1,11 @@
 return {
   "johmsalas/text-case.nvim",
-  keys = {
-   { "ga.", "<cmd>TextCaseOpenTelescope<CR>", desc = "Telescope" },
-   { "ga.", "<cmd>TextCaseOpenTelescope<CR>", desc = "Teslescope", mode = "v"},
-  },
+  dependencies = { "nvim-telescope/telescope.nvim" },
   config = function()
-    require("textcase").setup {}
+    require("textcase").setup({})
     require("telescope").load_extension("textcase")
+
+    map({ "n", "v" }, "ga.", ":TextCaseOpenTelescope<CR>")
   end
 }
+
