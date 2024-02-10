@@ -1,0 +1,97 @@
+import = ["$HOME/.config/alacritty/alacritty.yml", "$HOME/.alacritty-colorscheme/themes/palenight.yml"]
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.cursor]
+cursor = "#c7c7c7"
+text = "#131313"
+
+[colors.footer_bar]
+background = "#c5c8c6"
+foreground = "#1d1f21"
+
+[colors.primary]
+background = "0x292d3e"
+bright_foreground = "0xffffff"
+dim_foreground = "0xffffff"
+foreground = "0xd0d0d0"
+
+[colors.vi_mode_cursor]
+cursor = "#c7c7c7"
+text = "#131313"
+
+[font]
+size = 16.0
+
+[font.bold]
+style = "Bold"
+
+[font.bold_italic]
+style = "Bold Italic"
+
+[font.italic]
+style = "Italic"
+
+[font.normal]
+# family = "FiraCode Nerd Font Mono"
+family = "JetBrainsMono Nerd Font Mono"
+style = "Regular"
+
+[[keyboard.bindings]]
+chars = "\u001Bj"
+key = "J"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bk"
+key = "K"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bh"
+key = "H"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bl"
+key = "L"
+mods = "Alt"
+
+[colors.selection]
+background = "CellForeground"
+text = "CellBackground"
+
+[colors.bright]
+black = "0x434758"
+blue = "0x9cc4ff"
+cyan = "0xa3f7ff"
+green = "0xddffa7"
+magenta = "0xe1acff"
+red = "0xff8b92"
+white = "0xffffff"
+yellow = "0xffe585"
+
+[colors.dim]
+black = "0x000000"
+blue = "0x0225c7"
+cyan = "0x00c5c7"
+green = "0x00c200"
+magenta = "0xc930c7"
+red = "0xc91b00"
+white = "0xc7c7c7"
+yellow = "0xc7c400"
+
+[colors.normal]
+black = "0x292d3e"
+blue = "0x82aaff"
+cyan = "0x89ddff"
+green = "0xc3e88d"
+magenta = "0xc792ea"
+red = "0xf07178"
+white = "0xd0d0d0"
+yellow = "0xffcb6b"
+
+[window.padding]
+x = 6
+y = 6
