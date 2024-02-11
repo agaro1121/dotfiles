@@ -9,7 +9,10 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "hrsh7th/cmp-nvim-lsp" },
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "folke/neodev.nvim",
+    },
     config = function()
       local mason = require("mason")
       local mason_options = {
@@ -100,6 +103,14 @@ return {
       map({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action)
       -------------------------------------- KEYBINDS --------------------------------------
 
+      -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+      require("neodev").setup({
+        library = {
+          plugins = {
+            "nvim-dap-ui"
+          },
+        },
+      })
 
       local lspconfig = require("lspconfig")
 
@@ -167,6 +178,9 @@ return {
       lspconfig.lua_ls.setup({
         settings = {
           Lua = {
+            completion = {
+              callSnippet = "Replace"
+            },
             runtime = {
               -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
               version = "LuaJIT",
