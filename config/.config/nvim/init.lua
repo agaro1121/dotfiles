@@ -36,4 +36,3 @@ require("lazy").setup("user.plugins", {
   },
 })
 
-vim.cmd('source ~/.config/nvim/vimrc.vim')
