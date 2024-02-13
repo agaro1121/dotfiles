@@ -39,4 +39,8 @@ return {
     "Mofiqul/vscode.nvim",
     lazy = true
   },
+  {
+    "AlexvZyl/nordic.nvim",
+    lazy = true
+  },
 }
