@@ -36,3 +36,9 @@ require("lazy").setup("user.plugins", {
   },
 })
 
+-- TODO: LSP Refactor
+-- create functions to create capabilities
+-- move keybinds to separate file
+-- keybinds only active when LSP is active?
+-- return M.on_attach
+-- return M.capabilities

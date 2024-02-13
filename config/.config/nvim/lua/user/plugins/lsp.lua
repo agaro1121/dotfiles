@@ -200,6 +200,7 @@ return {
           },
         }
       })
+
       -- breadcrumbs in lualine
       local navic = require("nvim-navic")
       local on_attach = function(client, bufnr)
