@@ -53,56 +53,6 @@ return {
         automatic_installation = true,
       })
 
-      -------------------------------------- KEYBINDS --------------------------------------
-      map("n", "gD",         require("telescope.builtin").lsp_definitions)
-      map("n", "gV",         ":vsplit | lua vim.lsp.buf.definition()<CR>")
-      map("n", "gH",         ":split | lua vim.lsp.buf.definition()<CR>")
-      map("n", "gt",         require("telescope.builtin").lsp_type_definitions)
-      map("n", "gi",         require("telescope.builtin").lsp_implementations)
-      map("n", "gic",        vim.lsp.buf.incoming_calls, {desc = "who calls this symbol?"})
-      map("n", "goc",        vim.lsp.buf.outgoing_calls, {desc = "What does this symbol call?"})
-      map("n", "gr",         require("telescope.builtin").lsp_references)
-      map("n", "gds",        require("telescope.builtin").lsp_document_symbols)
-      map("n", "gwds",       require("telescope.builtin").lsp_dynamic_workspace_symbols)
-      map("n", "<leader>wa", require("telescope.builtin").diagnostics)                                  -- workspace diagnostics
-      map("n", "<leader>we", function() require("telescope.builtin").diagnostics({severity = "E"}) end) -- workspace errors
-      map("n", "<leader>ww", function() require("telescope.builtin").diagnostics({severity = "W"}) end) -- workspace errors
-
-      map("n", "<leader>ba",  function() require("telescope.builtin").diagnostics({bufnr=0}) end)                   -- buffer diagnostics
-      map("n", "<leader>be",  function() require("telescope.builtin").diagnostics({bufnr=0, severity = "E"}) end)   -- buffer errors
-      map("n", "<leader>bw",  function() require("telescope.builtin").diagnostics({bufnr=0, severity = "W"}) end)   -- buffer warnings
-
-      map("n", "gws", function()
-        vim.ui.input({ prompt = "Workspace symbols: " }, function(query)
-          require("telescope.builtin").lsp_workspace_symbols({ query = query })
-        end)
-      end)
-
-      -- map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<cr>")
-      -- map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-      -- map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-      -- map("n", "gds", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
-      -- map("n", "gws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>")
-      -- map("n", "<leader>aa", [[<cmd>lua vim.diagnostic.setqflist()<CR>]]) -- all workspace diagnostics
-      -- map("n", "<leader>ae", [[<cmd>lua vim.diagnostic.setqflist({severity = "E"})<CR>]]) -- all workspace errors
-      -- map("n", "<leader>aw", [[<cmd>lua vim.diagnostic.setqflist({severity = "W"})<CR>]]) -- all workspace warnings
-
-      -- map("n", "<leader>d", vim.diagnostic.setqflist) -- all diagnostics
-      -- map("n", "<leader>d", vim.diagnostic.setloclist) -- buffer diagnostics only
-      map("n", "[d",        function() vim.diagnostic.goto_prev { wrap = false } end)
-      map("n", "]d",        function() vim.diagnostic.goto_next { wrap = false } end)
-      map("n", "K",         vim.lsp.buf.hover)
-
-      map("n", "<leader>cl", vim.lsp.codelens.run)
-      map("n", "<leader>sh", vim.lsp.buf.signature_help)
-      map("n", "<leader>rn", vim.lsp.buf.rename)
-      map("n", "<leader>f",  function() vim.lsp.buf.format{ async = true } end)
-      map("n", "<leader>H",  vim.lsp.buf.document_highlight, {desc = "Highlights the current symbol in the entire buffer"})
-      map("n", "<leader>nH", vim.lsp.buf.clear_references,   {desc = "Clear symbol highlights"})
-
-      map({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action)
-      -------------------------------------- KEYBINDS --------------------------------------
-
       -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
       require("neodev").setup({
         library = {
@@ -201,33 +151,14 @@ return {
         }
       })
 
-      -- breadcrumbs in lualine
-      local navic = require("nvim-navic")
-      local on_attach = function(client, bufnr)
-        if client.server_capabilities.documentSymbolProvider then
-          navic.attach(client, bufnr)
-        end
-      end
-
-      -- enable completion on all lsp instances
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities.textDocument.completion.completionItem.snippetSupport = true
-      local cmp_lsp = require("cmp_nvim_lsp")
-      local cmp_capabilities = cmp_lsp.default_capabilities(capabilities)
-
-      -- enable code folding
-      -- needs to be on cmp_capabilities or it will get overwritten
-      cmp_capabilities.textDocument.foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true
-      }
+      local lsp_utils = require("lsp_utils")
 
       local handlers = {
         -- default handler
         function(server_name)
           lspconfig[server_name].setup({
-            on_attach = on_attach,
-            capabilities = cmp_capabilities,
+            on_attach = lsp_utils.on_attach(require("nvim-navic"), require("telescope.builtin")),
+            capabilities = lsp_utils.cmp_capabilities(require("cmp-nvim-lsp")),
           })
         end,
       }

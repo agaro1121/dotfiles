@@ -21,7 +21,8 @@ end
 
 require("user.options")
 require("user.keybinds")
-require("lazy").setup("user.plugins", {
+require("lazy").setup(
+  { {import = "user.plugins"}, {import = "user.lsp"} }, {
   checker = {
     -- automatically check for plugin updates
     enabled = true,

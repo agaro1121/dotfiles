@@ -6,8 +6,9 @@ return {
     vim.opt_global.shortmess:append("c") --	don't give |ins-completion-menu| messages; for		*shm-c*
 
     local api = vim.api
+    local metals = require("metals")
 
-    local metals_config = require("metals").bare_config()
+    local metals_config = metals.bare_config()
 
     metals_config.settings = {
       showImplicitArguments = true,
@@ -23,19 +24,8 @@ return {
     -- docs about this
     metals_config.init_options.statusBarProvider = "on"
 
-    -- code completion
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
-    local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
-    -- code folding
-    -- needs to be on cmp_capabilities or it will get overwritten
-    cmp_capabilities.textDocument.foldingRange = {
-      dynamicRegistration = false,
-      lineFoldingOnly = true
-    }
-
-    metals_config.capabilities = cmp_capabilities
+    local lsp_utils = require("lsp_utils")
+    metals_config.capabilities = lsp_utils.capabilities(require("cmp_nvim_lsp"))
 
     -- Debug settings if you're using nvim-dap
     local dap = require("dap")
@@ -60,17 +50,10 @@ return {
       },
     }
 
-    local on_attach = function(client, bufnr)
-      -- breadcrumbs in lualine
-      if client.server_capabilities.documentSymbolProvider then
-        local navic = require("nvim-navic")
-        navic.attach(client, bufnr)
-      end
-
-      require("metals").setup_dap()
-    end
-
-    metals_config.on_attach = on_attach
+    metals_config.on_attach = lsp_utils.on_attach(
+      require("nvim-navic"),
+      require("telescope.builtin"),
+      metals.setup_dap)
 
     -- Autocmd that will actually be in charging of starting the whole thing
     local nvim_metals_group = api.nvim_create_augroup("nvim-metals", { clear = true })
@@ -81,7 +64,7 @@ return {
       -- something like nvim-jdtls which also works on a java filetype autocmd.
       pattern = { "scala", "sbt", "java" },
       callback = function()
-        require("metals").initialize_or_attach(metals_config)
+        metals.initialize_or_attach(metals_config)
       end,
       group = nvim_metals_group,
     })
