@@ -1,6 +1,6 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  ft = { "yaml", "py" },
+  ft = { "yaml", "py", "groovy" },
   main = "ibl",
   config = function()
     vim.opt.list = true
