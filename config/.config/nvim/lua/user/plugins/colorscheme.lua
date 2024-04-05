@@ -8,7 +8,7 @@ return {
       vim.cmd("colorscheme sonokai")
       vim.cmd("hi Visual guibg=White")
       vim.cmd("hi Visual guifg=#2b2d3a")
-      vim.cmd("hi LspReferenceRead guibg=White") -- vim.lsp.buf.document_highlight
+      vim.cmd("hi LspReferenceRead guibg=White")   -- vim.lsp.buf.document_highlight
       vim.cmd("hi LspReferenceRead guifg=#2b2d3a") -- vim.lsp.buf.document_highlight
       vim.cmd("hi VirtualTextError guifg=Red")
     end
@@ -43,4 +43,23 @@ return {
     "AlexvZyl/nordic.nvim",
     lazy = true
   },
+  {
+    "cpea2506/one_monokai.nvim",
+    lazy = false
+  },
+  {
+    "catppuccin/nvim",
+    lazy = false,
+    config = function()
+      require("catppuccin").setup({
+        flavour = "macchiato", -- latte, frappe, macchiato, mocha
+      })
+      -- vim.cmd("colorscheme catppuccin-macchiato")
+      vim.cmd("hi Visual guibg=White")
+      vim.cmd("hi Visual guifg=#2b2d3a")
+      vim.cmd("hi LspReferenceRead guibg=White")   -- vim.lsp.buf.document_highlight
+      vim.cmd("hi LspReferenceRead guifg=#2b2d3a") -- vim.lsp.buf.document_highlight
+      vim.cmd("hi VirtualTextError guifg=Red")
+    end
+  }
 }
