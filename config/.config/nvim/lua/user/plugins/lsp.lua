@@ -106,9 +106,10 @@ return {
       -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
       require("neodev").setup({
         library = {
-          plugins = {
-            "nvim-dap-ui"
-          },
+          plugins = true
+          -- {
+          --   "nvim-dap-ui"
+          -- },
         },
       })
 
