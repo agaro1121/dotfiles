@@ -6,14 +6,12 @@ return {
     { "<leader>fg", "<cmd>lua require('telescope.builtin').git_files({show_untracked=true})<cr>" },
     { "<leader>fo", "<cmd>lua require('telescope.builtin').oldfiles({only_cwd=true})<cr>" },
     { "<leader>lg", "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
+    { "<leader>lgs", "<cmd>lua require('telescope.builtin').grep_string()<cr>" },
     { "<leader>bs",
       "<cmd>lua require('telescope.builtin').buffers({show_all_buffers = false, sort_mru=true, ignore_current_buffer=false})<cr>" },
     { "<leader>sp", "<cmd>lua require('telescope.builtin').spell_suggest()<cr>" },
     { "<leader>fb", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>" },
-    { "<leader>gs", "<cmd>lua require('telescope.builtin').grep_string()<cr>" },
     { "<leader>tq", require("telescope.builtin").quickfix },
-    { "<leader>fb",  ":Telescope file_browser<CR>" },
-    { "<leader>fbc", ":Telescope file_browser path=%:p:h select_buffer=true<CR>" }
   },
   dependencies = {
     "nvim-lua/plenary.nvim",

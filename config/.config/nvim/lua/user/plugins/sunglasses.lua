@@ -6,8 +6,9 @@ return {
       filter_percent = .65
     })
 
-    map("n", "<leader>SE", ":SunglassesEnable<CR>")
-    map("n", "<leader>SD", ":SunglassesDisable<CR>")
+    map("n", "<leader>se", ":SunglassesEnable<CR>")
+    map("n", "<leader>sd", ":SunglassesDisable<CR>")
+    map("n", "<leader>sg", ":SunglassesEnableToggle<CR>")
 
     vim.cmd("SunglassesDisable")
   end
