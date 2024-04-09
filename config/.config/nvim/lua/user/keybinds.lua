@@ -11,6 +11,10 @@ map({"n"}, "<Up>",    ":resize -2<CR>")
 map({"n"}, "<Down>",  ":resize +2<CR>")
 map({"n"}, "<Left>",  ":vertical resize +2<CR>")
 map({"n"}, "<Right>", ":vertical resize -2<CR>")
+map({"i"}, "<Up>",    "<Nop>")
+map({"i"}, "<Down>",  "<Nop>")
+map({"i"}, "<Left>",  "<Nop>")
+map({"i"}, "<Right>", "<Nop>")
 
 -- better experience
 map({"n", "v"}, "<Space>", "<Nop>")
