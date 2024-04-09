@@ -44,22 +44,44 @@ return {
             icon_hl = 'Title',
             desc = 'Find File           ',
             desc_hl = 'String',
-            key = 'b',
-            keymap = 'SPC f f',
+            key = 'f',
+            keymap = '',
             key_hl = 'Number',
             key_format = ' %s', -- remove default surrounding `[]`
-            action = ''
+            action = 'Telescope find_files'
           },
           {
             icon = ' ',
             icon_hl = 'Title',
-            desc = 'Toggle File explorer',
+            desc = 'Toggle File Explorer',
             desc_hl = 'String',
-            key = 'b',
-            keymap = 'SPC e',
+            key = 'e',
+            keymap = '',
             key_hl = 'Number',
             key_format = ' %s', -- remove default surrounding `[]`
-            action = ''
+            action = 'NvimTreeToggle'
+          },
+          {
+            icon = ' ',
+            icon_hl = 'Title',
+            desc = 'Oil',
+            desc_hl = 'String',
+            key = '-',
+            keymap = '',
+            key_hl = 'Number',
+            key_format = ' %s', -- remove default surrounding `[]`
+            action = 'Oil'
+          },
+          {
+            icon = ' ',
+            icon_hl = 'Title',
+            desc = 'MiniFiles',
+            desc_hl = 'String',
+            key = '<leader>-',
+            keymap = '',
+            key_hl = 'Number',
+            key_format = ' %s', -- remove default surrounding `[]`
+            action = 'lua MiniFiles.open()'
           },
         },
         project = {
