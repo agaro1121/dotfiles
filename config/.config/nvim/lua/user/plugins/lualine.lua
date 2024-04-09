@@ -1,7 +1,7 @@
  -- NOTE: All git things cause perf issues when operating on many files ie 'diff' component
 return {
   "nvim-lualine/lualine.nvim",
-  event = { "BufReadPre", "BufNewFile" },
+  -- event = { "BufReadPre", "BufNewFile" }, -- this combined with dashboard.nvim causes lualine to not load on startup
   dependencies = { "nvim-tree/nvim-web-devicons", "SmiteshP/nvim-navic" },
   config = function()
     local navic = require("nvim-navic")
@@ -78,7 +78,7 @@ return {
         -- lualine_c = { "%f" }, -- same '%f' is the relative file path
       },
       inactive_winbar = { },
-      extensions = { "nvim-tree", "quickfix", "oil", "symbols-outline", "nvim-dap-ui", "lazy", "mason", "trouble" }
+      extensions = { "nvim-tree", "quickfix", "oil", "symbols-outline", "nvim-dap-ui", "lazy", "mason", "trouble", "toggleterm", "fzf" }
     }
   end,
 }
