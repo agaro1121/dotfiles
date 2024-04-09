@@ -131,6 +131,9 @@ export NVM_DIR="$HOME/.nvm"
 # Coursier
 PATH="$PATH:/Users/$USER/Library/Application Support/Coursier/bin"
 
+# go installs
+export PATH="/$HOME/go/bin:$PATH"
+
 # Alias
 alias getIteratorLatestFor='aws kinesis get-shard-iterator --shard-id shardId-000000000000 --shard-iterator-type LATEST --stream-name'
 alias getIteratorLatestForLocal='USE_SSL=true awslocal kinesis get-shard-iterator --shard-id shardId-000000000000 --shard-iterator-type LATEST --stream-name'
