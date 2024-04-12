@@ -28,69 +28,20 @@ local headerLocal = {
 }
 
 return {
-  'nvimdev/dashboard-nvim',
-  dependencies = { { 'nvim-tree/nvim-web-devicons' } },
-  event = 'VimEnter',
+  'goolord/alpha-nvim',
   config = function()
-    require('dashboard').setup {
-      theme = 'doom',
-      config = {
-        header = headerLocal,
-        footer = {},
-        packages = { enable = true },
-        center = {
-          {
-            icon = ' ',
-            icon_hl = 'Title',
-            desc = 'Find File           ',
-            desc_hl = 'String',
-            key = 'f',
-            keymap = '',
-            key_hl = 'Number',
-            key_format = ' %s', -- remove default surrounding `[]`
-            action = 'Telescope find_files'
-          },
-          {
-            icon = ' ',
-            icon_hl = 'Title',
-            desc = 'Toggle File Explorer',
-            desc_hl = 'String',
-            key = 'e',
-            keymap = '',
-            key_hl = 'Number',
-            key_format = ' %s', -- remove default surrounding `[]`
-            action = 'NvimTreeToggle'
-          },
-          {
-            icon = ' ',
-            icon_hl = 'Title',
-            desc = 'Oil',
-            desc_hl = 'String',
-            key = '-',
-            keymap = '',
-            key_hl = 'Number',
-            key_format = ' %s', -- remove default surrounding `[]`
-            action = 'Oil'
-          },
-          {
-            icon = ' ',
-            icon_hl = 'Title',
-            desc = 'MiniFiles',
-            desc_hl = 'String',
-            key = '<leader>-',
-            keymap = '',
-            key_hl = 'Number',
-            key_format = ' %s', -- remove default surrounding `[]`
-            action = 'lua MiniFiles.open()'
-          },
-        },
-        project = {
-          enable = true,
-        },
-        mru = {
-          limit = 3,
-        },
-      }
+    local alpha = require("alpha")
+    local dashboard = require("alpha.themes.dashboard")
+    dashboard.section.header.val = headerLocal
+    dashboard.section.buttons.val = {
+      dashboard.button("f", "  > Find file", ":Telescope find_files<CR>"),
+      dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
+      dashboard.button("t", "  > File Tree", ":NvimTreeToggle<CR>"),
+      dashboard.button("o", "  > Oil", ":Oil<CR>"),
+      dashboard.button("m", "  > Mini Files", ":lua MiniFiles.open()<CR>"),
+      dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
     }
+    alpha.setup(dashboard.opts)
   end
 }
+
