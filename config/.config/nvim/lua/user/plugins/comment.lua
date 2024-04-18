@@ -7,5 +7,6 @@ return {
         local ft = require("Comment.ft")
         ft.sbt = {"//%s", "/*%s*/"}
         ft.smithy = {"//%s", "/*%s*/"}
+        ft.tf = {"#%s", "/*%s*/"}
     end
 }
