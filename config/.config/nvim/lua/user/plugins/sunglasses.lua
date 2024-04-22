@@ -1,3 +1,4 @@
+-- NOTE: cannot be lazy-loaded for some reason
 return {
   "miversen33/sunglasses.nvim",
   config = function()
