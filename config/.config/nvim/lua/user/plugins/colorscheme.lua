@@ -31,11 +31,6 @@ return {
     lazy = true
   },
   {
-    "catppuccin/nvim",
-    lazy = true,
-    name = "catppuccin",
-  },
-  {
     "Mofiqul/vscode.nvim",
     lazy = true
   },
@@ -49,7 +44,7 @@ return {
   },
   {
     "catppuccin/nvim",
-    lazy = false,
+    lazy = true,
     config = function()
       require("catppuccin").setup({
         flavour = "macchiato", -- latte, frappe, macchiato, mocha
@@ -61,5 +56,9 @@ return {
       vim.cmd("hi LspReferenceRead guifg=#2b2d3a") -- vim.lsp.buf.document_highlight
       vim.cmd("hi VirtualTextError guifg=Red")
     end
+  },
+  {
+    "Yazeed1s/minimal.nvim",
+    lazy = true
   }
 }
