@@ -13,6 +13,7 @@ return {
       },
       auto_preview = false,
     })
-    map("n", "<leader>tr", require("trouble").toggle)
+    map("n", "<leader>tr", [[<cmd> Trouble diagnostics toggle filter.buf=0<CR>]]) -- current buffer only
+    map("n", "<leader>tR", [[<cmd> Trouble diagnostics toggle<CR>]]) -- current buffer only
   end
 }
