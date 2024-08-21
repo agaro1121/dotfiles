@@ -54,23 +54,61 @@ return {
       })
 
       -------------------------------------- KEYBINDS --------------------------------------
-      map("n", "gD",         require("telescope.builtin").lsp_definitions)
-      map("n", "gV",         ":vsplit | lua vim.lsp.buf.definition()<CR>")
-      map("n", "gH",         ":split | lua vim.lsp.buf.definition()<CR>")
-      map("n", "gt",         require("telescope.builtin").lsp_type_definitions)
-      map("n", "gi",         require("telescope.builtin").lsp_implementations)
-      map("n", "gic",        vim.lsp.buf.incoming_calls, {desc = "who calls this symbol?"})
-      map("n", "goc",        vim.lsp.buf.outgoing_calls, {desc = "What does this symbol call?"})
-      map("n", "gr",         require("telescope.builtin").lsp_references)
-      map("n", "gds",        require("telescope.builtin").lsp_document_symbols)
-      map("n", "gwds",       require("telescope.builtin").lsp_dynamic_workspace_symbols)
-      map("n", "<leader>wa", require("telescope.builtin").diagnostics)                                  -- workspace diagnostics
-      map("n", "<leader>we", function() require("telescope.builtin").diagnostics({severity = "E"}) end) -- workspace errors
-      map("n", "<leader>ww", function() require("telescope.builtin").diagnostics({severity = "W"}) end) -- workspace errors
-
-      map("n", "<leader>ba",  function() require("telescope.builtin").diagnostics({bufnr=0}) end)                   -- buffer diagnostics
-      map("n", "<leader>be",  function() require("telescope.builtin").diagnostics({bufnr=0, severity = "E"}) end)   -- buffer errors
-      map("n", "<leader>bw",  function() require("telescope.builtin").diagnostics({bufnr=0, severity = "W"}) end)   -- buffer warnings
+      map("n", "gD", require("telescope.builtin").lsp_definitions)
+      local keymaps = {
+        { "gD",         require("telescope.builtin").lsp_definitions,                                           description = "lsp definitions",          mode = "n" },
+        { "gV",         ":vsplit | lua vim.lsp.buf.definition()<CR>",                                           mode = "n" },
+        { "gV",         ":vsplit | lua vim.lsp.buf.definition()<CR>",                                           mode = "n" },
+        { "gH",         ":split | lua vim.lsp.buf.definition()<CR>",                                            mode = "n" },
+        { "gt",         require("telescope.builtin").lsp_type_definitions,                                      mode = "n" },
+        { "gi",         require("telescope.builtin").lsp_implementations,                                       mode = "n" },
+        { "gic",        vim.lsp.buf.incoming_calls,                                                             { desc = "who calls this symbol?" },      mode = "n" },
+        { "goc",        vim.lsp.buf.outgoing_calls,                                                             { desc = "What does this symbol call?" }, mode = "n" },
+        { "gr",         require("telescope.builtin").lsp_references,                                            mode = "n" },
+        { "gds",        require("telescope.builtin").lsp_document_symbols,                                      mode = "n" },
+        { "gwds",       require("telescope.builtin").lsp_dynamic_workspace_symbols,                             mode = "n" },
+        { "<leader>wa", require("telescope.builtin").diagnostics,                                               mode = "n" }, -- workspace diagnostics
+        { "<leader>we", function() require("telescope.builtin").diagnostics({ severity = "E" }) end,            mode = "n" }, -- workspace errors
+        { "<leader>ww", function() require("telescope.builtin").diagnostics({ severity = "W" }) end,            mode = "n" }, -- workspace errors
+        { "<leader>ba", function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end,                 mode = "n" }, -- buffer diagnostics
+        { "<leader>be", function() require("telescope.builtin").diagnostics({ bufnr = 0, severity = "E" }) end, mode = "n" }, -- buffer errors
+        { "<leader>bw", function() require("telescope.builtin").diagnostics({ bufnr = 0, severity = "W" }) end, mode = "n" }, -- buffer warnings
+        {
+          "gws",
+          function()
+            vim.ui.input({ prompt = "Workspace symbols: " }, function(query)
+              require("telescope.builtin").lsp_workspace_symbols({ query = query })
+            end)
+          end,
+          mode = "n"
+        },
+        { "[d",         function() vim.diagnostic.goto_prev { wrap = false } end,                               mode = "n" },
+        { "]d",         function() vim.diagnostic.goto_next { wrap = false } end,                               mode = "n" },
+        { "K",          vim.lsp.buf.hover,                                                                      mode = "n" },
+        { "<leader>cl", vim.lsp.codelens.run,                                                                   mode = "n" },
+        { "<leader>sh", vim.lsp.buf.signature_help,                                                             mode = "n" },
+        { "<leader>rn", vim.lsp.buf.rename,                                                                     mode = "n" },
+        { "<leader>f",  function() vim.lsp.buf.format { async = true } end,                                     mode = "n" },
+        { "<leader>H",  vim.lsp.buf.document_highlight,                                                         description = "Highlights the current symbol in the entire buffer", mode = "n" },
+        { "<leader>nH", vim.lsp.buf.clear_references,                                                           description = "Clear symbol highlights",                            mode = "n" },
+        { "<leader>ca", vim.lsp.buf.code_action,                                                                mode = { "n", "v" } },
+        { "gV",         ":vsplit | lua vim.lsp.buf.definition()<CR>",                                           mode = "n" },
+        { "gH",         ":split | lua vim.lsp.buf.definition()<CR>",                                            mode = "n" },
+        { "gt",         require("telescope.builtin").lsp_type_definitions,                                      mode = "n" },
+        { "gi",         require("telescope.builtin").lsp_implementations,                                       mode = "n" },
+        { "gic",        vim.lsp.buf.incoming_calls,                                                             description = "who calls this symbol?",                             mode = "n" },
+        { "goc",        vim.lsp.buf.outgoing_calls,                                                             description = "What does this symbol call?",                        mode = "n" },
+        { "gr",         require("telescope.builtin").lsp_references,                                            mode = "n" },
+        { "gds",        require("telescope.builtin").lsp_document_symbols,                                      mode = "n" },
+        { "gwds",       require("telescope.builtin").lsp_dynamic_workspace_symbols,                             mode = "n" },
+        { "<leader>wa", require("telescope.builtin").diagnostics,                                               mode = "n" }, -- workspace diagnostics
+        { "<leader>we", function() require("telescope.builtin").diagnostics({ severity = "E" }) end,            mode = "n" }, -- workspace errors
+        { "<leader>ww", function() require("telescope.builtin").diagnostics({ severity = "W" }) end,            mode = "n" }, -- workspace errors
+        { "<leader>ba", function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end,                 mode = "n" }, -- buffer diagnostics
+        { "<leader>be", function() require("telescope.builtin").diagnostics({ bufnr = 0, severity = "E" }) end, mode = "n" }, -- buffer errors
+        { "<leader>bw", function() require("telescope.builtin").diagnostics({ bufnr = 0, severity = "W" }) end, mode = "n" }  -- buffer warnings
+      }
+      require("legendary").keymaps(keymaps)
 
       map("n", "gws", function()
         vim.ui.input({ prompt = "Workspace symbols: " }, function(query)
@@ -89,18 +127,19 @@ return {
 
       -- map("n", "<leader>d", vim.diagnostic.setqflist) -- all diagnostics
       -- map("n", "<leader>d", vim.diagnostic.setloclist) -- buffer diagnostics only
-      map("n", "[d",        function() vim.diagnostic.goto_prev { wrap = false } end)
-      map("n", "]d",        function() vim.diagnostic.goto_next { wrap = false } end)
-      map("n", "K",         vim.lsp.buf.hover)
+      map("n", "[d", function() vim.diagnostic.goto_prev { wrap = false } end)
+      map("n", "]d", function() vim.diagnostic.goto_next { wrap = false } end)
+      map("n", "K", vim.lsp.buf.hover)
 
       map("n", "<leader>cl", vim.lsp.codelens.run)
       map("n", "<leader>sh", vim.lsp.buf.signature_help)
       map("n", "<leader>rn", vim.lsp.buf.rename)
-      map("n", "<leader>f",  function() vim.lsp.buf.format{ async = true } end)
-      map("n", "<leader>H",  vim.lsp.buf.document_highlight, {desc = "Highlights the current symbol in the entire buffer"})
-      map("n", "<leader>nH", vim.lsp.buf.clear_references,   {desc = "Clear symbol highlights"})
+      map("n", "<leader>f", function() vim.lsp.buf.format { async = true } end)
+      map("n", "<leader>H", vim.lsp.buf.document_highlight,
+        { desc = "Highlights the current symbol in the entire buffer" })
+      map("n", "<leader>nH", vim.lsp.buf.clear_references, { desc = "Clear symbol highlights" })
 
-      map({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action)
+      map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
       -------------------------------------- KEYBINDS --------------------------------------
 
       -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
@@ -121,7 +160,7 @@ return {
       lspconfig.eslint.setup {}
       lspconfig.marksman.setup {}
       lspconfig.smithy_ls.setup {}
-      lspconfig.tsserver.setup{}
+      lspconfig.tsserver.setup {}
 
 
       lspconfig.pylsp.setup {

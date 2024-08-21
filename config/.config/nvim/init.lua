@@ -18,6 +18,7 @@ function map(mode, lhs, rhs, opts)
   end
   vim.keymap.set(mode, lhs, rhs, options)
 end
+-- TODO: add function to map a table
 
 require("user.options")
 require("user.keybinds")
