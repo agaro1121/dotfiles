@@ -6,8 +6,8 @@ return {
       -- your config goes here
       -- or just leave it empty :)
       integrations = {
-        lualine = false,
-        tmux = false
+        lualine = true,
+        tmux = true
       }
     }
   map("n", "<leader>zf", ":TZFocus<CR>", {desc = "zen.focus"})
