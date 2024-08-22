@@ -8,7 +8,7 @@ return {
     dapPython.test_runner = "pytest"
     map("n", "<leader>dm", function()
       require('dap-python').test_method({ config = { justMyCode = false } })
-    end)
+    end, {desc = "dap.python run test"})
 
     -- NONE OF THIS WORKS!
 

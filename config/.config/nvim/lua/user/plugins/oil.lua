@@ -9,6 +9,6 @@ return {
         show_hidden = true,
       },
     })
-    map("n", "-", ":Oil<CR>")
+    map("n", "-", ":Oil<CR>", {desc = "oil.toggle"})
   end
 }

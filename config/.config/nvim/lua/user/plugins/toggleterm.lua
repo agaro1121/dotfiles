@@ -13,8 +13,8 @@ return {
       },
     })
 
-    map("n", [[<C-\>]], ":ToggleTerm direction=float<CR>")
-    map("n", "<leader>sbt", ":TermExec cmd='sbt' direction=vertical size=80<CR>")
+    map("n", [[<C-\>]], ":ToggleTerm direction=float<CR>", {desc = "toggleterm.terminal"})
+    map("n", "<leader>sbt", ":TermExec cmd='sbt' direction=vertical size=80<CR>", {desc = "toggleterm.sbt terminal"})
 
     function _G.set_terminal_keymaps()
       local opts = { buffer = 0 }
@@ -42,6 +42,6 @@ return {
       lazygit:toggle()
     end
 
-    vim.api.nvim_set_keymap("n", "<leader>ll", "<cmd>lua _lazygit_toggle()<CR>", { noremap = true, silent = true })
+    map("n", "<leader>ll", "<cmd>lua _lazygit_toggle()<CR>", {desc = "toggleterm.lazygit"})
   end
 }

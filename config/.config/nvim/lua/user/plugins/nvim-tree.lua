@@ -256,7 +256,7 @@ return {
   },
   config = function()
     require("nvim-tree").setup(opts)
-    map("n","<leader>e", ":NvimTreeToggle<cr>", {desc = "NvimTree Toggele"})
-    map("n","<leader>s", ":NvimTreeFindFile<cr>", {desc = "Show file in nvim-tree"})
+    map("n","<leader>e", ":NvimTreeToggle<cr>", {desc = "nvimtree.Toggele"})
+    map("n","<leader>s", ":NvimTreeFindFile<cr>", {desc = "nvimtree.find file in tree"})
   end,
 }

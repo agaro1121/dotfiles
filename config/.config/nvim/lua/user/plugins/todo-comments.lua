@@ -21,6 +21,6 @@ return {
       },
     })
 
-    map("n", "<leader>tt", ":TodoTelescope<CR>")
+    map("n", "<leader>tt", ":TodoTelescope<CR>", {desc = "todo.show in telescope"})
   end
 }

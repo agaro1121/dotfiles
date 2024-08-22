@@ -10,6 +10,6 @@ return {
       }
     }
 
-    map("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle Outline" })
+    map("n", "<leader>o", "<cmd>Outline<CR>", { desc = "outline.Toggle" })
   end,
 }

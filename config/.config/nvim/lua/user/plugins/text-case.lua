@@ -8,7 +8,7 @@ return {
     require("textcase").setup({})
     require("telescope").load_extension("textcase")
 
-    map({ "n", "v" }, "ga.", ":TextCaseOpenTelescope<CR>")
+    map({ "n", "v" }, "ga.", ":TextCaseOpenTelescope<CR>", {desc = "textcase.open"})
   end
 }
 
