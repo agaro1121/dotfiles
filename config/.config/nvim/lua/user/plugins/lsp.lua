@@ -54,29 +54,29 @@ return {
       })
 
       -------------------------------------- KEYBINDS --------------------------------------
-      map("n", "gD",         require("telescope.builtin").lsp_definitions)
-      map("n", "gV",         ":vsplit | lua vim.lsp.buf.definition()<CR>")
-      map("n", "gH",         ":split | lua vim.lsp.buf.definition()<CR>")
-      map("n", "gt",         require("telescope.builtin").lsp_type_definitions)
-      map("n", "gi",         require("telescope.builtin").lsp_implementations)
-      map("n", "gic",        vim.lsp.buf.incoming_calls, {desc = "who calls this symbol?"})
-      map("n", "goc",        vim.lsp.buf.outgoing_calls, {desc = "What does this symbol call?"})
-      map("n", "gr",         require("telescope.builtin").lsp_references)
-      map("n", "gds",        require("telescope.builtin").lsp_document_symbols)
-      map("n", "gwds",       require("telescope.builtin").lsp_dynamic_workspace_symbols)
-      map("n", "<leader>wa", require("telescope.builtin").diagnostics)                                  -- workspace diagnostics
-      map("n", "<leader>we", function() require("telescope.builtin").diagnostics({severity = "E"}) end) -- workspace errors
-      map("n", "<leader>ww", function() require("telescope.builtin").diagnostics({severity = "W"}) end) -- workspace errors
+      map("n", "gD",         require("telescope.builtin").lsp_definitions, { desc = "lsp.definitions"})
+      map("n", "gV",         ":vsplit | lua vim.lsp.buf.definition()<CR>", { desc = "lsp.open defnition in vertical split" } )
+      map("n", "gH",         ":split | lua vim.lsp.buf.definition()<CR>", { desc = "lsp.open definition in horizontal split" })
+      map("n", "gt",         require("telescope.builtin").lsp_type_definitions, {desc = "lsp.tpye defintions"})
+      map("n", "gi",         require("telescope.builtin").lsp_implementations, {desc = "lsp.implementations"})
+      map("n", "gic",        vim.lsp.buf.incoming_calls, {desc = "lsp.upstream calls. who calls this symbol?"})
+      map("n", "goc",        vim.lsp.buf.outgoing_calls, {desc = "lsp.downstream calls. What does this symbol call?"})
+      map("n", "gr",         require("telescope.builtin").lsp_references, {desc = "lsp.references"})
+      map("n", "gds",        require("telescope.builtin").lsp_document_symbols, {desc = "lsp.document symbls"})
+      map("n", "gwds",       require("telescope.builtin").lsp_dynamic_workspace_symbols, {desc = "lsp.dynamic workspace symbols"})
+      map("n", "<leader>wa", require("telescope.builtin").diagnostics, {desc = "lsp.workspace diagnostics"})                                  -- workspace diagnostics
+      map("n", "<leader>we", function() require("telescope.builtin").diagnostics({severity = "E"}) end, {desc="lsp.woskspace error diagnostics"}) -- workspace errors
+      map("n", "<leader>ww", function() require("telescope.builtin").diagnostics({severity = "W"}) end, {desc="lsp.workspace warning diagnostics"}) -- workspace errors
 
-      map("n", "<leader>ba",  function() require("telescope.builtin").diagnostics({bufnr=0}) end)                   -- buffer diagnostics
-      map("n", "<leader>be",  function() require("telescope.builtin").diagnostics({bufnr=0, severity = "E"}) end)   -- buffer errors
-      map("n", "<leader>bw",  function() require("telescope.builtin").diagnostics({bufnr=0, severity = "W"}) end)   -- buffer warnings
+      map("n", "<leader>ba",  function() require("telescope.builtin").diagnostics({bufnr=0}) end, {desc = "lsp.buffer diagnostics"})                   -- buffer diagnostics
+      map("n", "<leader>be",  function() require("telescope.builtin").diagnostics({bufnr=0, severity = "E"}) end, {desc = "lsp.buffer error diagnostics"})   -- buffer errors
+      map("n", "<leader>bw",  function() require("telescope.builtin").diagnostics({bufnr=0, severity = "W"}) end, {desc = "lsp.buffer warning diagnostics"})   -- buffer warnings
 
       map("n", "gws", function()
         vim.ui.input({ prompt = "Workspace symbols: " }, function(query)
           require("telescope.builtin").lsp_workspace_symbols({ query = query })
         end)
-      end)
+      end, {desc = "lsp.workspace symbols"})
 
       -- map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<cr>")
       -- map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
@@ -89,18 +89,18 @@ return {
 
       -- map("n", "<leader>d", vim.diagnostic.setqflist) -- all diagnostics
       -- map("n", "<leader>d", vim.diagnostic.setloclist) -- buffer diagnostics only
-      map("n", "[d",        function() vim.diagnostic.goto_prev { wrap = false } end)
-      map("n", "]d",        function() vim.diagnostic.goto_next { wrap = false } end)
+      map("n", "[d",        function() vim.diagnostic.goto_prev { wrap = false } end, {desc = "lsp.previous error"})
+      map("n", "]d",        function() vim.diagnostic.goto_next { wrap = false } end, {desc = "lsp.next error"})
       map("n", "K",         vim.lsp.buf.hover)
 
-      map("n", "<leader>cl", vim.lsp.codelens.run)
-      map("n", "<leader>sh", vim.lsp.buf.signature_help)
-      map("n", "<leader>rn", vim.lsp.buf.rename)
-      map("n", "<leader>f",  function() vim.lsp.buf.format{ async = true } end)
-      map("n", "<leader>H",  vim.lsp.buf.document_highlight, {desc = "Highlights the current symbol in the entire buffer"})
-      map("n", "<leader>nH", vim.lsp.buf.clear_references,   {desc = "Clear symbol highlights"})
+      map("n", "<leader>cl", vim.lsp.codelens.run, {desc = "lsp.code lens"})
+      map("n", "<leader>sh", vim.lsp.buf.signature_help, {desc = "lsp.signature help"})
+      map("n", "<leader>rn", vim.lsp.buf.rename, {desc = "lsp.rename"})
+      map("n", "<leader>f",  function() vim.lsp.buf.format{ async = true } end, {desc = "format"})
+      map("n", "<leader>H",  vim.lsp.buf.document_highlight, {desc = "lsp.Highlights the current symbol in the entire buffer"})
+      map("n", "<leader>nH", vim.lsp.buf.clear_references,   {desc = "lsp.Clear symbol highlights"})
 
-      map({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action)
+      map({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, {desc = "lsp.code action"})
       -------------------------------------- KEYBINDS --------------------------------------
 
       -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
