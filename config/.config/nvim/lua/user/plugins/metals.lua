@@ -86,7 +86,7 @@ return {
       group = nvim_metals_group,
     })
 
-    map("n", "<leader>mc", require("telescope").extensions.metals.commands)
-    map("n", "<leader>ws", require("metals").hover_worksheet)
+    map("n", "<leader>mc", require("telescope").extensions.metals.commands, {desc = "metals.menu"})
+    map("n", "<leader>ws", require("metals").hover_worksheet, {desc = "metals.hover worksheet"})
   end,
 }

@@ -10,9 +10,9 @@ return {
     gpreview.setup(opts)
 
     local fns = gpreview.fns
-    vim.keymap.set("n", "<leader>md", fns.toggle)
-    vim.keymap.set("n", "<leader>mds", fns.single_file_toggle)
-    vim.keymap.set("n", "<leader>mdd", fns.details_tags_toggle)
+    map("n", "<leader>md", fns.toggle, {desc = "markdown.toggle preview"})
+    map("n", "<leader>mds", fns.single_file_toggle, {desc = "markdown.toggle single file"})
+    map("n", "<leader>mdd", fns.details_tags_toggle, {desc = "markdown.toggle details tags"})
   end,
 }
 -- NOTE: requires Bun

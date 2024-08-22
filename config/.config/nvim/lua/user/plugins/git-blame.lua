@@ -4,7 +4,7 @@ return {
     vim.g.gitblame_display_virtual_text = 0 -- hides virtual text. Moved it to lualine.
     vim.g.gitblame_message_when_not_committed = 'GitBlame: Not Committed Yet'
     vim.g.gitblame_enabled = 0              -- disable on start. Huge perf hit when operating on many files at once.
-    vim.keymap.set("n", "<leader>bl", ":GitBlameToggle<CR>")
+    map("n", "<leader>bl", ":GitBlameToggle<CR>", {desc = "git.toggle blame"})
     vim.cmd([[:GitBlameDisable]])
   end
 }
