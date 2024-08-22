@@ -7,6 +7,6 @@ return {
     {"nvim-lua/plenary.nvim"},
   },
   config = function ()
-    map({"n", "v"}, "<leader>?", ":Cheatsheet<CR>")
+    map({"n", "v"}, "<leader>?", ":Cheatsheet<CR>", {desc = "cheatsheet"})
   end
 }

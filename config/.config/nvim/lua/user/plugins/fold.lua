@@ -60,11 +60,11 @@ return {
         fold_virt_text_handler = handler
       })
 
-      map("n", "zO", ufo.openAllFolds)
-      map("n", "zC", ufo.closeAllFolds)
-      map("n", "zh", ufo.peekFoldedLinesUnderCursor)
-      map("n", "zn", require("ufo.action").goNextClosedFold)
-      map("n", "zp", require("ufo.action").goPreviousClosedFold)
+      map("n", "zO", ufo.openAllFolds, { desc = "ufo.open all folds"})
+      map("n", "zC", ufo.closeAllFolds, { desc = "ufo.close all folds"})
+      map("n", "zh", ufo.peekFoldedLinesUnderCursor, { desc = "ufo.peak folded line"})
+      map("n", "zn", require("ufo.action").goNextClosedFold, { desc = "ufo.go to next closed fold"})
+      map("n", "zp", require("ufo.action").goPreviousClosedFold, { desc = "ufo.go to previous closed fold"})
       --
     end,
   },
