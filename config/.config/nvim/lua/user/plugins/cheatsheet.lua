@@ -1,12 +1,11 @@
 return {
   "sudormrfbin/cheatsheet.nvim",
-  lazy = true,
+  keys = {
+   {"<leader>?", [[:Cheatsheet<CR>]], desc = "cheatsheet"}
+  },
   dependencies = {
     {"nvim-telescope/telescope.nvim"},
     {"nvim-lua/popup.nvim"},
     {"nvim-lua/plenary.nvim"},
   },
-  config = function ()
-    map({"n", "v"}, "<leader>?", ":Cheatsheet<CR>", {desc = "cheatsheet"})
-  end
 }
