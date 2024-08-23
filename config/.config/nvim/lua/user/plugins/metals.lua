@@ -1,6 +1,11 @@
 return {
   "scalameta/nvim-metals",
-  dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap", "SmiteshP/nvim-navic" },
+  dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap", "SmiteshP/nvim-navic",
+    {
+      "j-hui/fidget.nvim",
+      opts = {},
+    }
+  },
   config = function()
     vim.opt_global.shortmess:remove("F") --	don't give the file info when editing a file
     vim.opt_global.shortmess:append("c") --	don't give |ins-completion-menu| messages; for		*shm-c*
@@ -21,7 +26,7 @@ return {
     -- you *have* to have a setting to display this in your statusline or else
     -- you'll not see any messages from metals. There is more info in the help
     -- docs about this
-    metals_config.init_options.statusBarProvider = "on"
+    metals_config.init_options.statusBarProvider = "off"
 
     -- code completion
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -86,7 +91,7 @@ return {
       group = nvim_metals_group,
     })
 
-    map("n", "<leader>mc", require("telescope").extensions.metals.commands, {desc = "metals.menu"})
-    map("n", "<leader>ws", require("metals").hover_worksheet, {desc = "metals.hover worksheet"})
+    map("n", "<leader>mc", require("telescope").extensions.metals.commands, { desc = "metals.menu" })
+    map("n", "<leader>ws", require("metals").hover_worksheet, { desc = "metals.hover worksheet" })
   end,
 }

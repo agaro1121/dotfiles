@@ -56,7 +56,7 @@ return {
         lualine_b = {
           { "diagnostics", sources = { "nvim_lsp" } }
         },
-        lualine_c = { "g:metals_status" },
+        lualine_c = {},
         lualine_x = {},
         lualine_y = {},
         lualine_z = { "location", "progress", "%LL", "encoding", "filetype" }
