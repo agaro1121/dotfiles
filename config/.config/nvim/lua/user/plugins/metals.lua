@@ -19,6 +19,7 @@ return {
       showInferredType = true,
       superMethodLensesEnabled = true,
       showImplicitConversionsAndClasses = true,
+      -- testUserInterface = "Test Explorer",
     }
 
     -- *READ THIS*
@@ -64,6 +65,10 @@ return {
         },
       },
     }
+    -- automatically open repl when running test. Using dap-ui instead for now
+    -- dap.listeners.after.event_terminated["nvim-metals"] = function()
+    --   dap.repl.open()
+    -- end
 
     local on_attach = function(client, bufnr)
       -- breadcrumbs in lualine
@@ -93,5 +98,7 @@ return {
 
     map("n", "<leader>mc", require("telescope").extensions.metals.commands, { desc = "metals.menu" })
     map("n", "<leader>ws", require("metals").hover_worksheet, { desc = "metals.hover worksheet" })
+    map("n", "gsh", require("metals").super_method_hierarchy, { desc = "metals.super method heierarchy" })
+    map("n", "gsm", require("metals").goto_super_method, { desc = "metals.go to super method" })
   end,
 }
