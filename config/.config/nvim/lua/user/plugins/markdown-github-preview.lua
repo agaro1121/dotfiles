@@ -1,10 +1,5 @@
 return {
   "wallpants/github-preview.nvim",
-  cmd = { "GithubPreviewToggle" },
-  keys = { "<leader>md" },
-  opts = {
-    -- config goes here
-  },
   config = function(_, opts)
     local gpreview = require("github-preview")
     gpreview.setup(opts)
