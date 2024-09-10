@@ -121,7 +121,7 @@ return {
       lspconfig.eslint.setup {}
       lspconfig.marksman.setup {}
       lspconfig.smithy_ls.setup {}
-      lspconfig.tsserver.setup{}
+      lspconfig.ts_ls.setup{}
 
 
       lspconfig.pylsp.setup {
