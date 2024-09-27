@@ -20,8 +20,8 @@ return {
       end,
     })
 
-    map("n", [[<C-\>]], ":ToggleTerm direction=float<CR>", { desc = "toggleterm.terminal" })
-    map("n", "<leader>t", ":ToggleTerm direction=vertical<CR>", { desc = "toggleterm.terminal" })
+    map("n", [[<C-\>]], ":ToggleTerm direction=float<CR>", { desc = "toggleterm.terminal float" })
+    map("n", "<leader>t", ":ToggleTerm direction=vertical<CR>", { desc = "toggleterm.terminal vertical" })
     map("n", "<leader>sbt", ":TermExec cmd='sbt' direction=vertical<CR>", { desc = "toggleterm.sbt terminal" })
 
     function _G.set_terminal_keymaps()
