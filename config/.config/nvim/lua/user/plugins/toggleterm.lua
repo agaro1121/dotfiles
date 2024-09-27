@@ -11,10 +11,18 @@ return {
         buflisted        = false, -- whether to set 'buflisted' option
         fallback_on_exit = true,  -- prevent auto-closing window on terminal exit
       },
+      size = function(term)
+        if term.direction == "horizontal" then
+          return 15
+        elseif term.direction == "vertical" then
+          return vim.o.columns * 0.5
+        end
+      end,
     })
 
-    map("n", [[<C-\>]], ":ToggleTerm direction=float<CR>", {desc = "toggleterm.terminal"})
-    map("n", "<leader>sbt", ":TermExec cmd='sbt' direction=vertical size=80<CR>", {desc = "toggleterm.sbt terminal"})
+    map("n", [[<C-\>]], ":ToggleTerm direction=float<CR>", { desc = "toggleterm.terminal" })
+    map("n", "<leader>t", ":ToggleTerm direction=vertical<CR>", { desc = "toggleterm.terminal" })
+    map("n", "<leader>sbt", ":TermExec cmd='sbt' direction=vertical<CR>", { desc = "toggleterm.sbt terminal" })
 
     function _G.set_terminal_keymaps()
       local opts = { buffer = 0 }
@@ -42,6 +50,6 @@ return {
       lazygit:toggle()
     end
 
-    map("n", "<leader>ll", "<cmd>lua _lazygit_toggle()<CR>", {desc = "toggleterm.lazygit"})
+    map("n", "<leader>ll", "<cmd>lua _lazygit_toggle()<CR>", { desc = "toggleterm.lazygit" })
   end
 }
