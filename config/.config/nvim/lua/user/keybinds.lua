@@ -3,8 +3,8 @@ map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-l>", "<C-w>l")
-map("n", "<leader>th", "<C-w>t<C-w>H", {desc="Switches horizontal panes to vertial panes"})
-map("n", "<leader>tk", "<C-w>t<C-w>K", {desc="Switches vertical panes to horizontal panes"})
+map("n", "<leader>pv", "<C-w>t<C-w>H", {desc="Switches horizontal panes to vertcial panes"})
+map("n", "<leader>ph", "<C-w>t<C-w>K", {desc="Switches vertical panes to horizontal panes"})
 
 -- window sizing
 map({"n"}, "<Up>",    ":resize -2<CR>")
