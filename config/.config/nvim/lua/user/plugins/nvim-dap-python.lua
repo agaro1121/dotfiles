@@ -1,5 +1,6 @@
 return {
   "mfussenegger/nvim-dap-python",
+  lazy = true,
   dependencies = { "mfussenegger/nvim-dap" },
   config = function()
     local dapPython = require("dap-python")
