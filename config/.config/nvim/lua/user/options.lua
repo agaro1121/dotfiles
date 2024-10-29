@@ -23,7 +23,7 @@ set.breakindent = true            -- Every wrapped line will continue visually i
 -- case-insensitive search
 set.ignorecase = true
 set.smartcase = true
-set.signcolumn='yes'
+set.signcolumn='auto'
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 -- Taken from: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
