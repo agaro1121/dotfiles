@@ -1,6 +1,5 @@
 return {
   "wallpants/github-preview.nvim",
-  enabled = true,
   config = function(_, opts)
     local gpreview = require("github-preview")
     gpreview.setup(opts)
