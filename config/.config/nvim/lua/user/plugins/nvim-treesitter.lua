@@ -4,7 +4,7 @@ return {
   dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
   config = function()
     require("nvim-treesitter.configs").setup({
-      ensure_installed = {"lua"},
+      ensure_installed = { "lua" },
       -- Install parsers synchronously (only applied to `ensure_installed`)
       sync_install = false,
       auto_install = true,
@@ -16,7 +16,7 @@ return {
         -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
         -- the name of the parser)
         -- list of language that will be disabled
-        disable = { },
+        disable = {},
         -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
         -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
         -- Using this option may slow down your editor, and you may see some duplicate highlights.
@@ -37,19 +37,19 @@ return {
           enable = true,
           set_jumps = true, -- whether to set jumps in the jumplist
           goto_next_start = {
-            ["]F"] = "@function.inner",
+            ["]f"] = "@function.inner",
             ["]c"] = "@class.inner",
           },
           goto_next_end = {
-            ["]f"] = "@function.outer",
+            ["]F"] = "@function.outer",
             ["]C"] = "@class.outer",
           },
           goto_previous_start = {
             ["[f"] = "@function.inner",
-            ["[["] = "@class.inner",
+            ["[c"] = "@class.inner",
           },
           goto_previous_end = {
-            ["[f"] = "@function.outer",
+            ["[F"] = "@function.outer",
             ["[C"] = "@class.outer",
           },
         },
@@ -71,7 +71,7 @@ return {
             ["if"] = "@function.inner",
             ["iP"] = "@parameter.inner",
             ["aP"] = "@parameter.outer",
-            ["aC"] = "@comment.outer",
+            -- ["aC"] = "@comment.outer",
             ["ac"] = "@class.outer",
             -- You can optionally set descriptions to the mappings (used in the desc parameter of
             -- nvim_buf_set_keymap) which plugins like which-key display
