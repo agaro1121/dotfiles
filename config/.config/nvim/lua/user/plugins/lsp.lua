@@ -54,7 +54,7 @@ return {
       })
 
       -------------------------------------- KEYBINDS --------------------------------------
-      map("n", "gD",         require("telescope.builtin").lsp_definitions, { desc = "lsp.definitions"})
+      -- map("n", "gD",         require("telescope.builtin").lsp_definitions, { desc = "lsp.definitions"}) -- NOTE: inconsistent
       map("n", "gV",         ":vsplit | lua vim.lsp.buf.definition()<CR>", { desc = "lsp.open defnition in vertical split" } )
       map("n", "gH",         ":split | lua vim.lsp.buf.definition()<CR>", { desc = "lsp.open definition in horizontal split" })
       map("n", "gt",         require("telescope.builtin").lsp_type_definitions, {desc = "lsp.tpye defintions"})
@@ -78,7 +78,7 @@ return {
         end)
       end, {desc = "lsp.workspace symbols"})
 
-      -- map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<cr>")
+      map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "lsp.definitions"})
       -- map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
       -- map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
       -- map("n", "gds", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
@@ -87,7 +87,6 @@ return {
       -- map("n", "<leader>ae", [[<cmd>lua vim.diagnostic.setqflist({severity = "E"})<CR>]]) -- all workspace errors
       -- map("n", "<leader>aw", [[<cmd>lua vim.diagnostic.setqflist({severity = "W"})<CR>]]) -- all workspace warnings
 
-      -- map("n", "<leader>d", vim.diagnostic.setqflist) -- all diagnostics
       -- map("n", "<leader>d", vim.diagnostic.setloclist) -- buffer diagnostics only
       map("n", "[d",        function() vim.diagnostic.goto_prev { wrap = false } end, {desc = "lsp.previous error"})
       map("n", "]d",        function() vim.diagnostic.goto_next { wrap = false } end, {desc = "lsp.next error"})
