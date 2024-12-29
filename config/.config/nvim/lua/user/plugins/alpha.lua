@@ -35,7 +35,6 @@ return {
     dashboard.section.header.val = headerLocal
     dashboard.section.buttons.val = {
       dashboard.button("f", "  > Find file", ":Telescope find_files<CR>"),
-      dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
       dashboard.button("t", "  > File Tree", ":NvimTreeToggle<CR>"),
       dashboard.button("o", "  > Oil", ":Oil<CR>"),
       dashboard.button("m", "  > Mini Files", ":lua MiniFiles.open()<CR>"),
