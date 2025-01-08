@@ -121,6 +121,8 @@ return {
       lspconfig.marksman.setup {}
       lspconfig.smithy_ls.setup {}
       lspconfig.ts_ls.setup{}
+      lspconfig.html.setup{} -- npm i -g vscode-langservers-extracted
+      lspconfig.cssls.setup{} -- npm i -g vscode-langservers-extracted
 
 
       lspconfig.pylsp.setup {
