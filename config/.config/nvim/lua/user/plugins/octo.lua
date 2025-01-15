@@ -7,7 +7,8 @@ return {
   },
   config = function()
     require("octo").setup({
-      use_local_fs = true
+      use_local_fs = true,
+      default_to_projects_v2 = false
     })
     vim.cmd("hi link @text.diff.add DiffAdd") -- used for octo
     vim.cmd("hi link @text.diff.delete DiffDelete") -- used for octo
