@@ -52,10 +52,5 @@ return {
       MiniFiles.open(vim.api.nvim_buf_get_name(0))
       MiniFiles.reveal_cwd()
     end, {desc = "mini.files"})
-
-    map("n", "<leader>e", function()
-      MiniFiles.open(vim.api.nvim_buf_get_name(0))
-      MiniFiles.reveal_cwd()
-    end, {desc = "mini.files"})
   end
 }
