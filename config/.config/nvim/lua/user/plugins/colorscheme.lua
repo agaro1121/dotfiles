@@ -60,5 +60,9 @@ return {
   {
     "Yazeed1s/minimal.nvim",
     lazy = true
+  },
+  {
+    "neko-night/nvim",
+    lazy = true,
   }
 }
