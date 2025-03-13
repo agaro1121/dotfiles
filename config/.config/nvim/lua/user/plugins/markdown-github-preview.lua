@@ -12,4 +12,4 @@ return {
 }
 -- NOTE: requires Bun
 -- brew tap oven-sh/bun
--- brew install bun
+-- brew install bun@1.2.2 # working version for now
