@@ -1,4 +1,3 @@
-import = ["$HOME/.config/alacritty/alacritty.yml", "$HOME/.alacritty-colorscheme/themes/palenight.yml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -95,3 +94,6 @@ yellow = "0xffcb6b"
 [window.padding]
 x = 6
 y = 6
+
+[general]
+import = ["$HOME/.config/alacritty/alacritty.yml", "$HOME/.alacritty-colorscheme/themes/palenight.yml"]
