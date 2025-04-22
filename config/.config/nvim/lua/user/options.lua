@@ -1,7 +1,9 @@
 local set = vim.opt
+local g = vim.g
 ---------------- vim options  ----------------
 set.relativenumber = true         -- shows relative line numbers
 set.number = true                 -- shows line numbers. Shows actual line number instead of '0' when combined with relativenumber.
+set.numberwidth = 2               -- number width in sign column
 set.showmatch=true                -- show matching
 set.tabstop=2                     -- number of columns occupied by a tab
 set.shiftwidth=2                  -- indentation used by autoindent
@@ -24,6 +26,9 @@ set.breakindent = true            -- Every wrapped line will continue visually i
 set.ignorecase = true
 set.smartcase = true
 set.signcolumn='auto'
+set.timeoutlen = 400              -- Time in milliseconds to wait for a mapped sequence to complete.
+set.ruler=false                   -- Disable default ruler
+set.scrolloff=4                   -- How many lines before/after cursor when scrolling off the page
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 -- Taken from: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
@@ -35,3 +40,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+
+-- disable some default providers
+g.loaded_node_provider = 0
+g.loaded_python3_provider = 0
+g.loaded_perl_provider = 0
+g.loaded_ruby_provider = 0
