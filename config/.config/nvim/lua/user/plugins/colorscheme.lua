@@ -5,12 +5,12 @@ return {
     priority = 1000,
     config = function()
       vim.g.sonokai_style = 'andromeda' -- andromeda, atlantis
-      vim.cmd("colorscheme sonokai")
       vim.cmd("hi Visual guibg=White")
       vim.cmd("hi Visual guifg=#2b2d3a")
       vim.cmd("hi LspReferenceRead guibg=White")   -- vim.lsp.buf.document_highlight
       vim.cmd("hi LspReferenceRead guifg=#2b2d3a") -- vim.lsp.buf.document_highlight
       vim.cmd("hi VirtualTextError guifg=Red")
+      -- vim.cmd("colorscheme sonokai")
     end
   },
   {
@@ -44,17 +44,18 @@ return {
   },
   {
     "catppuccin/nvim",
-    lazy = true,
+    name = "catppuccin", -- doesn't work without this
+    lazy = false,
     config = function()
       require("catppuccin").setup({
         flavour = "macchiato", -- latte, frappe, macchiato, mocha
       })
-      -- vim.cmd("colorscheme catppuccin-macchiato")
       vim.cmd("hi Visual guibg=White")
       vim.cmd("hi Visual guifg=#2b2d3a")
       vim.cmd("hi LspReferenceRead guibg=White")   -- vim.lsp.buf.document_highlight
       vim.cmd("hi LspReferenceRead guifg=#2b2d3a") -- vim.lsp.buf.document_highlight
       vim.cmd("hi VirtualTextError guifg=Red")
+      vim.cmd("colorscheme catppuccin-macchiato")
     end
   },
   {
@@ -64,5 +65,12 @@ return {
   {
     "neko-night/nvim",
     lazy = true,
+    config = function ()
+      require("nekonight").setup{
+        style = "moon"
+      }
+    end
+    -- moon
+    -- space - similar as moon but more vibrant
   }
 }
