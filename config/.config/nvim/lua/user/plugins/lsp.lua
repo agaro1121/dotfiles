@@ -1,6 +1,7 @@
 return {
   {
-    "williamboman/mason-lspconfig.nvim",
+   "williamboman/mason-lspconfig.nvim",
+    version = "1.32.0",
     dependencies = {
       { "williamboman/mason.nvim", build = ":MasonUpdate" },
       "SmiteshP/nvim-navic",   -- lua line
@@ -10,7 +11,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
+      -- "hrsh7th/cmp-nvim-lsp",
       "folke/neodev.nvim",
     },
     config = function()
@@ -213,22 +214,22 @@ return {
       -- enable completion on all lsp instances
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.completion.completionItem.snippetSupport = true
-      local cmp_lsp = require("cmp_nvim_lsp")
-      local cmp_capabilities = cmp_lsp.default_capabilities(capabilities)
+      -- local cmp_lsp = require("cmp_nvim_lsp")
+      -- local cmp_capabilities = cmp_lsp.default_capabilities(capabilities)
 
       -- enable code folding
       -- needs to be on cmp_capabilities or it will get overwritten
-      cmp_capabilities.textDocument.foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true
-      }
+      -- cmp_capabilities.textDocument.foldingRange = {
+      --   dynamicRegistration = false,
+      --   lineFoldingOnly = true
+      -- }
 
       local handlers = {
         -- default handler
         function(server_name)
           lspconfig[server_name].setup({
             on_attach = on_attach,
-            capabilities = cmp_capabilities,
+            -- capabilities = cmp_capabilities,
           })
         end,
       }
