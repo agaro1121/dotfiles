@@ -3,7 +3,7 @@ return {
   dependencies = { "neovim/nvim-lspconfig" },
   config = function()
     local navic = require("nvim-navic")
-    vim.g.navic_silence = false
+    vim.g.navic_silence = true -- TODO: figure out how to attach navic to only one lsp client when pyright and pylsp are attached to a buffer
 
     navic.setup {
       icons = {
@@ -35,8 +35,8 @@ return {
         TypeParameter = "󰊄 ",
       },
       lsp = {
-        auto_attach = true,
-        preference = {"pylsp", "pyright"},
+        auto_attach = false,
+        preference = nil,
       },
       highlight = true,
       separator = " > ",
