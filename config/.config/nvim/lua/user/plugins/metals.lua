@@ -1,6 +1,6 @@
 return {
   "scalameta/nvim-metals",
-  dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap", "SmiteshP/nvim-navic",
+  dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap", "SmiteshP/nvim-navic", "saghen/blink.cmp",
     {
       "j-hui/fidget.nvim",
       opts = {},
@@ -30,18 +30,20 @@ return {
     metals_config.init_options.statusBarProvider = "off"
 
     -- code completion
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
-    -- local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-    -- code folding
-    -- needs to be on cmp_capabilities or it will get overwritten
-    -- cmp_capabilities.textDocument.foldingRange = {
-    --   dynamicRegistration = false,
-    --   lineFoldingOnly = true
-    -- }
+    local capabilities = {
+      textDocument = {
+        foldingRange = {
+          dynamicRegistration = false,
+          lineFoldingOnly = true
+        },
+      }
+    }
 
-    -- metals_config.capabilities = cmp_capabilities
+    local cmp_capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+    cmp_capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+    metals_config.capabilities = cmp_capabilities
 
     -- Debug settings if you're using nvim-dap
     local dap = require("dap")
