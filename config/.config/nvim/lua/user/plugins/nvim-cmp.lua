@@ -7,7 +7,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
-    "hrsh7th/cmp-cmdline",
+    -- "hrsh7th/cmp-cmdline",
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets"
   },
@@ -22,13 +22,13 @@ return {
       },
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        { name = "nvim_lsp_document_symbol" },
+        -- { name = "nvim_lsp_document_symbol" },
         { name = "nvim_lsp_signature_help" },
-        { name = "rg" }, --ripgrep results
-        { name = "buffer" },
+        -- { name = "rg" }, --ripgrep results
         { name = "path" },
-        { name = "nvim_lua" }, -- neovim lua api
-        { name = "luasnip" }
+        { name = "buffer" },
+        -- { name = "nvim_lua" }, -- neovim lua api
+        -- { name = "luasnip" }
       }),
       snippet = {
         expand = function(args)
