@@ -22,6 +22,8 @@ return {
         ['<CR>'] = { 'accept', 'fallback' },
         ['<C-l>'] = { 'snippet_forward', 'fallback' },
         ['<C-h>'] = { 'snippet_backward', 'fallback' },
+        ['<Tab>'] = { 'select_next', 'fallback' },
+        ['<S-Tab>'] = { 'select_prev', 'fallback' },
       },
       appearance = {
         nerd_font_variant = 'mono'
