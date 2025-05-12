@@ -2,14 +2,14 @@ return {
   "ibhagwan/fzf-lua",
   dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
-    { "<leader>ff",  [[ <cmd>lua require("fzf-lua").files()<CR> ]],      desc = "fzf-lua.find files" },
-    { "<leader>fg",  [[ <cmd>lua require("fzf-lua").git_files()<CR> ]],     desc = "fzf-lua.git files" },
-    { "<leader>lg",  [[ <cmd>lua require("fzf-lua").grep_project()<CR> ]],     desc = "fzf-lua.live grep" },
-    { "<leader>lgs", [[ <cmd>lua require("fzf-lua").grep_cword()<CR> ]],    desc = "fzf-lua.grep string" },
-    { "<leader>bs",  [[ <cmd>lua require("fzf-lua").buffers()<CR> ]],       desc = "fzf-lua.buffers" },
-    { "<leader>sp",  [[ <cmd>lua require("fzf-lua").spell_suggest()<CR> ]], desc = "fzf-lua.spell suggest" },
-    { "<leader>fb",  [[ <cmd>lua require("fzf-lua").lgrep_curbuf()<CR> ]],  desc = "fzf-lua.fuzzy find in current buffer" },
-    { "<leader>tk",  [[ <cmd>lua require("fzf-lua").keymaps()<CR> ]],       desc = "fzf-lua.show keymaps" },
+    { "<leader>ff",  function() require("fzf-lua").files() end,         desc = "fzf-lua.find files" },
+    { "<leader>fg",  function() require("fzf-lua").git_files() end,     desc = "fzf-lua.git files" },
+    { "<leader>lg",  function() require("fzf-lua").grep_project() end,  desc = "fzf-lua.live grep" },
+    { "<leader>lgs", function() require("fzf-lua").grep_cword() end,    desc = "fzf-lua.grep string" },
+    { "<leader>bs",  function() require("fzf-lua").buffers() end,       desc = "fzf-lua.buffers" },
+    { "<leader>sp",  function() require("fzf-lua").spell_suggest() end, desc = "fzf-lua.spell suggest" },
+    { "<leader>fb",  function() require("fzf-lua").lgrep_curbuf() end,  desc = "fzf-lua.fuzzy find in current buffer" },
+    { "<leader>tk",  function() require("fzf-lua").keymaps() end,       desc = "fzf-lua.show keymaps" },
   },
   opts = {
     keymap = {
@@ -17,5 +17,8 @@ return {
         ["ctrl-q"] = "select-all+accept",
       },
     },
-  }
+  },
+  config = function ()
+    require("fzf-lua").register_ui_select() -- use fzf-lua as neovim's `vim.ui.select`
+  end
 }

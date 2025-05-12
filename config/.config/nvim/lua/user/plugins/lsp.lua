@@ -53,7 +53,6 @@ return {
       })
 
       -------------------------------------- KEYBINDS --------------------------------------
-      -- map("n", "gD",         require("telescope.builtin").lsp_definitions, { desc = "lsp.definitions"}) -- NOTE: inconsistent
       map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "lsp.definitions" })
 
       map("n", "gV", ":vsplit | lua vim.lsp.buf.definition()<CR>", { desc = "lsp.open defnition in vertical split" })
