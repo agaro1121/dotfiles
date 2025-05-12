@@ -21,6 +21,6 @@ return {
       },
     })
 
-    map("n", "<leader>tt", ":TodoTelescope<CR>", {desc = "todo.show in telescope"})
+    map("n", "<leader>tt", ":TodoFzfLua<CR>", {desc = "todo.show in fzf-lua"})
   end
 }

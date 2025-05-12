@@ -56,32 +56,19 @@ return {
       -- map("n", "gD",         require("telescope.builtin").lsp_definitions, { desc = "lsp.definitions"}) -- NOTE: inconsistent
       map("n", "gV", ":vsplit | lua vim.lsp.buf.definition()<CR>", { desc = "lsp.open defnition in vertical split" })
       map("n", "gH", ":split | lua vim.lsp.buf.definition()<CR>", { desc = "lsp.open definition in horizontal split" })
-      map("n", "gt", require("telescope.builtin").lsp_type_definitions, { desc = "lsp.tpye defintions" })
-      map("n", "gi", require("telescope.builtin").lsp_implementations, { desc = "lsp.implementations" })
+      map("n", "gt", require("fzf-lua").lsp_typedefs, { desc = "lsp.tpye defintions" })
+      map("n", "gi", require("fzf-lua").lsp_implementations, { desc = "lsp.implementations" })
       map("n", "gic", vim.lsp.buf.incoming_calls, { desc = "lsp.upstream calls. who calls this symbol?" })
       map("n", "goc", vim.lsp.buf.outgoing_calls, { desc = "lsp.downstream calls. What does this symbol call?" })
-      map("n", "gr", require("telescope.builtin").lsp_references, { desc = "lsp.references" })
-      map("n", "gds", require("telescope.builtin").lsp_document_symbols, { desc = "lsp.document symbls" })
-      map("n", "gwds", require("telescope.builtin").lsp_dynamic_workspace_symbols,
-        { desc = "lsp.dynamic workspace symbols" })
-      map("n", "<leader>wa", require("telescope.builtin").diagnostics, { desc = "lsp.workspace diagnostics" }) -- workspace diagnostics
-      map("n", "<leader>we", function() require("telescope.builtin").diagnostics({ severity = "E" }) end,
-        { desc = "lsp.woskspace error diagnostics" })                                                          -- workspace errors
-      map("n", "<leader>ww", function() require("telescope.builtin").diagnostics({ severity = "W" }) end,
-        { desc = "lsp.workspace warning diagnostics" })                                                        -- workspace errors
+      map("n", "gr", require("fzf-lua").lsp_references, { desc = "lsp.references" })
+      map("n", "gds", require("fzf-lua").lsp_document_symbols, { desc = "lsp.document symbls" })
+      map("n", "gws", require("fzf-lua").lsp_live_workspace_symbols, { desc = "lsp.dynamic workspace symbols" })
+      map("n", "<leader>wa", require("fzf-lua").diagnostics_workspace, { desc = "lsp.workspace diagnostics" })
+      map("n", "<leajnnnnnnnnnnnder>ww", function() require("fzf-lua").diagnostics_workspace({ severity_only = "W" }) end, { desc = "lsp.workspace warning diagnostics" })
 
-      map("n", "<leader>ba", function() require("telescope.builtin").diagnostics({ bufnr = 0 }) end,
-        { desc = "lsp.buffer diagnostics" })         -- buffer diagnostics
-      map("n", "<leader>be", function() require("telescope.builtin").diagnostics({ bufnr = 0, severity = "E" }) end,
-        { desc = "lsp.buffer error diagnostics" })   -- buffer errors
-      map("n", "<leader>bw", function() require("telescope.builtin").diagnostics({ bufnr = 0, severity = "W" }) end,
-        { desc = "lsp.buffer warning diagnostics" }) -- buffer warnings
-
-      map("n", "gws", function()
-        vim.ui.input({ prompt = "Workspace symbols: " }, function(query)
-          require("telescope.builtin").lsp_workspace_symbols({ query = query })
-        end)
-      end, { desc = "lsp.workspace symbols" })
+      map("n", "<leader>ba", function() require("fzf-lua").diagnostics_document() end, { desc = "lsp.buffer diagnostics" })
+      map("n", "<leader>be", function() require("fzf-lua").diagnostics_document({severity_only = "E" }) end, { desc = "lsp.buffer error diagnostics" })
+      map("n", "<leader>bw", function() require("fzf-lua").diagnostics_document({severity_only = "W" }) end, { desc = "lsp.buffer warning diagnostics" })
 
       map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "lsp.definitions" })
       -- map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
