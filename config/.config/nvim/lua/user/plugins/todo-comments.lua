@@ -1,6 +1,6 @@
 return {
   "folke/todo-comments.nvim",
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = { "nvim-lua/plenary.nvim", "ibhagwan/fzf-lua" },
   config = function()
     local todoComments = require("todo-comments")
     todoComments.setup({
@@ -21,6 +21,7 @@ return {
       },
     })
 
-    map("n", "<leader>tt", ":TodoFzfLua<CR>", {desc = "todo.show in fzf-lua"})
+    -- preview window below results window
+    map("n", "<leader>tt", [[ <cmd> lua require("todo-comments.fzf").todo({winopts = {preview = { layout = "vertical"} } }) <CR> ]], {desc = "todo.show in fzf-lua"})
   end
 }
