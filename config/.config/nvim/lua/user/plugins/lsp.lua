@@ -88,11 +88,11 @@ return {
       map("n", "<leader>sh", vim.lsp.buf.signature_help, { desc = "lsp.signature help" })
       map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "lsp.rename" })
       map("n", "<leader>f", function() vim.lsp.buf.format { async = true } end, { desc = "format" })
-      map("n", "<leader>H", vim.lsp.buf.document_highlight,
-        { desc = "lsp.Highlights the current symbol in the entire buffer" })
+      map("n", "<leader>H", vim.lsp.buf.document_highlight, { desc = "lsp.Highlights the current symbol in the entire buffer" })
       map("n", "<leader>nH", vim.lsp.buf.clear_references, { desc = "lsp.Clear symbol highlights" })
 
-      map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "lsp.code action" })
+      -- map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "lsp.code action" })
+      map({ "n", "v" }, "<leader>ca", require("fzf-lua").lsp_code_actions, { desc = "lsp.code action" })
       -------------------------------------- KEYBINDS --------------------------------------
 
       vim.lsp.enable({ "terraformls", "jsonls", "yamlls", "eslint", "marksman", "smithy_ls", "ts_ls", "html", "cssls",
