@@ -69,17 +69,21 @@ return {
       -- map("n", "gds", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
       map("n", "gws", require("fzf-lua").lsp_live_workspace_symbols, { desc = "lsp.dynamic workspace symbols" })
       -- map("n", "gws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>")
-      map("n", "<leader>wa", require("fzf-lua").diagnostics_workspace, { desc = "lsp.workspace diagnostics" })
+      local winoptsConfig = {
+        preview = {
+          layout = "vertical"
+        }
+      }
+      map("n", "<leader>wa",function()  require("fzf-lua").diagnostics_workspace({winopts = winoptsConfig}) end, { desc = "lsp.workspace diagnostics" })
       -- map("n", "<leader>aa", [[<cmd>lua vim.diagnostic.setqflist()<CR>]]) -- all workspace diagnostics
-      map("n", "<leader>we", function() require("fzf-lua").diagnostics_workspace({ severity_only = "E" }) end, { desc = "lsp.workspace error diagnostics" })
+      map("n", "<leader>we", function() require("fzf-lua").diagnostics_workspace({ severity_only = "E", winopts = winoptsConfig }) end, { desc = "lsp.workspace error diagnostics" })
       -- map("n", "<leader>ae", [[<cmd>lua vim.diagnostic.setqflist({severity = "E"})<CR>]]) -- all workspace errors
-      map("n", "<leader>ww", function() require("fzf-lua").diagnostics_workspace({ severity_only = "W" }) end, { desc = "lsp.workspace warning diagnostics" })
+      map("n", "<leader>ww", function() require("fzf-lua").diagnostics_workspace({ severity_only = "W", winopts = winoptsConfig }) end, { desc = "lsp.workspace warning diagnostics" })
       -- map("n", "<leader>aw", [[<cmd>lua vim.diagnostic.setqflist({severity = "W"})<CR>]]) -- all workspace warnings
-
-      map("n", "<leader>ba", function() require("fzf-lua").diagnostics_document() end, { desc = "lsp.buffer diagnostics" })
+      map("n", "<leader>ba", function() require("fzf-lua").diagnostics_document({winopts = winoptsConfig}) end, { desc = "lsp.buffer diagnostics" })
       -- map("n", "<leader>d", vim.diagnostic.setloclist) -- buffer diagnostics only
-      map("n", "<leader>be", function() require("fzf-lua").diagnostics_document({severity_only = "E" }) end, { desc = "lsp.buffer error diagnostics" })
-      map("n", "<leader>bw", function() require("fzf-lua").diagnostics_document({severity_only = "W" }) end, { desc = "lsp.buffer warning diagnostics" })
+      map("n", "<leader>be", function() require("fzf-lua").diagnostics_document({severity_only = "E", winopts = winoptsConfig }) end, { desc = "lsp.buffer error diagnostics" })
+      map("n", "<leader>bw", function() require("fzf-lua").diagnostics_document({severity_only = "W", winopts = winoptsConfig }) end, { desc = "lsp.buffer warning diagnostics" })
 
 
       map("n", "[d", function() vim.diagnostic.goto_prev { wrap = false } end, { desc = "lsp.previous error" })
