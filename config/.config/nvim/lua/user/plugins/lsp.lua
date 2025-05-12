@@ -54,32 +54,34 @@ return {
 
       -------------------------------------- KEYBINDS --------------------------------------
       -- map("n", "gD",         require("telescope.builtin").lsp_definitions, { desc = "lsp.definitions"}) -- NOTE: inconsistent
+      map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "lsp.definitions" })
+
       map("n", "gV", ":vsplit | lua vim.lsp.buf.definition()<CR>", { desc = "lsp.open defnition in vertical split" })
       map("n", "gH", ":split | lua vim.lsp.buf.definition()<CR>", { desc = "lsp.open definition in horizontal split" })
       map("n", "gt", require("fzf-lua").lsp_typedefs, { desc = "lsp.tpye defintions" })
       map("n", "gi", require("fzf-lua").lsp_implementations, { desc = "lsp.implementations" })
+      -- map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
       map("n", "gic", vim.lsp.buf.incoming_calls, { desc = "lsp.upstream calls. who calls this symbol?" })
       map("n", "goc", vim.lsp.buf.outgoing_calls, { desc = "lsp.downstream calls. What does this symbol call?" })
       map("n", "gr", require("fzf-lua").lsp_references, { desc = "lsp.references" })
+      -- map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
       map("n", "gds", require("fzf-lua").lsp_document_symbols, { desc = "lsp.document symbls" })
+      -- map("n", "gds", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
       map("n", "gws", require("fzf-lua").lsp_live_workspace_symbols, { desc = "lsp.dynamic workspace symbols" })
+      -- map("n", "gws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>")
       map("n", "<leader>wa", require("fzf-lua").diagnostics_workspace, { desc = "lsp.workspace diagnostics" })
-      map("n", "<leajnnnnnnnnnnnder>ww", function() require("fzf-lua").diagnostics_workspace({ severity_only = "W" }) end, { desc = "lsp.workspace warning diagnostics" })
+      -- map("n", "<leader>aa", [[<cmd>lua vim.diagnostic.setqflist()<CR>]]) -- all workspace diagnostics
+      map("n", "<leader>we", function() require("fzf-lua").diagnostics_workspace({ severity_only = "E" }) end, { desc = "lsp.workspace error diagnostics" })
+      -- map("n", "<leader>ae", [[<cmd>lua vim.diagnostic.setqflist({severity = "E"})<CR>]]) -- all workspace errors
+      map("n", "<leader>ww", function() require("fzf-lua").diagnostics_workspace({ severity_only = "W" }) end, { desc = "lsp.workspace warning diagnostics" })
+      -- map("n", "<leader>aw", [[<cmd>lua vim.diagnostic.setqflist({severity = "W"})<CR>]]) -- all workspace warnings
 
       map("n", "<leader>ba", function() require("fzf-lua").diagnostics_document() end, { desc = "lsp.buffer diagnostics" })
+      -- map("n", "<leader>d", vim.diagnostic.setloclist) -- buffer diagnostics only
       map("n", "<leader>be", function() require("fzf-lua").diagnostics_document({severity_only = "E" }) end, { desc = "lsp.buffer error diagnostics" })
       map("n", "<leader>bw", function() require("fzf-lua").diagnostics_document({severity_only = "W" }) end, { desc = "lsp.buffer warning diagnostics" })
 
-      map("n", "gD", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "lsp.definitions" })
-      -- map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-      -- map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-      -- map("n", "gds", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
-      -- map("n", "gws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>")
-      -- map("n", "<leader>aa", [[<cmd>lua vim.diagnostic.setqflist()<CR>]]) -- all workspace diagnostics
-      -- map("n", "<leader>ae", [[<cmd>lua vim.diagnostic.setqflist({severity = "E"})<CR>]]) -- all workspace errors
-      -- map("n", "<leader>aw", [[<cmd>lua vim.diagnostic.setqflist({severity = "W"})<CR>]]) -- all workspace warnings
 
-      -- map("n", "<leader>d", vim.diagnostic.setloclist) -- buffer diagnostics only
       map("n", "[d", function() vim.diagnostic.goto_prev { wrap = false } end, { desc = "lsp.previous error" })
       map("n", "]d", function() vim.diagnostic.goto_next { wrap = false } end, { desc = "lsp.next error" })
       map("n", "K", vim.lsp.buf.hover)
