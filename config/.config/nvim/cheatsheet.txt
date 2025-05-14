@@ -16,8 +16,8 @@ Rename Window               | <prefix> ,
 Next Window                 | <prefix> n
 Previous Window             | <prefix> p
 Last Window                 | <prefix> l
-Horizontal Pane             | <prefix> "
-Vertical Pane               | <prefix> %
+Horizontal Pane             | <prefix> -
+Vertical Pane               | <prefix> |
 Close Pane                  | <prefix> x
 Resize Pane                 | <prefix> <C-Up|Down|Left|Right>
 Last Pane                   | <prefix> ;
