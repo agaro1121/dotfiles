@@ -98,7 +98,7 @@ return {
       group = nvim_metals_group,
     })
 
-    map("n", "<leader>mc", require("telescope").extensions.metals.commands, { desc = "metals.menu" })
+    map("n", "<leader>mc", require("metals").commands, { desc = "metals.menu" })
     map("n", "<leader>ws", require("metals").hover_worksheet, { desc = "metals.hover worksheet" })
     map("n", "gsh", require("metals").super_method_hierarchy, { desc = "metals.super method heierarchy" })
     map("n", "gsm", require("metals").goto_super_method, { desc = "metals.go to super method" })
