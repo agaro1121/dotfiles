@@ -49,3 +49,8 @@ Buffer Diagnostics          | <leader> d
 ## Fold
 Fold Close                  | zc
 Preview Fold                | h
+
+## Search Patterns
+All text in parens. Inclsuive. | /\v\([!^\(]+\)
+All text in quotes. Exclusive. | \v"\zs[^\"]+\ze"
+Start | End                    | \zs \ze
