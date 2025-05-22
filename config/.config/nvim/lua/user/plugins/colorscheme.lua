@@ -1,7 +1,7 @@
 return {
   {
     "sainnhe/sonokai",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       vim.g.sonokai_style = 'andromeda' -- andromeda, atlantis

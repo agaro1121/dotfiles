@@ -1,11 +1,13 @@
 return {
-  "sudormrfbin/cheatsheet.nvim",
+  "agaro1121/cheatsheet.nvim",
   keys = {
-   {"<leader>?", [[:Cheatsheet<CR>]], desc = "cheatsheet"}
+    { "<leader>?", [[:Cheatsheet<CR>]], desc = "cheatsheet" }
   },
-  dependencies = {
-    {"nvim-telescope/telescope.nvim"},
-    {"nvim-lua/popup.nvim"},
-    {"nvim-lua/plenary.nvim"},
-  },
+  config = function()
+    local cs = require("cheatsheet")
+    cs.setup({
+      telescope_mappings = nil
+    })
+  end
 }
+
