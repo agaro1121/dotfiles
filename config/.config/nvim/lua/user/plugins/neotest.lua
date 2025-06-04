@@ -28,8 +28,8 @@ return {
       }
     })
     map("n", "<leader>us", require("neotest").summary.toggle, { desc = "neotest.summary" })
-    map("n", "<leader>uo", require("neotest").output_panel.toggle, { desc = "neotest.summary" })
-    map("n", "<leader>ud", function() require("neotest").run.run({ strategy = "dap" }) end, { desc = "neotest.debug" })
-    map("n", "<leader>ur", require("neotest").run.run, { desc = "neotest.run" })
+    map("n", "<leader>uo", require("neotest").output_panel.toggle, { desc = "neotest.output_panel" })
+    map("n", "<leader>ud", function() require("neotest").run.run({ strategy = "dap" }) end, { desc = "neotest.debug test" })
+    map("n", "<leader>ur", require("neotest").run.run, { desc = "neotest.run test" })
   end
 }
