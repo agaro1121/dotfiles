@@ -54,3 +54,6 @@ Preview Fold                | h
 All text in parens. Inclsuive. | /\v\([!^\(]+\)
 All text in quotes. Exclusive. | \v"\zs[^\"]+\ze"
 Start | End                    | \zs \ze
+
+### Window management
+Swap two panes              | <C-r>
