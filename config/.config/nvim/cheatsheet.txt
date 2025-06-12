@@ -2,6 +2,8 @@
 
 ## Utilities
 Terminal                    | :18sp|:term
+Show current option value   | :set <option>?
+Replace tab with whitesapce | :%retab
 
 ## t-mux @tmux
 New Session                 | tmux new -s{{SESSION_NAME}}
