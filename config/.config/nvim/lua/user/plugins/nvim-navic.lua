@@ -1,6 +1,5 @@
 return {
   "SmiteshP/nvim-navic",
-  dependencies = { "neovim/nvim-lspconfig" },
   config = function()
     local navic = require("nvim-navic")
     vim.g.navic_silence = false

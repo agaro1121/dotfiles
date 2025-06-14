@@ -1,9 +1,9 @@
 # My notes
 
 ## Utilities
-Quit All                    | :qa
 Terminal                    | :18sp|:term
-Edit Config                 | :e ~/.config/nvim/init.lua
+Show current option value   | :set <option>?
+Replace tab with whitesapce | :%retab
 
 ## t-mux @tmux
 New Session                 | tmux new -s{{SESSION_NAME}}
@@ -18,8 +18,8 @@ Rename Window               | <prefix> ,
 Next Window                 | <prefix> n
 Previous Window             | <prefix> p
 Last Window                 | <prefix> l
-Horizontal Pane             | <prefix> "
-Vertical Pane               | <prefix> %
+Horizontal Pane             | <prefix> -
+Vertical Pane               | <prefix> |
 Close Pane                  | <prefix> x
 Resize Pane                 | <prefix> <C-Up|Down|Left|Right>
 Last Pane                   | <prefix> ;
@@ -43,26 +43,19 @@ Workspace Symbols           | gws
 Run                         | <leader> cl
 Signature help              | <leader> sh
 Rename                      | <leader> rn
-Format                      | <leader> f
-Code action                 | <leader> ca
 Workspace Diagnostics       | <leader> aa
 Workspace Errors            | <leader> ae
 Workspace Warnings          | <leader> aw
 Buffer Diagnostics          | <leader> d
-Previous Diagnostic         | [c
-Next Diagnostic             | ]c
-Symbols Outline             | <leader> o
-
-## Abolish/Coercion
-Camel Case                  | crc
-Pascal Case                 | crm
-Snake Case                  | crs
-Uppercase                   | cru
-Kebab Case                  | crk
-Dot case                    | cr.
-Space Case                  | cr<space>
-Title Case                  | crt
 
 ## Fold
 Fold Close                  | zc
 Preview Fold                | h
+
+## Search Patterns
+All text in parens. Inclsuive. | /\v\([!^\(]+\)
+All text in quotes. Exclusive. | \v"\zs[^\"]+\ze"
+Start | End                    | \zs \ze
+
+### Window management
+Swap two panes              | <C-r>

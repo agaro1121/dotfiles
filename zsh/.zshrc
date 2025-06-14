@@ -161,6 +161,7 @@ alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES && 
 alias hideHiddenFiles='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder /System/Library/CoreServices/Finder.app'
 alias pip=pip3
 alias lg='lazygit'
+alias fzfp='fzf --preview "bat -n --color=always {}"' # brew install fzf
 
 decode64 () {
   tput setaf 2 #green
@@ -173,6 +174,10 @@ eval "$(pyenv init -)"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
+# binds alt in Alacritty
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
 
 # neofetch
 
@@ -184,3 +189,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+eval "$(zoxide init --cmd cd zsh)" # brew install zoxide
