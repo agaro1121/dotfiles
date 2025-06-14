@@ -174,6 +174,10 @@ eval "$(pyenv init -)"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
+# binds alt in Alacritty
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
 
 # neofetch
 

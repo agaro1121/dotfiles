@@ -95,5 +95,10 @@ yellow = "0xffcb6b"
 x = 6
 y = 6
 
+# binds Alt key in alacritty
+# other half of this is in .zshrc
+[window]
+option_as_alt = "Both"
+
 [general]
 import = ["$HOME/.config/alacritty/alacritty.yml", "$HOME/.alacritty-colorscheme/themes/palenight.yml"]
