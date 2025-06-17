@@ -250,6 +250,7 @@ local opts = {
 
 return {
   "nvim-tree/nvim-tree.lua",
+  enabled = false,
   version = "*",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
