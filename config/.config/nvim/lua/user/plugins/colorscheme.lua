@@ -50,6 +50,12 @@ return {
         blend = 0.35,
         },
       }
+      vim.cmd("hi LspReferenceRead guibg=White")   -- vim.lsp.buf.document_highlight
+      vim.cmd("hi LspReferenceRead guifg=#2b2d3a") -- vim.lsp.buf.document_highlight
+      vim.cmd("hi VirtualTextError guifg=Red")
+      vim.cmd("hi Visual guibg=White")
+      vim.cmd("hi Visual guifg=#2b2d3a")
+
       vim.cmd("colorscheme nordic")
     end
   },
@@ -90,9 +96,6 @@ return {
   },
   { 
     "datsfilipe/min-theme.nvim",
-    lazy = true,
-    config = function ()
-      vim.cmd("highlight CursorLine guibg=#NONE guifg=NONE")
-    end
+    lazy = true
   }
 }
