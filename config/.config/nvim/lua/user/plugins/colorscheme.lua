@@ -1,3 +1,10 @@
+local function fix_highlights()
+  vim.cmd("hi Visual guibg=White")
+  vim.cmd("hi Visual guifg=#2b2d3a")
+  vim.cmd("hi LspReferenceRead guibg=White")   -- vim.lsp.buf.document_highlight
+  vim.cmd("hi LspReferenceRead guifg=#2b2d3a") -- vim.lsp.buf.document_highlight
+  vim.cmd("hi VirtualTextError guifg=Red")
+end
 return {
   {
     "sainnhe/sonokai",
@@ -5,11 +12,7 @@ return {
     priority = 1000,
     config = function()
       vim.g.sonokai_style = 'andromeda' -- andromeda, atlantis
-      vim.cmd("hi Visual guibg=White")
-      vim.cmd("hi Visual guifg=#2b2d3a")
-      vim.cmd("hi LspReferenceRead guibg=White")   -- vim.lsp.buf.document_highlight
-      vim.cmd("hi LspReferenceRead guifg=#2b2d3a") -- vim.lsp.buf.document_highlight
-      vim.cmd("hi VirtualTextError guifg=Red")
+      fix_highlights()
       -- vim.cmd("colorscheme sonokai")
     end
   },
@@ -50,13 +53,8 @@ return {
         blend = 0.35,
         },
       }
-      vim.cmd("hi LspReferenceRead guibg=White")   -- vim.lsp.buf.document_highlight
-      vim.cmd("hi LspReferenceRead guifg=#2b2d3a") -- vim.lsp.buf.document_highlight
-      vim.cmd("hi VirtualTextError guifg=Red")
-      vim.cmd("hi Visual guibg=White")
-      vim.cmd("hi Visual guifg=#2b2d3a")
-
-      vim.cmd("colorscheme nordic")
+      fix_highlights()
+      -- vim.cmd("colorscheme nordic")
     end
   },
   {
@@ -71,12 +69,8 @@ return {
       require("catppuccin").setup({
         flavour = "macchiato", -- latte, frappe, macchiato, mocha
       })
-      vim.cmd("hi Visual guibg=White")
-      vim.cmd("hi Visual guifg=#2b2d3a")
-      vim.cmd("hi LspReferenceRead guibg=White")   -- vim.lsp.buf.document_highlight
-      vim.cmd("hi LspReferenceRead guifg=#2b2d3a") -- vim.lsp.buf.document_highlight
-      vim.cmd("hi VirtualTextError guifg=Red")
-      -- vim.cmd("colorscheme catppuccin-macchiato")
+      fix_highlights()
+      vim.cmd("colorscheme catppuccin-macchiato")
     end
   },
   {
