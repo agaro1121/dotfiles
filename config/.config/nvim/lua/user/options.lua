@@ -11,6 +11,7 @@ set.tabstop=2                     -- number of columns occupied by a tab
 set.shiftwidth=2                  -- indentation used by autoindent
 set.softtabstop=-1                -- Use value of shiftwidth
 set.smarttab = true
+set.autoindent = false
 ---- ONLY spaces
 set.cursorline=true               -- highlight current cursorline
 vim.g.mapleader = ' '
