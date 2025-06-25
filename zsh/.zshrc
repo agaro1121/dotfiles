@@ -115,6 +115,7 @@ source $ZSH/oh-my-zsh.sh
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -f $HOME/.work_stuff.sh ] && source $HOME/.work_stuff.sh
 [ -f $HOME/.environment.sh ] && source $HOME/.environment.sh
+[ -f $HOME/.fzfrc ] && source $HOME/.fzfrc
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
