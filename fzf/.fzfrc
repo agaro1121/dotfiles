@@ -1,7 +1,9 @@
 export FZF_DEFAULT_OPTS="--height=50% --black --style=full --reverse --margin 0,5%,0,5%"
+alias fzfp='fzf --preview "bat -n --color=always {}"' # brew install fzf
+
 
 # fco - checkout git branch/tag
-fco() {
+fzf-git-checkout() {
   local tags branches target
   branches=$(
     git --no-pager branch --all \
@@ -14,4 +16,31 @@ fco() {
     fzf --no-hscroll --no-multi -n 2 \
         --ansi) || return
   git checkout $(awk '{print $2}' <<<"$target" )
+}
+
+# cd into the directory of the selected file
+function fzf-cd-to-file() {
+   local file
+   local dir
+   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+   ls
+}
+
+# Search env variables
+function fzf-env-vars() {
+  local out
+  out=$(env | fzf)
+  echo $(echo $out | cut -d= -f2)
+}
+
+## Search list of your aliases and functions
+function fzf-aliases-functions() {
+    CMD=$(
+        (
+            (alias)
+            (functions | grep "()" | cut -d ' ' -f1 | grep -v "^_" )
+        ) | fzf | cut -d '=' -f1
+    );
+
+    eval $CMD
 }

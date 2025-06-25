@@ -162,7 +162,6 @@ alias showHiddenFiles='defaults write com.apple.finder AppleShowAllFiles YES && 
 alias hideHiddenFiles='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder /System/Library/CoreServices/Finder.app'
 alias pip=pip3
 alias lg='lazygit'
-alias fzfp='fzf --preview "bat -n --color=always {}"' # brew install fzf
 
 decode64 () {
   tput setaf 2 #green
