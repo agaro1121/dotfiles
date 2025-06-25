@@ -1,6 +1,9 @@
 export FZF_DEFAULT_OPTS="--height=50% --black --style=full --reverse --margin 0,5%,0,5%"
 alias fzfp='fzf --preview "bat -n --color=always {}"' # brew install fzf
 
+# brew install forgit
+[ -f $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh ] && source $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh
+
 
 # fco - checkout git branch/tag
 fzf-git-checkout() {
