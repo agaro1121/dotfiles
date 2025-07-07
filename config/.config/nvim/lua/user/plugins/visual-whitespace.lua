@@ -6,6 +6,6 @@ return {
     enabled = false
   },
   init = function()
-    vim.keymap.set({ 'n', 'v' }, "<leader>tw", require("visual-whitespace").toggle, {})
+    map({ 'n', 'v' }, "<leader>tw", require("visual-whitespace").toggle, {desc = "visual-whitespace.toggle"})
   end
 }

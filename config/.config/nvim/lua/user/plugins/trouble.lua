@@ -1,6 +1,10 @@
 return {
   "folke/trouble.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
+  keys = {
+    { "<leader>tr", [[<cmd> Trouble diagnostics toggle filter.buf=0<CR>]], desc =  "trouble.buffer diagnostics" },
+    { "<leader>tR", [[<cmd> Trouble diagnostics toggle<CR>]], desc = "trouble.workspace diagnostics" }
+  },
   config = function()
     require("trouble").setup({
       -- your configuration comes here
@@ -13,7 +17,7 @@ return {
       },
       auto_preview = false,
     })
-    map("n", "<leader>tr", [[<cmd> Trouble diagnostics toggle filter.buf=0<CR>]], {desc = "trouble.buffer diagnostics"})
-    map("n", "<leader>tR", [[<cmd> Trouble diagnostics toggle<CR>]], {desc = "trouble.workspace diagnostics"})
+    -- map("n", "<leader>tr", [[<cmd> Trouble diagnostics toggle filter.buf=0<CR>]], {desc = "trouble.buffer diagnostics"})
+    -- map("n", "<leader>tR", [[<cmd> Trouble diagnostics toggle<CR>]], {desc = "trouble.workspace diagnostics"})
   end
 }
