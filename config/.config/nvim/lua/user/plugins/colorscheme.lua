@@ -39,7 +39,7 @@ return {
   },
   {
     "AlexvZyl/nordic.nvim",
-    lazy = false,
+    lazy = true,
     config = function ()
       require('nordic').setup{
         cursorline = {

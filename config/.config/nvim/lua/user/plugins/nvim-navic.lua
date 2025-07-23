@@ -1,5 +1,6 @@
 return {
   "SmiteshP/nvim-navic",
+  event = "LspAttach",
   config = function()
     local navic = require("nvim-navic")
     vim.g.navic_silence = false
