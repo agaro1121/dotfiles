@@ -18,12 +18,12 @@ return {
     version = '1.*',
     opts = {
       keymap = {
-        preset = 'default',
-        ['<CR>'] = { 'accept', 'fallback' },
-        ['<C-l>'] = { 'snippet_forward', 'fallback' },
-        ['<C-h>'] = { 'snippet_backward', 'fallback' },
-        ['<Tab>'] = { 'select_next', 'fallback' },
-        ['<S-Tab>'] = { 'select_prev', 'fallback' },
+        preset = "default",
+        ["<CR>"] = { "accept", "fallback" },
+        ["<C-l>"] = { "snippet_forward", "fallback" },
+        ["<C-h>"] = { "snippet_backward", "fallback" },
+        ["<Tab>"] = { "select_next", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
       },
       appearance = {
         nerd_font_variant = 'mono'
@@ -37,13 +37,17 @@ return {
           auto_brackets = { -- automatically insert brackets when accepting functions/methods
             enabled = true,
             semantic_token_resolution = {
-              blocked_filetypes = { "scala" },
+              blocked_filetypes = { "scala", "sbt" },
+            },
+            kind_resolution = {
+              enabled = true,
+              blocked_filetypes = { "scala", "sbt" },
             }
           }
         },
         menu = {
           draw = {
-            columns = { {"kind_icon"}, { "label", "label_description", gap = 1, "kind", "source_name" } },
+            columns = { { "kind_icon" }, { "label", "label_description", gap = 1, "kind", "source_name" } },
             components = {
               kind_icon = {
                 text = function(ctx)

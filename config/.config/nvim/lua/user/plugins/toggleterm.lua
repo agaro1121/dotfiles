@@ -1,5 +1,6 @@
 return {
   "akinsho/toggleterm.nvim",
+  keys = {"<leader>ll", [[<C-\>]]},
   version = "*",
   config = function()
     require("toggleterm").setup({
@@ -21,7 +22,7 @@ return {
     })
 
     map("n", [[<C-\>]], ":ToggleTerm direction=float<CR>", { desc = "toggleterm.terminal float" })
-    map("n", "<leader>t", ":ToggleTerm direction=vertical<CR>", { desc = "toggleterm.terminal vertical" })
+    map("n", "<leader>tv", ":ToggleTerm direction=vertical<CR>", { desc = "toggleterm.terminal vertical" })
     map("n", "<leader>th", ":ToggleTerm direction=horizontal<CR>", { desc = "toggleterm.terminal horizontal" })
     map("n", "<leader>sbt", ":TermExec cmd='sbt' direction=vertical<CR>", { desc = "toggleterm.sbt terminal" })
 

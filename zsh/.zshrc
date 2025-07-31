@@ -80,7 +80,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aws encode64 fzf tmux gh zsh-syntax-highlighting)
+plugins=(git aws encode64 tmux gh zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,6 +115,7 @@ source $ZSH/oh-my-zsh.sh
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 [ -f $HOME/.work_stuff.sh ] && source $HOME/.work_stuff.sh
 [ -f $HOME/.environment.sh ] && source $HOME/.environment.sh
+[ -f $HOME/.fzfrc ] && source $HOME/.fzfrc
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -173,6 +174,10 @@ eval "$(pyenv init -)"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
+# binds alt in Alacritty
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
 
 # neofetch
 
@@ -184,3 +189,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+eval "$(zoxide init --cmd cd zsh)" # brew install zoxide

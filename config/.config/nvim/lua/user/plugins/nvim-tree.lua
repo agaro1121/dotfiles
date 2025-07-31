@@ -250,13 +250,14 @@ local opts = {
 
 return {
   "nvim-tree/nvim-tree.lua",
+  enabled = false,
   version = "*",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
     require("nvim-tree").setup(opts)
-    map("n","<leader>e", ":NvimTreeToggle<cr>", {desc = "nvimtree.Toggele"})
+    -- map("n","<leader>e", ":NvimTreeToggle<cr>", {desc = "nvimtree.Toggele"})
     map("n","<leader>s", ":NvimTreeFindFile<cr>", {desc = "nvimtree.find file in tree"})
   end,
 }

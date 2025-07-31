@@ -1,5 +1,6 @@
 return {
   "hedyhli/outline.nvim",
+  event = "LspAttach",
   dependencies = { "onsails/lspkind.nvim" },
   config = function()
     require('lspkind').init({})

@@ -1,15 +1,18 @@
+local function fix_highlights()
+  vim.cmd("hi Visual guibg=White")
+  vim.cmd("hi Visual guifg=#2b2d3a")
+  vim.cmd("hi LspReferenceRead guibg=White")   -- vim.lsp.buf.document_highlight
+  vim.cmd("hi LspReferenceRead guifg=#2b2d3a") -- vim.lsp.buf.document_highlight
+  vim.cmd("hi VirtualTextError guifg=Red")
+end
 return {
   {
     "sainnhe/sonokai",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       vim.g.sonokai_style = 'andromeda' -- andromeda, atlantis
-      vim.cmd("hi Visual guibg=White")
-      vim.cmd("hi Visual guifg=#2b2d3a")
-      vim.cmd("hi LspReferenceRead guibg=White")   -- vim.lsp.buf.document_highlight
-      vim.cmd("hi LspReferenceRead guifg=#2b2d3a") -- vim.lsp.buf.document_highlight
-      vim.cmd("hi VirtualTextError guifg=Red")
+      fix_highlights()
       -- vim.cmd("colorscheme sonokai")
     end
   },
@@ -36,7 +39,23 @@ return {
   },
   {
     "AlexvZyl/nordic.nvim",
-    lazy = true
+    lazy = true,
+    config = function ()
+      require('nordic').setup{
+        cursorline = {
+        -- Bold font in cursorline.
+        bold = false,
+        -- Bold cursorline number.
+        bold_number = true,
+        -- Available styles: 'dark', 'light'.
+        theme = 'light',
+        -- Blending the cursorline bg with the buffer bg.
+        blend = 0.35,
+        },
+      }
+      fix_highlights()
+      -- vim.cmd("colorscheme nordic")
+    end
   },
   {
     "cpea2506/one_monokai.nvim",
@@ -50,11 +69,7 @@ return {
       require("catppuccin").setup({
         flavour = "macchiato", -- latte, frappe, macchiato, mocha
       })
-      vim.cmd("hi Visual guibg=White")
-      vim.cmd("hi Visual guifg=#2b2d3a")
-      vim.cmd("hi LspReferenceRead guibg=White")   -- vim.lsp.buf.document_highlight
-      vim.cmd("hi LspReferenceRead guifg=#2b2d3a") -- vim.lsp.buf.document_highlight
-      vim.cmd("hi VirtualTextError guifg=Red")
+      fix_highlights()
       vim.cmd("colorscheme catppuccin-macchiato")
     end
   },
@@ -65,12 +80,16 @@ return {
   {
     "neko-night/nvim",
     lazy = true,
-    config = function ()
-      require("nekonight").setup{
+    config = function()
+      require("nekonight").setup {
         style = "moon"
       }
     end
     -- moon
     -- space - similar as moon but more vibrant
+  },
+  { 
+    "datsfilipe/min-theme.nvim",
+    lazy = true
   }
 }

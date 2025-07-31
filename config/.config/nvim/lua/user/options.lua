@@ -5,9 +5,14 @@ set.relativenumber = true         -- shows relative line numbers
 set.number = true                 -- shows line numbers. Shows actual line number instead of '0' when combined with relativenumber.
 set.numberwidth = 2               -- number width in sign column
 set.showmatch=true                -- show matching
+---- ONLY spaces
+set.expandtab = true              -- automatically create tabs from spaces
 set.tabstop=2                     -- number of columns occupied by a tab
 set.shiftwidth=2                  -- indentation used by autoindent
-set.expandtab = true
+set.softtabstop=-1                -- Use value of shiftwidth
+set.smarttab = true
+set.autoindent = false
+---- ONLY spaces
 set.cursorline=true               -- highlight current cursorline
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '

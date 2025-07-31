@@ -14,23 +14,23 @@ return {
       end
     }
 
-    local git_blame = require("gitblame")
-    local git_blame_enabled = function()
-      if vim.g.gitblame_enabled == 0 then
-        return false
-      else
-        return true
-      end
-    end
-    local git_blame_component = function()
-      local empty_result = ""       -- needed otherwise lua line shows 'nil' on the bar and does not auto-hide as intended
-      if git_blame_enabled() then
-        local r = git_blame.get_current_blame_text()
-        return r and r or empty_result
-      else
-        return empty_result
-      end
-    end
+    -- local git_blame = require("gitblame")
+    -- local git_blame_enabled = function()
+    --   if vim.g.gitblame_enabled == 0 then
+    --     return false
+    --   else
+    --     return true
+    --   end
+    -- end
+    -- local git_blame_component = function()
+    --   local empty_result = ""       -- needed otherwise lua line shows 'nil' on the bar and does not auto-hide as intended
+    --   if git_blame_enabled() then
+    --     local r = git_blame.get_current_blame_text()
+    --     return r and r or empty_result
+    --   else
+    --     return empty_result
+    --   end
+    -- end
 
     require("lualine").setup {
       options = {
@@ -72,7 +72,7 @@ return {
       tabline = { -- inserts items at the very top like the OSX menu
         lualine_b = { { "filename", path = 1 } --[[ navic_section ]] },
         lualine_c = { navic_component },
-        lualine_z = { git_blame_component }
+        lualine_z = { --[[git_blame_component]] }
       },
       winbar = { -- sits right below the tabline
         -- lualine_c = { "%f" }, -- same '%f' is the relative file path
