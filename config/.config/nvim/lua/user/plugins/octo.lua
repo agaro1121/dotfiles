@@ -5,6 +5,7 @@ return {
     'ibhagwan/fzf-lua',
     'nvim-tree/nvim-web-devicons',
   },
+  keys = {"<leader>oa"},
   config = function()
     require("octo").setup({
       use_local_fs = true,
