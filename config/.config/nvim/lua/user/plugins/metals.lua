@@ -1,5 +1,6 @@
 return {
   "scalameta/nvim-metals",
+  ft = {"scala", "sbt", "java"},
   dependencies = { "nvim-lua/plenary.nvim", "mfussenegger/nvim-dap", "SmiteshP/nvim-navic", "saghen/blink.cmp",
     {
       "j-hui/fidget.nvim",

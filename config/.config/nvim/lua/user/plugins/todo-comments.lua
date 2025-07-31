@@ -1,5 +1,6 @@
 return {
   "folke/todo-comments.nvim",
+  keys = {"<leader>tt"},
   dependencies = { "nvim-lua/plenary.nvim", "ibhagwan/fzf-lua" },
   config = function()
     local todoComments = require("todo-comments")

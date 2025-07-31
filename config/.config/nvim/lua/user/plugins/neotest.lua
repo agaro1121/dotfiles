@@ -1,6 +1,7 @@
 return {
   "nvim-neotest/neotest",
   -- dir = "~/git/neotest",
+  keys = {"<leader>us"},
   dependencies = {
     "nvim-neotest/nvim-nio",
     "nvim-lua/plenary.nvim",

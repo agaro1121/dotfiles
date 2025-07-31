@@ -1,6 +1,6 @@
 return {
   "agaro1121/Otree.nvim",
-  lazy = false,
+  keys = "<leader>e",
   dependencies = {
     "stevearc/oil.nvim",
     -- { "echasnovski/mini.icons", opts = {} },
