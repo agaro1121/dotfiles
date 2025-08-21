@@ -1,5 +1,6 @@
 return {
   "chrisgrieser/nvim-origami",
+  enabled = false,
   event = "LspAttach",
   dependencies = {
     {
