@@ -70,7 +70,7 @@ return {
         lualine_z = {}
       },
       tabline = { -- inserts items at the very top like the OSX menu
-        lualine_b = { { "filename", path = 1 } --[[ navic_section ]] },
+        lualine_b = { { "filename", path = 3 } --[[ navic_section ]] },
         lualine_c = { navic_component },
         lualine_z = { --[[git_blame_component]] }
       },
