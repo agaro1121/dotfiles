@@ -17,15 +17,6 @@ return {
     end
   },
   {
-    "tanvirtin/monokai.nvim",
-    lazy = true,
-    config = function()
-      local monokai = require('monokai')
-      monokai.setup {}
-      monokai.setup { palette = monokai.pro }
-    end
-  },
-  {
     "lourenci/github-colors",
     lazy = true
   },
@@ -58,10 +49,6 @@ return {
     end
   },
   {
-    "cpea2506/one_monokai.nvim",
-    lazy = true
-  },
-  {
     "catppuccin/nvim",
     name = "catppuccin", -- doesn't work without this
     lazy = false,
@@ -78,17 +65,6 @@ return {
     lazy = true
   },
   {
-    "neko-night/nvim",
-    lazy = true,
-    config = function()
-      require("nekonight").setup {
-        style = "moon"
-      }
-    end
-    -- moon
-    -- space - similar as moon but more vibrant
-  },
-  { 
     "datsfilipe/min-theme.nvim",
     lazy = true
   }
