@@ -1,6 +1,6 @@
 return {
   "mfussenegger/nvim-dap",
-  cmd = "DapNew",
+  event = "LspAttach",
   config = function()
     map("n",        "<leader>dc", require("dap").continue, {desc = "dap.continue"})
     map("n",        "<leader>dr", require("dap").repl.toggle, {desc = "dap.repl toggle"})
