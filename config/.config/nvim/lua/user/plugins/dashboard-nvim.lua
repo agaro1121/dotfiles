@@ -28,20 +28,51 @@ local headerLocal = {
 }
 
 return {
-  'goolord/alpha-nvim',
-  enabled = false,
+  'nvimdev/dashboard-nvim',
+  event = 'VimEnter',
   config = function()
-    local alpha = require("alpha")
-    local dashboard = require("alpha.themes.dashboard")
-    dashboard.section.header.val = headerLocal
-    dashboard.section.buttons.val = {
-      dashboard.button("f", "  > Find file", ":FzfLua files<CR>"),
-      dashboard.button("t", "  > File Tree", ":Otree<CR>"),
-      dashboard.button("o", "  > Oil", ":Oil<CR>"),
-      dashboard.button("m", "  > Mini Files", ":lua MiniFiles.open()<CR>"),
-      dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
+    require('dashboard').setup {
+      theme = 'doom',
+      config = {
+        header = headerLocal, --your header
+        center = {
+          {
+            icon = ' ',
+            icon_hl = 'Title',
+            desc = 'Find File           ',
+            desc_hl = 'String',
+            key = 'f',
+            keymap = '',
+            key_hl = 'Number',
+            key_format = ' %s', -- remove default surrounding `[]`
+            action = 'FzfLua files'
+          },
+          {
+            icon = ' ',
+            icon_hl = 'Title',
+            desc = 'File Tree           ',
+            desc_hl = 'String',
+            key = 't',
+            keymap = '',
+            key_hl = 'Number',
+            key_format = ' %s', -- remove default surrounding `[]`
+            action = 'Otree'
+          },
+          {
+            icon = ' ',
+            icon_hl = 'Title',
+            desc = 'Oil',
+            desc_hl = 'String',
+            key = 'o',
+            keymap = '',
+            key_hl = 'Number',
+            key_format = ' %s', -- remove default surrounding `[]`
+            action = 'Oil'
+          }
+        },
+        footer = {}  --your footer
+      }
     }
-    alpha.setup(dashboard.opts)
-  end
+  end,
+  dependencies = { {'nvim-tree/nvim-web-devicons'}}
 }
-
