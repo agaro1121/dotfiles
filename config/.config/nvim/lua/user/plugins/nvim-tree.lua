@@ -20,7 +20,35 @@ local opts = {
   sync_root_with_cwd = false,
   reload_on_bufenter = false,
   respect_buf_cwd = false,
-  on_attach = "default",
+  -- on_attach = "default",
+  on_attach = function ()
+    local api = require("nvim-tree.api")
+
+    local function opts(desc)
+      return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    end
+
+    vim.keymap.set("n", "<C-v>",       api.node.open.vertical,             opts("Open: Vertical Split"))
+    vim.keymap.set("n", "<C-x>",       api.node.open.horizontal,           opts("Open: Horizontal Split"))
+    vim.keymap.set("n", "H",           api.node.navigate.parent_close,     opts("Close Directory"))
+    vim.keymap.set("n", "L",           api.node.open.edit,                 opts("Open"))
+    vim.keymap.set("n", "J",           api.node.navigate.sibling.last,     opts("Last Sibling"))
+    vim.keymap.set("n", "p",           api.node.open.preview,              opts("Open Preview"))
+    vim.keymap.set("n", "E",           api.tree.expand_all,                opts("Expand All"))
+    vim.keymap.set("n", "F",           api.live_filter.clear,              opts("Live Filter: Clear"))
+    vim.keymap.set("n", "f",           api.live_filter.start,              opts("Live Filter: Start"))
+    vim.keymap.set("n", "gy",          api.fs.copy.absolute_path,          opts("Copy Absolute Path"))
+    vim.keymap.set("n", "ge",          api.fs.copy.basename,               opts("Copy Basename")) -- fileName, no ext
+    vim.keymap.set("n", "y",           api.fs.copy.filename,               opts("Copy Name")) -- filename
+    vim.keymap.set("n", "Y",           api.fs.copy.relative_path,          opts("Copy Relative Path"))
+    vim.keymap.set("n", ".",           api.tree.toggle_hidden_filter,      opts("Toggle Filter: Dotfiles"))
+    vim.keymap.set("n", "I",           api.tree.toggle_gitignore_filter,   opts("Toggle Filter: Git Ignore"))
+    vim.keymap.set("n", "P",           api.node.navigate.parent,           opts("Parent Directory"))
+    vim.keymap.set("n", "q",           api.tree.close,                     opts("Close"))
+    vim.keymap.set("n", "r",           api.tree.reload,                    opts("Refresh"))
+    vim.keymap.set("n", "o",           api.node.run.system,                opts("Run System"))
+    vim.keymap.set("n", "C",           api.tree.collapse_all,              opts("Collapse All"))
+  end,
   select_prompts = false,
   view = {
     centralize_selection = false,

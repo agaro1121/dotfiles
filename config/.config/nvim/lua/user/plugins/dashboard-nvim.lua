@@ -47,28 +47,28 @@ return {
             key_format = ' %s', -- remove default surrounding `[]`
             action = 'FzfLua files'
           },
-          {
-            icon = ' ',
-            icon_hl = 'Title',
-            desc = 'File Tree           ',
-            desc_hl = 'String',
-            key = 't',
-            keymap = '',
-            key_hl = 'Number',
-            key_format = ' %s', -- remove default surrounding `[]`
-            action = 'Otree'
-          },
-          {
-            icon = ' ',
-            icon_hl = 'Title',
-            desc = 'Oil',
-            desc_hl = 'String',
-            key = 'o',
-            keymap = '',
-            key_hl = 'Number',
-            key_format = ' %s', -- remove default surrounding `[]`
-            action = 'Oil'
-          }
+          -- {
+          --   icon = ' ',
+          --   icon_hl = 'Title',
+          --   desc = 'File Tree           ',
+          --   desc_hl = 'String',
+          --   key = 't',
+          --   keymap = '',
+          --   key_hl = 'Number',
+          --   key_format = ' %s', -- remove default surrounding `[]`
+          --   action = 'NvimTreeOpen'
+          -- },
+          -- {
+          --   icon = ' ',
+          --   icon_hl = 'Title',
+          --   desc = 'Oil',
+          --   desc_hl = 'String',
+          --   key = 'o',
+          --   keymap = '',
+          --   key_hl = 'Number',
+          --   key_format = ' %s', -- remove default surrounding `[]`
+          --   action = 'Oil'
+          -- }
         },
         footer = {}  --your footer
       }
