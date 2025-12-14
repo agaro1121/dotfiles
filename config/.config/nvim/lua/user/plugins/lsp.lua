@@ -98,6 +98,7 @@ return {
 
       -- map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "lsp.code action" })
       map({ "n", "v" }, "<leader>ca", require("fzf-lua").lsp_code_actions, { desc = "lsp.code action" })
+      map("n", "<leader>in", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = "lsp.inlay hints toggle"})
       -------------------------------------- KEYBINDS --------------------------------------
 
       vim.lsp.enable({ "terraformls", "jsonls", "yamlls", "eslint", "marksman", "smithy_ls", "ts_ls", "html", "cssls",
