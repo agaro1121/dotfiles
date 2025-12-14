@@ -1,5 +1,6 @@
 return {
   "agaro1121/Otree.nvim",
+  enabled = false,
   dependencies = {
     "stevearc/oil.nvim",
     -- { "echasnovski/mini.icons", opts = {} },

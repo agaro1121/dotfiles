@@ -161,7 +161,7 @@ local opts = {
     ignore_dirs = {},
   },
   git = {
-    enable = true,
+    enable = false,
     ignore = false,
     show_on_dirs = true,
     show_on_open_dirs = true,
@@ -248,16 +248,42 @@ local opts = {
   },
 }
 
+function open_in_oil()
+  local api = require("nvim-tree.api")
+  local oil_status_ok, _ = pcall(require, "oil")
+    if not oil_status_ok then
+      return
+    end
+  local node = api.tree.get_node_under_cursor()
+  if not node then
+    vim.notify("No node under cursor", vim.log.levels.WARN)
+    return
+  end
+  local basedir = node.type == "directory" and node.absolute_path or vim.fn.fnamemodify(node.absolute_path, ":h")
+  vim.cmd("Oil --float " .. vim.fn.fnameescape(basedir))
+end
+
 return {
   "nvim-tree/nvim-tree.lua",
-  enabled = false,
+  enabled = true,
   version = "*",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
     require("nvim-tree").setup(opts)
-    -- map("n","<leader>e", ":NvimTreeToggle<cr>", {desc = "nvimtree.Toggele"})
+    map("n","<leader>e", ":NvimTreeToggle<cr>", {desc = "nvimtree.Toggele"})
     map("n","<leader>s", ":NvimTreeFindFile<cr>", {desc = "nvimtree.find file in tree"})
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "NvimTree",
+      callback = function()
+        vim.keymap.set(
+          "n",
+          "go",
+          open_in_oil,
+          { buffer = true, desc = "Open Oil in directory" }
+        )
+      end,
+    })
   end,
 }
