@@ -7,7 +7,7 @@ return {
     { "<leader>lg",  function() require("fzf-lua").grep_project() end,  desc = "fzf-lua.live grep" },
     { "<leader>lgs", function() require("fzf-lua").grep_cword() end,    desc = "fzf-lua.grep string" },
     { "<leader>lgv", function() require("fzf-lua").grep_visual() end,   desc = "fzf-lua.grep string",                 mode = "v" },
-    { "<leader>lgb", function() require("fzf-lua").lgrep_curbuf() end,  desc = "fzf-lua.fuzzy find in current buffer" },
+    { "<leader>/", function() require("fzf-lua").lgrep_curbuf() end,  desc = "fzf-lua.fuzzy find in current buffer" },
     { "<leader>bs",  function() require("fzf-lua").buffers() end,       desc = "fzf-lua.buffers" },
     { "<leader>sp",  function() require("fzf-lua").spell_suggest() end, desc = "fzf-lua.spell suggest" },
     { "<leader>tk",  function() require("fzf-lua").keymaps() end,       desc = "fzf-lua.show keymaps" },
