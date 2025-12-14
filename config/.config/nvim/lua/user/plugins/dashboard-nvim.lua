@@ -29,6 +29,7 @@ local headerLocal = {
 
 return {
   'nvimdev/dashboard-nvim',
+  enabled = true,
   event = 'VimEnter',
   config = function()
     require('dashboard').setup {
@@ -47,17 +48,17 @@ return {
             key_format = ' %s', -- remove default surrounding `[]`
             action = 'FzfLua files'
           },
-          -- {
-          --   icon = ' ',
-          --   icon_hl = 'Title',
-          --   desc = 'File Tree           ',
-          --   desc_hl = 'String',
-          --   key = 't',
-          --   keymap = '',
-          --   key_hl = 'Number',
-          --   key_format = ' %s', -- remove default surrounding `[]`
-          --   action = 'NvimTreeOpen'
-          -- },
+          {
+            icon = ' ',
+            icon_hl = 'Title',
+            desc = 'File Tree           ',
+            desc_hl = 'String',
+            key = 't',
+            keymap = '',
+            key_hl = 'Number',
+            key_format = ' %s', -- remove default surrounding `[]`
+            action = 'NvimTreeOpen'
+          },
           -- {
           --   icon = ' ',
           --   icon_hl = 'Title',
@@ -70,7 +71,10 @@ return {
           --   action = 'Oil'
           -- }
         },
-        footer = {}  --your footer
+        footer = {
+          "I am vengeance, I am justice, I am the night!",
+          "I AM BATMAN"
+        }  --your footer
       }
     }
   end,
