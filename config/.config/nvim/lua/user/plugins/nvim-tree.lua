@@ -38,6 +38,7 @@ local function my_on_attach(bufnr)
   vim.keymap.set("n", "r", api.tree.reload, opts("Refresh"))
   vim.keymap.set("n", "go", api.node.run.system, opts("Run System"))
   vim.keymap.set("n", "C", api.tree.collapse_all, opts("Collapse All"))
+  vim.keymap.set("n", "dd", api.fs.remove, opts("Delete"))
 end
 
 local opts = {
