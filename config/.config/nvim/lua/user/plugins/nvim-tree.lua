@@ -88,7 +88,7 @@ local opts = {
   },
 }
 
-function open_in_oil()
+local function open_in_oil()
   local api = require("nvim-tree.api")
   local oil_status_ok, _ = pcall(require, "oil")
   if not oil_status_ok then
