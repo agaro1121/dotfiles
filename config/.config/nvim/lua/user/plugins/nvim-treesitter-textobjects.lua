@@ -34,9 +34,6 @@ return {
     map({ "x", "o" }, "ap", function()
       require "nvim-treesitter-textobjects.select".select_textobject("@parameter.outer", "textobjects")
     end)
-    map({ "x", "o" }, "ip", function()
-      require "nvim-treesitter-textobjects.select".select_textobject("@parameter.inner", "textobjects")
-    end)
 
     -- Swap keymaps
     map("n", "<leader>a", function()
