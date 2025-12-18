@@ -8,7 +8,7 @@ return {
     config = function()
         require("mason-lspconfig").setup {
             automatic_enable = {
-                "lua_ls", "smithy_ls"
+                "lua_ls", "smithy_ls", "jsonls", "yamlls", "marksman"
             }
         }
     end

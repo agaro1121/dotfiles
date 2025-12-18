@@ -16,6 +16,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("user.options")
+require("user.keybinds")
+require("user.lsp-keybinds")
 
 -- Setup lazy.nvim
 require("lazy").setup({

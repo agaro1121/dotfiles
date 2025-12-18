@@ -1,39 +1,39 @@
-local set = vim.opt
-local g = vim.g
 ---------------- vim options  ----------------
-set.relativenumber = true         -- shows relative line numbers
-set.number = true                 -- shows line numbers. Shows actual line number instead of '0' when combined with relativenumber.
-set.numberwidth = 2               -- number width in sign column
-set.showmatch=true                -- show matching
+vim.opt.relativenumber = true         -- shows relative line numbers
+vim.opt.number = true                 -- shows line numbers. Shows actual line number instead of '0' when combined with relativenumber.
+vim.opt.numberwidth = 2               -- number width in sign column
+vim.opt.showmatch=true                -- show matching
 ---- ONLY spaces
-set.expandtab = true              -- automatically create tabs from spaces
-set.tabstop=2                     -- number of columns occupied by a tab
-set.shiftwidth=2                  -- indentation used by autoindent
-set.softtabstop=-1                -- Use value of shiftwidth
-set.smarttab = true
-set.autoindent = false
----- ONLY spaces
-set.cursorline=true               -- highlight current cursorline
+vim.opt.expandtab = true              -- automatically create tabs from spaces
+vim.opt.tabstop=2                     -- number of columns occupied by a tab
+vim.opt.shiftwidth=2                  -- indentation used by autoindent
+vim.opt.softtabstop=-1                -- Use value of shiftwidth
+vim.opt.smarttab = true
+vim.opt.autoindent = false
+--// ONLY spaces
+vim.opt.cursorline=true               -- highlight current cursorline
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-set.termguicolors = true          -- enables terminal colors
-set.splitright = true             -- splits automatically go to the right
-set.splitbelow = true             -- splits automatically go to the bottom
-set.listchars:append "tab:» "
-set.listchars:append "trail: "
-set.clipboard='unnamedplus'
-set.autowriteall=true
-set.laststatus=0
-set.showmode=false                -- disables the '-- INSERT --' text under the status line
-set.mouse = ""                    -- disables mouse in neovim
-set.breakindent = true            -- Every wrapped line will continue visually indented. Makes for horizontal blocks.
--- case-insensitive search
-set.ignorecase = true
-set.smartcase = true
-set.signcolumn='auto'
-set.timeoutlen = 400              -- Time in milliseconds to wait for a mapped sequence to complete.
-set.ruler=false                   -- Disable default ruler
-set.scrolloff=4                   -- How many lines before/after cursor when scrolling off the page
+vim.opt.termguicolors = true          -- enables terminal colors
+vim.opt.splitright = true             -- splits automatically go to the right
+vim.opt.splitbelow = true             -- splits automatically go to the bottom
+vim.opt.listchars:append 'tab:» '
+vim.opt.listchars:append 'trail: '
+vim.opt.clipboard='unnamedplus'
+vim.opt.autowriteall=true
+vim.opt.laststatus=0
+vim.opt.showmode=false                -- disables the '-- INSERT --' text under the status line
+vim.opt.mouse = ''                    -- disables mouse in neovim
+vim.opt.breakindent = true            -- Every wrapped line will continue visually indented. Makes for horizontal blocks.
+---- case-insensitive search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+--// case-insensitive search
+vim.opt.signcolumn='auto'
+vim.opt.timeoutlen = 400              -- Time in milliseconds to wait for a mapped sequence to complete.
+vim.opt.ruler=false                   -- Disable default ruler
+vim.opt.scrolloff=4                   -- How many lines before/after cursor when scrolling off the page
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 -- Taken from: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
@@ -46,9 +46,22 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+-- folding
+vim.o.foldenable = true
+vim.o.foldlevel = 99
+vim.opt.foldcolumn = '0' -- '0' is not bad
+vim.o.foldmethod = 'expr'
+vim.o.fillchars = [[eob: ,fold: ,foldsep: ,foldopen:,foldclose:]]
 
--- disable some default providers
-g.loaded_node_provider = 0
-g.loaded_python3_provider = 0
-g.loaded_perl_provider = 0
-g.loaded_ruby_provider = 0
+-- Default to treesitter folding
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+-- Prefer LSP folding if client supports it
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+         local client = vim.lsp.get_client_by_id(args.data.client_id)
+         if client and client:supports_method('textDocument/foldingRange') then
+             local win = vim.api.nvim_get_current_win()
+             vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+        end
+    end,
+ })

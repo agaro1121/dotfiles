@@ -1,61 +1,33 @@
-# My notes
+vim: Show current option value      | :set <option>?
+vim: Replace tab with whitesapce    | :%retab
 
-## Utilities
-Terminal                    | :18sp|:term
-Show current option value   | :set <option>?
-Replace tab with whitesapce | :%retab
+tmux: New Session                   | tmux new -s{{SESSION_NAME}}
+tmux: List Sessions                 | <prefix> s or tmux ls
+tmux: Session and Window Preview    | <prefix> w
+tmux: Rename Session                | <prefix> $
+tmux: Detach from Session           | <prefix> d
+tmux: Kill Session                  | tmux kill-session -t{{SESSION_NAME}}
+tmux: New Window                    | <prefix> c
+tmux: Close Window                  | <prefix> &
+tmux: Rename Window                 | <prefix> ,
+tmux: Next Window                   | <prefix> n
+tmux: Previous Window               | <prefix> p
+tmux: Last Window                   | <prefix> l
+tmux: Horizontal Pane               | <prefix> -
+tmux: Vertical Pane                 | <prefix> |
+tmux: Close Pane                    | <prefix> x
+tmux: Resize Pane                   | <prefix> <C-Up|Down|Left|Right>
+tmux: Last Pane                     | <prefix> ;
+tmux: Show Pane Numbers             | <prefix> q
+tmux: Select Pane by Number         | <prefix> q 0..9
+tmux: Move Pane Left|Right          | <prefix> {|}
+tmux: Switch to Pane in direction   | <prefix> Up|Down|Left|Rights
 
-## t-mux @tmux
-New Session                 | tmux new -s{{SESSION_NAME}}
-List Sessions               | <prefix> s or tmux ls
-Session and Window Preview  | <prefix> w
-Rename Session              | <prefix> $
-Detach from Session         | <prefix> d
-Kill Session                | tmux kill-session -t{{SESSION_NAME}}
-New Window                  | <prefix> c
-Close Window                | <prefix> &
-Rename Window               | <prefix> ,
-Next Window                 | <prefix> n
-Previous Window             | <prefix> p
-Last Window                 | <prefix> l
-Horizontal Pane             | <prefix> -
-Vertical Pane               | <prefix> |
-Close Pane                  | <prefix> x
-Resize Pane                 | <prefix> <C-Up|Down|Left|Right>
-Last Pane                   | <prefix> ;
-Show Pane Numbers           | <prefix> q
-Select Pane by Number       | <prefix> q 0..9
-Move Pane Left|Right        | <prefix> {|}
-Switch to Pane in direction | <prefix> Up|Down|Left|Rights
+json: Pretty Print                  | :%!jq
+json: Minify                        | :%!jq -r tostring
 
-## json
-Pretty Print                | :%!jq
-Minify                      | :%!jq -r tostring
+vim: All text in parens. Inclsuive. | /\v\([!^\(]+\)
+vim: All text in quotes. Exclusive. | \v"\zs[^\"]+\ze"
+vim: Start | End                    | \zs \ze
 
-## lsp
-Go to Definition            | gD
-Hover                       | K
-Implementations             | gi
-References                  | gr
-Document Symbol             | gd
-Document Symbols            | gds
-Workspace Symbols           | gws
-Run                         | <leader> cl
-Signature help              | <leader> sh
-Rename                      | <leader> rn
-Workspace Diagnostics       | <leader> aa
-Workspace Errors            | <leader> ae
-Workspace Warnings          | <leader> aw
-Buffer Diagnostics          | <leader> d
-
-## Fold
-Fold Close                  | zc
-Preview Fold                | h
-
-## Search Patterns
-All text in parens. Inclsuive. | /\v\([!^\(]+\)
-All text in quotes. Exclusive. | \v"\zs[^\"]+\ze"
-Start | End                    | \zs \ze
-
-### Window management
-Swap two panes              | <C-r>
+vim: Swap two panes                 | <C-w><C-r>

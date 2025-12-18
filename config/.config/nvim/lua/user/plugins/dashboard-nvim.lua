@@ -62,6 +62,17 @@ return {
           {
             icon = ' ',
             icon_hl = 'Title',
+            desc = 'Oil           ',
+            desc_hl = 'String',
+            key = 'o',
+            keymap = '',
+            key_hl = 'Number',
+            key_format = ' %s', -- remove default surrounding `[]`
+            action = 'Oil'
+          },
+          {
+            icon = ' ',
+            icon_hl = 'Title',
             desc = 'Quit            ',
             desc_hl = 'String',
             key = 'q',
