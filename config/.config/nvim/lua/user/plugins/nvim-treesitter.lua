@@ -62,17 +62,17 @@ return {
         local buf = event.buf
 
         -- Start highlighting immediately (works if parser exists)
-        -- pcall(vim.treesitter.start, buf, lang)
+        pcall(vim.treesitter.start, buf, lang)
 
         -- Enable treesitter indentation
-        -- vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
-        if vim.treesitter.query.get(lang, "highlights") then
-          vim.treesitter.start()
-        end
-        if vim.treesitter.query.get(lang, "indents") then
-          vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
-        end
+        -- if vim.treesitter.query.get(lang, "highlights") then
+        --   vim.treesitter.start()
+        -- end
+        -- if vim.treesitter.query.get(lang, "indents") then
+        --   vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+        -- end
         if vim.treesitter.query.get(lang, "folds") then
           vim.wo.foldmethod = "expr"
           vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
