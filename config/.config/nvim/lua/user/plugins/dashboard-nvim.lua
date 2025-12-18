@@ -83,6 +83,7 @@ return {
           }
         },
         footer = {
+          "",
           "I am vengeance, I am justice, I am the night!",
           "I AM BATMAN"
         }  --your footer

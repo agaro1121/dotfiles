@@ -48,6 +48,6 @@ return {
     group = nvim_metals_group,
   })
 
-  vim.keymap.set('n', '<leader>mc', require('metals').commands, { desc = 'metals.menu' })
+  vim.keymap.set('n', '<leader>mc', require('metals').commands, { desc = 'metals: menu' })
   end
 }

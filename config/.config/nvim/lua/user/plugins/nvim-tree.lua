@@ -109,8 +109,8 @@ return {
   version = '*',
   config = function()
     require('nvim-tree').setup(opts)
-    vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<cr>', { desc = 'nvimtree.Toggele' })
-    vim.keymap.set('n', '<leader>s', ':NvimTreeFindFile<cr>', { desc = 'nvimtree.find file in tree' })
+    vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<cr>', { desc = 'nvimtree: Toggele' })
+    vim.keymap.set('n', '<leader>s', ':NvimTreeFindFile<cr>', { desc = 'nvimtree: Find file in tree' })
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'NvimTree',
       callback = function()
