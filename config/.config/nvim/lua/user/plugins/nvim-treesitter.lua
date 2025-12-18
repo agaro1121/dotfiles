@@ -14,7 +14,7 @@ return {
     -- Install core parsers at startup
     ts.install({
       'bash',
-      'comment',
+      -- 'comment',
       'css',
       'diff',
       'git_config',
