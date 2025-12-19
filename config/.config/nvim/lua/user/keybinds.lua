@@ -1,4 +1,4 @@
-vim.keyvim.keymap.set.set('n', '<leader>g?', function() require("fzf-lua").fzf_exec("cat cheatsheet.txt") end, { desc = 'cheatsheet' } )
+vim.keymap.set('n', '<leader>g?', function() require("fzf-lua").fzf_exec("cat cheatsheet.txt") end, { desc = 'cheatsheet' } )
 
 -- window navigation
 vim.keymap.set("n", "<C-j>", "<C-w>j")

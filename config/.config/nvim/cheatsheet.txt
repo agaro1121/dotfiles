@@ -1,5 +1,5 @@
-vim: Show current option value      | :set <option>?
-vim: Replace tab with whitesapce    | :%retab
+neovim: Show current option value      | :set <option>?
+neovim: Replace tab with whitesapce    | :%retab
 
 tmux: New Session                   | tmux new -s{{SESSION_NAME}}
 tmux: List Sessions                 | <prefix> s or tmux ls
@@ -26,8 +26,8 @@ tmux: Switch to Pane in direction   | <prefix> Up|Down|Left|Rights
 json: Pretty Print                  | :%!jq
 json: Minify                        | :%!jq -r tostring
 
-vim: All text in parens. Inclsuive. | /\v\([!^\(]+\)
-vim: All text in quotes. Exclusive. | \v"\zs[^\"]+\ze"
-vim: Start | End                    | \zs \ze
+neovim: All text in parens. Inclsuive. | /\v\([!^\(]+\)
+neovim: All text in quotes. Exclusive. | \v"\zs[^\"]+\ze"
+neovim: Start | End                    | \zs \ze
 
-vim: Swap two panes                 | <C-w><C-r>
+neovim: Swap two panes                 | <C-w><C-r>

@@ -32,5 +32,33 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format { async = true } end, { desc = "lsp: format" })
       vim.keymap.set({ "n", "v" }, "<leader>ca", fzfLua.lsp_code_actions, { desc = "lsp: code action" })
       vim.keymap.set("n", "<leader>in", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = "lsp: inlay hints toggle"})
+
+      local diag_with_virtual_lines = {
+        virtual_text = {
+          severity = {
+            max = vim.diagnostic.severity.WARN,
+          },
+        },
+        virtual_lines = {
+          severity = {
+            min = vim.diagnostic.severity.ERROR,
+          },
+        },
+      }
+      local diag_without_virtual_lines = {
+        virtual_text = true,
+        virtual_lines = false,
+      }
+      vim.diagnostic.config(diag_with_virtual_lines)
+      local diag_config_basic = false
+      vim.keymap.set("n", "gK", function()
+        diag_config_basic = not diag_config_basic
+        if diag_config_basic then
+          vim.diagnostic.config(diag_without_virtual_lines)
+        else
+          vim.diagnostic.config(diag_with_virtual_lines)
+        end
+      end, { desc = "lsp: Toggle diagnostic virtual_lines" })
+
     end
  })
