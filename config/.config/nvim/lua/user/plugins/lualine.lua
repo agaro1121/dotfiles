@@ -14,7 +14,7 @@ return {
         lualine_c = { },
         lualine_x = { },
         lualine_y = { },
-        lualine_z = { "location", "progress", "%LL", "encoding", "filetype" }
+        lualine_z = { "searchcount", "location", "progress", "%LL", "encoding", "filetype" }
       },
       extensions = { "nvim-tree", "oil" }
     }
