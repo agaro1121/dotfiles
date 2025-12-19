@@ -34,8 +34,6 @@ vim.opt.timeoutlen = 400              -- Time in milliseconds to wait for a mapp
 vim.opt.ruler=false                   -- Disable default ruler
 vim.opt.scrolloff=4                   -- How many lines before/after cursor when scrolling off the page
 
-vim.opt.cmdheight = 0                 -- hide command line bar (where ex commands show up)
-
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 -- Taken from: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
