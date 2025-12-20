@@ -49,7 +49,7 @@ return {
         auto_show = true
       },
       -- Display a preview of the selected item on the current line
-      ghost_text = { enabled = true },
+      ghost_text = { enabled = false },
     },
 
     -- Default list of enabled providers defined so that you can extend it
