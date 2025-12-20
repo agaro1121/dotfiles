@@ -1,4 +1,16 @@
-vim.keymap.set('n', '<leader>g?', function() require("fzf-lua").fzf_exec("cat cheatsheet.txt") end, { desc = 'cheatsheet' } )
+vim.keymap.set("n", "<leader>g?", function()
+  local fzf = require("fzf-lua")
+  local path = vim.fn.stdpath("config") .. "/cheatsheet.txt"
+
+  fzf.fzf_exec(function(cb)
+    for line in io.lines(path) do
+      cb(line)
+    end
+    cb() -- EOF
+  end, {
+    prompt = "Cheatsheet> ",
+  })
+end, { desc = "cheatsheet" })
 
 -- window navigation
 vim.keymap.set("n", "<C-j>", "<C-w>j")
