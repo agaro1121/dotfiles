@@ -63,5 +63,5 @@ local function swap_fg_with_bg_and_set_white(group)
 end
 
 -- must be called in this order
-vim.cmd.colorscheme('catppuccin')
+vim.cmd.colorscheme('catppuccin-macchiato')
 swap_fg_with_bg_and_set_white("Visual")
