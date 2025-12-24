@@ -36,7 +36,9 @@ return {
       'vim',
       'vimdoc',
       'xml',
-      'scala'
+      'scala',
+      'yaml',
+      'latex'
     }, {
       max_jobs = 8,
     })
