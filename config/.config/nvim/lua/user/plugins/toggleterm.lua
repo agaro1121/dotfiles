@@ -50,8 +50,7 @@ return {
     local function _lazygit_toggle()
       lazygit:toggle()
     end
-    _G._lazygit_toggle = _lazygit_toggle
 
-    vim.keymap.set('n', '<leader>ll', '<cmd>lua _G._lazygit_toggle()<CR>', { desc = 'toggleterm.lazygit' })
+    vim.keymap.set('n', '<leader>ll', _lazygit_toggle, { desc = 'toggleterm.lazygit' })
   end
 }
