@@ -20,10 +20,10 @@ return {
       end,
     })
 
-    vim.keymap.set('n', [[<C-\>]], ':ToggleTerm direction=float<CR>', { desc = 'toggleterm: terminal float' })
+    -- vim.keymap.set('n', [[<C-\>]], ':ToggleTerm direction=float<CR>', { desc = 'toggleterm: terminal float' })
     vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical<CR>', { desc = 'toggleterm: terminal vertical' })
     vim.keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal<CR>', { desc = 'toggleterm: terminal horizontal' })
-    vim.keymap.set('n', '<leader>sbt', ":TermExec cmd='sbt' direction=vertical<CR>", { desc = 'toggleterm: sbt terminal' })
+    -- vim.keymap.set('n', '<leader>sbt', ":TermExec cmd='sbt' direction=vertical<CR>", { desc = 'toggleterm: sbt terminal' })
 
     function _G.set_terminal_keymaps()
       local opts = { buffer = 0 }
