@@ -51,6 +51,6 @@ return {
       lazygit:toggle()
     end
 
-    vim.keymap.set('n', '<leader>ll', _lazygit_toggle, { desc = 'toggleterm.lazygit' })
+    vim.keymap.set('n', '<leader>ll', _lazygit_toggle, { desc = 'toggleterm: lazygit' })
   end
 }
