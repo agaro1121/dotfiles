@@ -1,12 +1,12 @@
 return {
-  "NeogitOrg/neogit",
+  'NeogitOrg/neogit',
   lazy = true,
   dependencies = {
-    "nvim-lua/plenary.nvim", -- required
-    "ibhagwan/fzf-lua",    -- optional
+    'nvim-lua/plenary.nvim', -- required
+    'ibhagwan/fzf-lua',    -- optional
   },
-  cmd = "Neogit",
+  cmd = 'Neogit',
   keys = {
-    { "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
+    { '<leader>gg', '<cmd>Neogit<cr>', desc = 'Show Neogit UI' }
   }
 }

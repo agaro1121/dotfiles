@@ -1,6 +1,9 @@
 return {
   'akinsho/toggleterm.nvim',
   version = '*',
+  keys = {
+    {'<leader>ll'}, {'<leader>tv'}, {'<leader>th'}
+  },
   config = function()
     require('toggleterm').setup({
       save_native_terms = true,   -- integrate native terminals from `:terminal` command

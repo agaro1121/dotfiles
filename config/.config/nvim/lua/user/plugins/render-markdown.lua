@@ -3,6 +3,9 @@ return {
   ---@module 'render-markdown'
   ---@type render.md.UserConfig
   opts = {},
+  keys = {
+    {'<leader>md'}
+  },
   config = function()
     local render_markdown = require('render-markdown')
     render_markdown.setup({

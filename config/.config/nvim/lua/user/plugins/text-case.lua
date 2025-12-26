@@ -1,6 +1,8 @@
 return {
   "johmsalas/text-case.nvim",
-  keys = "ga.",
+  keys = {
+    {"ga."}
+  },
   config = function()
     require("textcase").setup({})
 

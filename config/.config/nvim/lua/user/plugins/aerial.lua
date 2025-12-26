@@ -1,5 +1,8 @@
 return {
   'stevearc/aerial.nvim',
+  keys = {
+    {'<leader>o'}
+  },
   opts = {},
   config = function()
     local aerial = require('aerial')
