@@ -106,7 +106,7 @@ end
 return {
   'nvim-tree/nvim-tree.lua',
   version = '*',
-  cmd = 'NvimTreeToggle',
+  event = 'VeryLazy',
   config = function()
     require('nvim-tree').setup(opts)
     vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<cr>', { desc = 'nvimtree: Toggele' })
