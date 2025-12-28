@@ -24,8 +24,28 @@ return {
       }
     }
     metals_config.init_options.statusBarProvider = 'off'
+    local dap = require("dap")
+    dap.configurations.scala = {
+      {
+        type = "scala",
+        request = "launch",
+        name = "RunOrTest",
+        metals = {
+          runType = "runOrTestFile",
+          --args = { "firstArg", "secondArg", "thirdArg" }, -- here just as an example
+        },
+      },
+      {
+        type = "scala",
+        request = "launch",
+        name = "Test Target",
+        metals = {
+          runType = "testTarget",
+        },
+      },
+    }
     metals_config.on_attach = function(client, bufnr)
-      -- your on_attach function
+      require('metals').setup_dap()
     end
 
     return metals_config
@@ -47,27 +67,6 @@ return {
       end,
       group = nvim_metals_group,
     })
-
-    local dap = require("dap")
-    dap.configurations.scala = {
-      {
-        type = "scala",
-        request = "launch",
-        name = "RunOrTest",
-        metals = {
-          runType = "runOrTestFile",
-          --args = { "firstArg", "secondArg", "thirdArg" }, -- here just as an example
-        },
-      },
-      {
-        type = "scala",
-        request = "launch",
-        name = "Test Target",
-        metals = {
-          runType = "testTarget",
-        },
-      },
-    }
 
     vim.keymap.set('n', '<leader>mc', require('metals').commands, { desc = 'metals: menu' })
   end
