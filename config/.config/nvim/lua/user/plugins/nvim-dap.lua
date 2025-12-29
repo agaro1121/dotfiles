@@ -1,6 +1,7 @@
 return {
   {
     'mfussenegger/nvim-dap',
+    event = 'VeryLazy',
     config = function()
       local dap = require('dap')
       vim.keymap.set('n', '<leader>dc', dap.continue, { desc = 'dap: continue' })
@@ -16,6 +17,7 @@ return {
   {
     'rcarriga/nvim-dap-ui',
     dependencies = { 'nvim-neotest/nvim-nio' },
+    event = 'VeryLazy',
     config = function()
       local dap, dapui = require('dap'), require('dapui')
 
@@ -38,6 +40,7 @@ return {
   },
   {
     'theHamsta/nvim-dap-virtual-text',
+    event = 'VeryLazy',
     config = function ()
       require("nvim-dap-virtual-text").setup({})
     end
