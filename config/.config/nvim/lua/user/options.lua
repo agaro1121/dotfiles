@@ -1,4 +1,5 @@
 ---------------- vim options  ----------------
+--- :h option-list - Show all options
 vim.opt.relativenumber = true         -- shows relative line numbers
 vim.opt.number = true                 -- shows line numbers. Shows actual line number instead of '0' when combined with relativenumber.
 vim.opt.numberwidth = 2               -- number width in sign column
