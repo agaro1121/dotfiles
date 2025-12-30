@@ -4,6 +4,7 @@ return {
   opts = function()
     local metals_config = require('metals').bare_config()
     metals_config.settings = {
+      testUserInterface = "Test Explorer",
       inlayHints = {
         -- When this option is enabled, each method that can have inferred types has them displayed either as additional decorations if they are supported by the editor or shown in the hover.
         inferredTypes = { enable = true },
@@ -69,5 +70,7 @@ return {
     })
 
     vim.keymap.set('n', '<leader>mc', require('metals').commands, { desc = 'metals: menu' })
+    vim.keymap.set('n', '<leader>mtc', require('metals').select_test_case, { desc = 'metals: select test case' })
+    vim.keymap.set('n', '<leader>mts', require('metals').select_test_case, { desc = 'metals: select test suite' })
   end
 }
