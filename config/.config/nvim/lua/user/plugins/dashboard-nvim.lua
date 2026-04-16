@@ -27,67 +27,64 @@ local headerLocal = {
   "                                                                                                    ",
 }
 
-return {
-  'nvimdev/dashboard-nvim',
-  enabled = true,
-  event = 'VimEnter',
-  config = function()
-    require('dashboard').setup {
-      theme = 'doom',
-      config = {
-        header = headerLocal, --your header
-        center = {
-          {
-            icon = ' ',
-            icon_hl = 'Title',
-            desc = 'Find File           ',
-            desc_hl = 'String',
-            key = 'f',
-            keymap = '',
-            key_hl = 'Number',
-            key_format = ' %s', -- remove default surrounding `[]`
-            action = 'FzfLua files'
-          },
-          {
-            icon = ' ',
-            icon_hl = 'Title',
-            desc = 'File Tree           ',
-            desc_hl = 'String',
-            key = 't',
-            keymap = '',
-            key_hl = 'Number',
-            key_format = ' %s', -- remove default surrounding `[]`
-            action = 'NvimTreeOpen'
-          },
-          {
-            icon = ' ',
-            icon_hl = 'Title',
-            desc = 'Oil           ',
-            desc_hl = 'String',
-            key = 'o',
-            keymap = '',
-            key_hl = 'Number',
-            key_format = ' %s', -- remove default surrounding `[]`
-            action = 'Oil'
-          },
-          {
-            icon = ' ',
-            icon_hl = 'Title',
-            desc = 'Quit            ',
-            desc_hl = 'String',
-            key = 'q',
-            keymap = '',
-            key_hl = 'Number',
-            key_format = ' %s', -- remove default surrounding `[]`
-            action = 'quit'
-          }
-        },
-        footer = {
-          "",
-          "I am vengeance, I am justice, I am the night!",
-          "I AM BATMAN"
-        }  --your footer
+vim.pack.add({
+  'https://github.com/nvimdev/dashboard-nvim'
+})
+  
+require('dashboard').setup {
+  theme = 'doom',
+  config = {
+    header = headerLocal, --your header
+    center = {
+      {
+        icon = ' ',
+        icon_hl = 'Title',
+        desc = 'Find File           ',
+        desc_hl = 'String',
+        key = 'f',
+        keymap = '',
+        key_hl = 'Number',
+        key_format = ' %s', -- remove default surrounding `[]`
+        action = 'FzfLua files'
+      },
+      {
+        icon = ' ',
+        icon_hl = 'Title',
+        desc = 'File Tree           ',
+        desc_hl = 'String',
+        key = 't',
+        keymap = '',
+        key_hl = 'Number',
+        key_format = ' %s', -- remove default surrounding `[]`
+        action = 'NvimTreeOpen'
+      },
+      {
+        icon = ' ',
+        icon_hl = 'Title',
+        desc = 'Oil           ',
+        desc_hl = 'String',
+        key = 'o',
+        keymap = '',
+        key_hl = 'Number',
+        key_format = ' %s', -- remove default surrounding `[]`
+        action = 'Oil'
+      },
+      {
+        icon = ' ',
+        icon_hl = 'Title',
+        desc = 'Quit            ',
+        desc_hl = 'String',
+        key = 'q',
+        keymap = '',
+        key_hl = 'Number',
+        key_format = ' %s', -- remove default surrounding `[]`
+        action = 'quit'
       }
-    }
-  end
+    },
+    footer = {
+      "",
+      "I am vengeance, I am justice, I am the night!",
+      "I AM BATMAN"
+    }  --your footer
+  }
 }

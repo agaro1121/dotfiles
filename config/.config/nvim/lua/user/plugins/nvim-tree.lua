@@ -104,24 +104,22 @@ local function open_in_oil()
   vim.cmd('Oil --float ' .. vim.fn.fnameescape(basedir))
 end
 
-return {
-  'nvim-tree/nvim-tree.lua',
-  version = '*',
-  event = 'VeryLazy',
-  config = function()
-    require('nvim-tree').setup(opts)
-    vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<cr>', { desc = 'nvimtree: Toggele' })
-    vim.keymap.set('n', '<leader>s', ':NvimTreeFindFile<cr>', { desc = 'nvimtree: Find file in tree' })
-    vim.api.nvim_create_autocmd('FileType', {
-      pattern = 'NvimTree',
-      callback = function()
-        vim.keymap.set(
-          'n',
-          'o',
-          open_in_oil,
-          { buffer = true, desc = 'Open Oil in directory' }
-        )
-      end,
-    })
+vim.pack.add({
+  'https://github.com/nvim-tree/nvim-tree.lua',
+})
+  
+require('nvim-tree').setup(opts)
+vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<cr>', { desc = 'nvimtree: Toggele' })
+vim.keymap.set('n', '<leader>s', ':NvimTreeFindFile<cr>', { desc = 'nvimtree: Find file in tree' })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'NvimTree',
+  callback = function()
+    vim.keymap.set(
+      'n',
+      'o',
+      open_in_oil,
+      { buffer = true, desc = 'Open Oil in directory' }
+    )
   end,
-}
+})

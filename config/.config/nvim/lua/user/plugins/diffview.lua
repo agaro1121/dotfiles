@@ -1,4 +1,3 @@
-return {
-  'sindrets/diffview.nvim',
-  cmd = {'DiffviewOpen', 'DiffviewFileHistory'}
-}
+vim.pack.add({
+  'https://github.com/sindrets/diffview.nvim'
+})
