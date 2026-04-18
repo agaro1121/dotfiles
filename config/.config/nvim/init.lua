@@ -1,7 +1,6 @@
 require("user.options")
 require("user.keybinds")
 
--- require("user.lsp-keybinds")
 
 require("user.plugins.colorscheme")
 require("user.plugins.dashboard-nvim")
@@ -25,3 +24,7 @@ require("user.plugins.smart-splits")
 require("user.plugins.text-case")
 require("user.plugins.todo-comments")
 require("user.plugins.toggleterm")
+
+require("user.plugins.lsp-config")
+require("user.lsp-keybinds")
+
