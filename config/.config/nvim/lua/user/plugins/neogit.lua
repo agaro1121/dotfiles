@@ -1,12 +1,10 @@
-return {
-  'NeogitOrg/neogit',
-  lazy = true,
-  dependencies = {
-    'nvim-lua/plenary.nvim', -- required
-    'ibhagwan/fzf-lua',    -- optional
-  },
-  cmd = 'Neogit',
-  keys = {
-    { '<leader>gg', '<cmd>Neogit<cr>', desc = 'Show Neogit UI' }
-  }
-}
+vim.pack.add({
+  -- required
+  'https://github.com/nvim-lua/plenary.nvim',
+  -- optional
+  'https://github.com/ibhagwan/fzf-lua',
+  
+  'https://github.com/NeogitOrg/neogit'
+})
+
+vim.keymap.set('n', '<leader>gg', '<cmd>Neogit<cr>', { desc = 'Show Neogit UI' })
