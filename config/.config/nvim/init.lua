@@ -10,7 +10,6 @@ require("user.plugins.oil-nvim")
 require("user.plugins.aerial")
 -- require("user.plugins.blink-cmp") -- Revisit once built-in completion is explored
 require("user.plugins.diffview")
-require("user.plugins.fidget")
 require("user.plugins.gitsigns")
 require("user.plugins.indent-blankline")
 require("user.plugins.lualine")
@@ -25,6 +24,8 @@ require("user.plugins.text-case")
 require("user.plugins.todo-comments")
 require("user.plugins.toggleterm")
 
+require("user.plugins.nvim-dap")
 require("user.plugins.lsp-config")
 require("user.lsp-keybinds")
+require("user.plugins.metals")
 
