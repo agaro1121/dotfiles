@@ -8,7 +8,7 @@ require("user.plugins.fzf")
 require("user.plugins.nvim-tree")
 require("user.plugins.oil-nvim")
 require("user.plugins.aerial")
--- require("user.plugins.blink-cmp") -- Revisit once built-in completion is explored
+require("user.plugins.blink-cmp") -- Revisit once built-in completion is explored
 require("user.plugins.diffview")
 require("user.plugins.gitsigns")
 require("user.plugins.indent-blankline")

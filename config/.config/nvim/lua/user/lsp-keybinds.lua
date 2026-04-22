@@ -43,6 +43,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       { desc = "lsp: buffer warning diagnostics" })
 
     vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run, { desc = "lsp: code lens" })
+    vim.keymap.set("n", "<leader>sh", vim.lsp.buf.signature_help, { desc = "lsp: signature help" })
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "lsp: rename" })
     vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format { async = true } end, { desc = "lsp: format" })
     vim.keymap.set({ "n", "v" }, "<leader>ca", fzfLua.lsp_code_actions, { desc = "lsp: code action" })
@@ -76,17 +77,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --     vim.diagnostic.config(diag_with_virtual_lines)
     --   end
     -- end, { desc = "lsp: Toggle diagnostic virtual_lines" })
-
-    vim.diagnostic.config({
-      underline = false,
-      virtual_lines = false,
-      virtual_text = {
-        severity = vim.diagnostic.severity.ERROR
-      },
-      signs = {
-        severity = vim.diagnostic.severity.ERROR
-      }
-    })
-
   end
 })

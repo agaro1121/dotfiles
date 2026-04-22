@@ -49,14 +49,14 @@ dap.configurations.scala = {
   },
 }
 metals_config.on_attach = function(client, bufnr)
-  require('metals').setup_dap()
+  metals.setup_dap()
 end
 
 local nvim_metals_group = vim.api.nvim_create_augroup('nvim-metals', { clear = true })
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { "scala", "sbt", "java" },
   callback = function()
-    require('metals').initialize_or_attach(metals_config)
+    metals.initialize_or_attach(metals_config)
   end,
   group = nvim_metals_group,
 })
@@ -69,6 +69,6 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   group = nvim_metals_group,
 })
 
-vim.keymap.set('n', '<leader>mc', require('metals').commands, { desc = 'metals: menu' })
-vim.keymap.set('n', '<leader>mtc', require('metals').select_test_case, { desc = 'metals: select test case' })
-vim.keymap.set('n', '<leader>mts', require('metals').select_test_case, { desc = 'metals: select test suite' })
+vim.keymap.set('n', '<leader>mc', metals.commands, { desc = 'metals: menu' })
+vim.keymap.set('n', '<leader>mtc', metals.select_test_case, { desc = 'metals: select test case' })
+vim.keymap.set('n', '<leader>mts', metals.select_test_case, { desc = 'metals: select test suite' })

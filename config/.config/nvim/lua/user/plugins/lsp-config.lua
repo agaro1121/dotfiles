@@ -28,18 +28,27 @@ vim.api.nvim_create_user_command("LspRestart", "lsp restart", {
   desc = "Restart LSP",
 })
 
-vim.o.autocomplete = true
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('my.lsp', {}),
-  callback = function(args)
-    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+-- vim.o.autocomplete = true
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   group = vim.api.nvim_create_augroup('my.lsp', {}),
+--   callback = function(args)
+--     local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+--
+--     if client:supports_method('textDocument/completion') then
+--       vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = true})
+--     end
+--   end
+-- })
+-- vim.cmd('set completeopt+=noselect') -- do not automatically select the first entry
+-- vim.cmd('set completeopt+=popup') -- shows extra info as a popup
 
-    if client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger = true})
-    end
-  end
+vim.diagnostic.config({
+  underline = false,
+  virtual_lines = false,
+  virtual_text = {
+    severity = vim.diagnostic.severity.ERROR
+  },
+  signs = {
+    severity = vim.diagnostic.severity.ERROR
+  }
 })
-
-vim.cmd('set completeopt+=noselect')
-vim.cmd('set completeopt+=popup')
-

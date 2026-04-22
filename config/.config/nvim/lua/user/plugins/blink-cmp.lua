@@ -1,9 +1,20 @@
 vim.pack.add({
+  'https://github.com/folke/lazydev.nvim',
   'https://github.com/rafamadriz/friendly-snippets',
   { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('*') }
 })
-  
-require("blink.cmp").setup{
+
+require("lazydev").setup({
+  opts = {
+    library = {
+      -- See the configuration section for more details
+      -- Load luvit types when the `vim.uv` word is found
+      { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+    },
+  },
+})
+
+require("blink.cmp").setup {
   -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
   -- 'super-tab' for mappings similar to vscode (tab to accept)
   -- 'enter' for enter to accept
@@ -17,15 +28,20 @@ require("blink.cmp").setup{
   --
   -- See :h blink-cmp-config-keymap for defining your own keymap
   keymap = {
-      preset = 'default',
-      ['<CR>'] = { 'accept', 'fallback' },
-      ['<C-l>'] = { 'snippet_forward', 'fallback' },
-      ['<C-h>'] = { 'snippet_backward', 'fallback' },
-      ['<Tab>'] = { 'select_next', 'fallback' },
-      ['<S-Tab>'] = { 'select_prev', 'fallback' }
+    preset = 'default',
+    ['<CR>'] = { 'accept', 'fallback' },
+    ['<C-l>'] = { 'snippet_forward', 'fallback' },
+    ['<C-h>'] = { 'snippet_backward', 'fallback' },
+    ['<Tab>'] = { 'select_next', 'fallback' },
+    ['<S-Tab>'] = { 'select_prev', 'fallback' }
   },
 
-  signature = { enabled = true },
+  signature = {
+    enabled = true,
+    trigger = {
+      show_on_insert = true
+    }
+  },
 
   appearance = {
     -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -36,11 +52,29 @@ require("blink.cmp").setup{
 
   -- (Default) Only show the documentation popup when manually triggered
   completion = {
+    list = {
+      selection = {
+        preselect = false,
+        auto_insert = true
+      }
+    },
     documentation = {
       auto_show = true
     },
+    accept = {
+      auto_brackets = {
+        enabled = false
+      }
+    },
     -- Display a preview of the selected item on the current line
     ghost_text = { enabled = false },
+    menu = {
+      draw = {
+        columns = {
+          { "kind_icon", "label", "label_description", gap = 1 }, { "kind" }
+        }
+      }
+    }
   },
 
   -- Default list of enabled providers defined so that you can extend it
@@ -48,13 +82,13 @@ require("blink.cmp").setup{
   sources = {
     default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
     providers = {
-        lazydev = {
-          name = "LazyDev",
-          module = "lazydev.integrations.blink",
-          -- make lazydev completions top priority (see `:h blink.cmp`)
-          score_offset = 100,
-        }
+      lazydev = {
+        name = "LazyDev",
+        module = "lazydev.integrations.blink",
+        -- make lazydev completions top priority (see `:h blink.cmp`)
+        score_offset = 100,
       }
+    }
   },
 
   -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

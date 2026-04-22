@@ -3,7 +3,8 @@ vim.pack.add({
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
   'https://github.com/MeanderingProgrammer/treesitter-modules.nvim'
 })
-    
+
+require('nvim-treesitter').setup()
 require('treesitter-modules').setup({
   ensure_installed = {
     'bash',
@@ -31,14 +32,13 @@ require('treesitter-modules').setup({
     'xml',
     'scala',
     'yaml',
-    'latex'
   },
   ignore_install = {},
-  sync_install = false,
+  sync_install = true,
   auto_install = true,
-  fold = { enable = false, disable = false },
+  fold = { enable = true, disable = false },
   highlight = {
-    enable = true,
+    enable = false,
     -- setting this to true will run `:h syntax` and tree-sitter at the same time
     -- set this to `true` if you depend on 'syntax' being enabled
     -- using this option may slow down your editor, and duplicate highlights
