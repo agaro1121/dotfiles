@@ -28,6 +28,8 @@ vim.api.nvim_create_user_command("LspRestart", "lsp restart", {
   desc = "Restart LSP",
 })
 
+-- NOTE: Cannot use this since it is limited to 1 source and snippets cannot be added
+--       Will use blink.cmp instead
 -- vim.o.autocomplete = true
 -- vim.api.nvim_create_autocmd('LspAttach', {
 --   group = vim.api.nvim_create_augroup('my.lsp', {}),
