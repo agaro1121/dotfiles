@@ -1,7 +1,7 @@
 {
   "plugins": {
     "aerial.nvim": {
-      "rev": "645d108a5242ec7b378cbe643eb6d04d4223f034",
+      "rev": "43dd88ad4024b1945906887521057c73d3b0d84e",
       "src": "https://github.com/stevearc/aerial.nvim"
     },
     "blink.cmp": {
@@ -30,11 +30,11 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "fcabe3cb7cfa6bd5148ffac0188997196401937d",
+      "rev": "311a630292310ea3bfe46dd616e17f283e975801",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "6d808f99bd63303646794406e270bd553ad7792e",
+      "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "indent-blankline.nvim": {
@@ -46,23 +46,23 @@
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "lualine.nvim": {
-      "rev": "a905eeebc4e63fdc48b5135d3bf8aea5618fb21c",
+      "rev": "131a558e13f9f28b15cd235557150ccb23f89286",
       "src": "http://github.com/nvim-lualine/lualine.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "0a3b42c3e503df87aef6d6513e13148381495c3a",
+      "rev": "7b01e2974a47d489bb92f47a41e4c0088ea8f86e",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason.nvim": {
-      "rev": "b03fb0f20bc1d43daf558cda981a2be22e73ac42",
+      "rev": "8e921c2b68571e978db5d4d3fef9c9a7f8755473",
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "neogit": {
-      "rev": "d1cfc4986195239cac55700b675cea7a9578d430",
+      "rev": "99326a1310fb2d616b455d2fd16d01bf00682f06",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-autopairs": {
-      "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
+      "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-dap": {
@@ -78,11 +78,11 @@
       "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
     },
     "nvim-lspconfig": {
-      "rev": "e05fb8c3bd61d909dacff24f77f23beb644daf54",
+      "rev": "8f7e64066e2641d5e7d494962a9c7051e3d38dd5",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-metals": {
-      "rev": "6970d6036218db6545f3c295d0106cc8de6d7161",
+      "rev": "4cc98f07ec96bb748a8796831767538e0e4f9be4",
       "src": "https://github.com/scalameta/nvim-metals"
     },
     "nvim-nio": {
@@ -95,7 +95,7 @@
       "version": "3.0.0 - 4.0.0"
     },
     "nvim-tree.lua": {
-      "rev": "d277467fc0d1d0e2bca88165a1de6b526f9f6fe8",
+      "rev": "07f541fcaa4a5ae019598240362449ab7e9812b3",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
@@ -104,7 +104,7 @@
       "version": "'main'"
     },
     "nvim-treesitter-context": {
-      "rev": "b0c45cefe2c8f7b55fc46f34e563bc428ef99636",
+      "rev": "b311b30818951d01f7b4bf650521b868b3fece16",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
     "nvim-treesitter-textobjects": {
@@ -113,7 +113,7 @@
       "version": "'main'"
     },
     "nvim-web-devicons": {
-      "rev": "c72328a5494b4502947a022fe69c0c47e53b6aa6",
+      "rev": "2795c26c916bb3c57dde308b82be51971fa92747",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "oil.nvim": {
@@ -125,11 +125,11 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "0fd43fb4b1f073931c4b481f5f3b7cea3749e190",
+      "rev": "629eb9533ec989d9d5c6cab8f3ad5372422c24e0",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "smart-splits.nvim": {
-      "rev": "78b9d3bd21fe479690ae5e08a1bf3602698466d8",
+      "rev": "3151100591670148cb0065388117622212208ee3",
       "src": "https://github.com/mrjones2014/smart-splits.nvim"
     },
     "sonokai": {
@@ -150,7 +150,7 @@
       "version": ">=0.0.0"
     },
     "treesitter-modules.nvim": {
-      "rev": "dbded29dade0ff4435642530ec2b5a81730f8e1a",
+      "rev": "290eec96bfc43ed28264661dd30e894a60c4b99c",
       "src": "https://github.com/MeanderingProgrammer/treesitter-modules.nvim"
     }
   }
