@@ -7,10 +7,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
       { desc = "lsp: open defnition in vertical split" })
     vim.keymap.set("n", "gH", ":split | lua vim.lsp.buf.definition()<CR>",
       { desc = "lsp: open definition in horizontal split" })
-    vim.keymap.set("n", "gt", fzfLua.lsp_typedefs, { desc = "lsp: tpye defintions" })
+    vim.keymap.set("n", "gt", fzfLua.lsp_typedefs, { desc = "lsp: type defintions" })
     vim.keymap.set("n", "gi", fzfLua.lsp_implementations, { desc = "lsp: implementations" })
-    vim.keymap.set("n", "gic", vim.lsp.buf.incoming_calls, { desc = "lsp: upstream calls. who calls this symbol?" })
-    vim.keymap.set("n", "goc", vim.lsp.buf.outgoing_calls,
+    vim.keymap.set("n", "gic", fzfLua.lsp_incoming_calls, { desc = "lsp: upstream calls. who calls this symbol?" })
+    vim.keymap.set("n", "goc", fzfLua.lsp_outgoing_calls,
       { desc = "lsp: downstream calls. What does this symbol call?" })
     vim.keymap.set("n", "gr", fzfLua.lsp_references, { desc = "lsp: references" })
     vim.keymap.set("n", "gds", fzfLua.lsp_document_symbols, { desc = "lsp: document symbls" })
