@@ -7,7 +7,7 @@ vim.pack.add({
 require("mason").setup()
 require("mason-lspconfig").setup {
     automatic_enable = {
-        "lua_ls", "smithy_ls", "jsonls", "yamlls", "marksman"
+        "lua_ls", "smithy_ls", "jsonls", "yamlls", "marksman", "lemminx"
     }
 }
 
