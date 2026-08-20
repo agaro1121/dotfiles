@@ -28,4 +28,4 @@ require("user.plugins.nvim-dap")
 require("user.plugins.lsp-config")
 require("user.lsp-keybinds")
 require("user.plugins.metals")
-
+require("user.plugins.scretch")
