@@ -12,7 +12,7 @@ fzflua.setup{
 }
 fzflua.register_ui_select() -- use fzf-lua as neovim's `vim.ui.select`
 
-vim.keymap.set('n', '<leader>ff', fzflua.files, { desc = 'fzflua: Find files' })
+vim.keymap.set('n', '<leader>ff', function() fzflua.files({cwd = vim.fn.getcwd()}) end, { desc = 'fzflua: Find files' })
 vim.keymap.set('n', '<leader>tk', fzflua.keymaps, { desc = 'fzflua: Keymaps' })
 -- vim.keymap.set('n', '<leader>lg', fzflua.live_grep_native, { desc = 'fzflua: Live grep' })
 vim.keymap.set('n', '<leader>lg', fzflua.live_grep, { desc = 'fzflua: Live grep glob' })
