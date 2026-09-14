@@ -141,6 +141,9 @@ export PATH="$PATH:/$HOME/.cargo/bin"
 # bob manages neovim version - cargo install bob-nvim
 export PATH="$PATH:/$HOME/.local/share/bob/nvim-bin"
 
+# gsed
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+
 # man pages open with neovim
 export MANPAGER="nvim +Man!"
 
@@ -190,3 +193,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "$(zoxide init --cmd cd zsh)" # brew install zoxide
+
+complete -o nospace -C /opt/homebrew/Cellar/tfenv/3.0.0/versions/1.12.1/terraform terraform
