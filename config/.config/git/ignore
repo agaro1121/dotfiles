@@ -1,0 +1,17 @@
+# Global gitignore (XDG default location for core.excludesFile)
+
+# macOS
+.DS_Store
+
+# Vim/Neovim swap files
+*.swp
+
+# Editors / IDEs
+.idea/
+.vscode/
+
+# scretch.nvim scratch files
+.scretch/
+
+# Metals / Scala build server
+.bsp/
