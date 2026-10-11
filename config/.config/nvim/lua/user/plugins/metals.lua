@@ -71,4 +71,4 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
 
 vim.keymap.set('n', '<leader>mc', metals.commands, { desc = 'metals: menu' })
 vim.keymap.set('n', '<leader>mtc', metals.select_test_case, { desc = 'metals: select test case' })
-vim.keymap.set('n', '<leader>mts', metals.select_test_case, { desc = 'metals: select test suite' })
+vim.keymap.set('n', '<leader>mts', metals.select_test_suite, { desc = 'metals: select test suite' })
