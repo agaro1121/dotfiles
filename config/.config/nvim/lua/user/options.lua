@@ -34,6 +34,7 @@ vim.opt.signcolumn='auto'
 vim.opt.timeoutlen = 400              -- Time in milliseconds to wait for a mapped sequence to complete.
 vim.opt.ruler=false                   -- Disable default ruler
 vim.opt.scrolloff=4                   -- How many lines before/after cursor when scrolling off the page
+vim.opt.updatetime = 200
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.hl.on_yank()`

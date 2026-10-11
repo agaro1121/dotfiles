@@ -28,6 +28,7 @@ vim.keymap.set({"i"}, "<Right>", "<Nop>")
 
 -- better experience
 vim.keymap.set({"n", "v"}, "<Space>", "<Nop>")
+vim.keymap.set({"n"}, "<Esc>", [[<Cmd>noh<Cr><Esc>]], {desc="Clear search highlight"})
 
 -- move line(s)
 vim.keymap.set("v", "J", ":mo '>+1<CR>gv=gv", {desc="Move highlighted lines down"})
