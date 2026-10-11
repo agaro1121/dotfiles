@@ -1,26 +1,26 @@
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
     local fzfLua = require('fzf-lua')
-    vim.keymap.set("n", "gD", vim.lsp.buf.definition, { desc = "lsp: definitions" })
+    vim.keymap.set("n", "gD", vim.lsp.buf.definition, { buffer = args.buf, desc = "lsp: definitions" })
 
     vim.keymap.set("n", "gV", ":vsplit | lua vim.lsp.buf.definition()<CR>",
-      { desc = "lsp: open defnition in vertical split" })
+      { buffer = args.buf, desc = "lsp: open defnition in vertical split" })
     vim.keymap.set("n", "gH", ":split | lua vim.lsp.buf.definition()<CR>",
-      { desc = "lsp: open definition in horizontal split" })
-    vim.keymap.set("n", "gt", fzfLua.lsp_typedefs, { desc = "lsp: type defintions" })
-    vim.keymap.set("n", "gi", fzfLua.lsp_implementations, { desc = "lsp: implementations" })
-    vim.keymap.set("n", "gic", fzfLua.lsp_incoming_calls, { desc = "lsp: upstream calls. who calls this symbol?" })
+      { buffer = args.buf, desc = "lsp: open definition in horizontal split" })
+    vim.keymap.set("n", "gt", fzfLua.lsp_typedefs, { buffer = args.buf, desc = "lsp: type defintions" })
+    vim.keymap.set("n", "gi", fzfLua.lsp_implementations, { buffer = args.buf, desc = "lsp: implementations" })
+    vim.keymap.set("n", "gic", fzfLua.lsp_incoming_calls, { buffer = args.buf, desc = "lsp: upstream calls. who calls this symbol?" })
     vim.keymap.set("n", "goc", fzfLua.lsp_outgoing_calls,
-      { desc = "lsp: downstream calls. What does this symbol call?" })
-    vim.keymap.set("n", "gr", fzfLua.lsp_references, { desc = "lsp: references" })
-    vim.keymap.set("n", "gds", fzfLua.lsp_document_symbols, { desc = "lsp: document symbls" })
-    vim.keymap.set("n", "gws", fzfLua.lsp_live_workspace_symbols, { desc = "lsp: dynamic workspace symbols" })
+      { buffer = args.buf, desc = "lsp: downstream calls. What does this symbol call?" })
+    vim.keymap.set("n", "gr", fzfLua.lsp_references, { buffer = args.buf, desc = "lsp: references" })
+    vim.keymap.set("n", "gds", fzfLua.lsp_document_symbols, { buffer = args.buf, desc = "lsp: document symbls" })
+    vim.keymap.set("n", "gws", fzfLua.lsp_live_workspace_symbols, { buffer = args.buf, desc = "lsp: dynamic workspace symbols" })
 
     -- diagnostics
     vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, wrap = false }) end,
-      { desc = "lsp: previous diagnostic" })
+      { buffer = args.buf, desc = "lsp: previous diagnostic" })
     vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, wrap = false }) end,
-      { desc = "lsp: next diagnostic" })
+      { buffer = args.buf, desc = "lsp: next diagnostic" })
 
     local winoptsConfig = { preview = { layout = "vertical" } }
     -- project diagnostics
@@ -34,21 +34,21 @@ vim.api.nvim_create_autocmd('LspAttach', {
       { desc = "lsp: workspace warning diagnostics" })
     -- buffer diagnostics
     vim.keymap.set("n", "<leader>ba", function() fzfLua.diagnostics_document({ winopts = winoptsConfig }) end,
-      { desc = "lsp: buffer diagnostics" })
+      { buffer = args.buf, desc = "lsp: buffer diagnostics" })
     vim.keymap.set("n", "<leader>be",
       function() fzfLua.diagnostics_document({ severity_only = vim.diagnostic.severity.ERROR, winopts = winoptsConfig }) end,
-      { desc = "lsp: buffer error diagnostics" })
+      { buffer = args.buf, desc = "lsp: buffer error diagnostics" })
     vim.keymap.set("n", "<leader>bw",
       function() fzfLua.diagnostics_document({ severity_only = vim.diagnostic.severity.WARN, winopts = winoptsConfig }) end,
-      { desc = "lsp: buffer warning diagnostics" })
+      { buffer = args.buf, desc = "lsp: buffer warning diagnostics" })
 
-    vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run, { desc = "lsp: code lens" })
-    vim.keymap.set("n", "<leader>sh", vim.lsp.buf.signature_help, { desc = "lsp: signature help" })
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "lsp: rename" })
-    vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format { async = true } end, { desc = "lsp: format" })
-    vim.keymap.set({ "n", "v" }, "<leader>ca", fzfLua.lsp_code_actions, { desc = "lsp: code action" })
+    vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run, { buffer = args.buf, desc = "lsp: code lens" })
+    vim.keymap.set("n", "<leader>sh", vim.lsp.buf.signature_help, { buffer = args.buf, desc = "lsp: signature help" })
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = args.buf, desc = "lsp: rename" })
+    vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format { async = true } end, { buffer = args.buf, desc = "lsp: format" })
+    vim.keymap.set({ "n", "v" }, "<leader>ca", fzfLua.lsp_code_actions, { buffer = args.buf, desc = "lsp: code action" })
     vim.keymap.set("n", "<leader>in", function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,
-      { desc = "lsp: inlay hints toggle" })
+      { buffer = args.buf, desc = "lsp: inlay hints toggle" })
 
   end
 })
