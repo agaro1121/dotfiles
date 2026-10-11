@@ -1,2 +1,3 @@
 **/.luarc.json
 config/.config/gh/hosts.yml
+config/.config/jgit/config

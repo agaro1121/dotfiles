@@ -21,10 +21,6 @@
       "rev": "3e45bde7a43b7dc1cb7c4c82290fa50108d6cd5a",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
-    "diffview.nvim": {
-      "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
-      "src": "https://github.com/sindrets/diffview.nvim"
-    },
     "fidget.nvim": {
       "rev": "6f793b2bcd2d35e201c09520f698bb763220908a",
       "src": "https://github.com/j-hui/fidget.nvim"
@@ -36,10 +32,6 @@
     "fzf-lua": {
       "rev": "8671012a7b2a1648595952c655039d51fb301c14",
       "src": "https://github.com/ibhagwan/fzf-lua"
-    },
-    "fzf-oil.nvim": {
-      "rev": "f49a44658c3ae6243b88b20db5767657d29dd5cc",
-      "src": "https://github.com/ingur/fzf-oil.nvim"
     },
     "gitsigns.nvim": {
       "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
@@ -148,10 +140,6 @@
       "rev": "b023c5280b16fe2366f5e779d8d2756b3e5ee9c3",
       "src": "https://github.com/sainnhe/sonokai"
     },
-    "sora": {
-      "rev": "fe05412099185249114a8542b2b38a1401eeaf75",
-      "src": "https://github.com/Aejkatappaja/sora"
-    },
     "teide.nvim": {
       "rev": "95041d1d78e786bd88be64bca3e1771f7b6236df",
       "src": "https://github.com/serhez/teide.nvim"
@@ -176,10 +164,6 @@
     "treesitter-modules.nvim": {
       "rev": "290eec96bfc43ed28264661dd30e894a60c4b99c",
       "src": "https://github.com/MeanderingProgrammer/treesitter-modules.nvim"
-    },
-    "wayfinder.nvim": {
-      "rev": "2ce480d35626ddb533ba594fa7ca865d61184ec6",
-      "src": "https://github.com/error311/wayfinder.nvim"
     },
     "zen-mode.nvim": {
       "rev": "8564ce6d29ec7554eb9df578efa882d33b3c23a7",
