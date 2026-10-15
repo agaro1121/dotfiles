@@ -30,4 +30,4 @@ require("user.lsp-keybinds")
 require("user.plugins.metals")
 require("user.plugins.scretch")
 require("user.plugins.zen-mode")
-
+require("user.plugins.nvim-java")

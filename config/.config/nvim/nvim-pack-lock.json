@@ -4,6 +4,10 @@
       "rev": "28fe6e822ae344544c379d60fcb13c9519a1f08a",
       "src": "https://github.com/stevearc/aerial.nvim"
     },
+    "backend-tmux": {
+      "rev": "9e9e6aa9b3eb7a8d3896a993611622ac97abff52",
+      "src": "https://github.com/smart-splits-nvim/backend-tmux"
+    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
@@ -18,8 +22,12 @@
       "src": "https://github.com/nvimdev/dashboard-nvim"
     },
     "diffview-plus.nvim": {
-      "rev": "3e45bde7a43b7dc1cb7c4c82290fa50108d6cd5a",
+      "rev": "2a2d89a07f5d5d3cef7f542b99c3e28050ca205c",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
+    },
+    "diffview.nvim": {
+      "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
+      "src": "https://github.com/sindrets/diffview.nvim"
     },
     "fidget.nvim": {
       "rev": "6f793b2bcd2d35e201c09520f698bb763220908a",
@@ -30,11 +38,11 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "fzf-lua": {
-      "rev": "8671012a7b2a1648595952c655039d51fb301c14",
+      "rev": "3868dcc78d2c2766c9510ab18b6d3815071b389e",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
+      "rev": "fd780920613e541cbdfac41bf711583ed49f9249",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "indent-blankline.nvim": {
@@ -50,7 +58,7 @@
       "src": "http://github.com/nvim-lualine/lualine.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "67029ccdac1ef8941e13b826417bc0ffac24cc86",
+      "rev": "00b5473cca4db5b410ff4bae724e3b6e21f2687f",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason.nvim": {
@@ -58,11 +66,15 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "neogit": {
-      "rev": "37e0f22a2345bad1bffe01b31970885882f46275",
+      "rev": "a6549816e62cec7037f1549d8f1659d45635370c",
       "src": "https://github.com/NeogitOrg/neogit"
     },
+    "nui.nvim": {
+      "rev": "10fc361835c856ba4233ef5ea135b919bf3dce97",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
     "nvim-autopairs": {
-      "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
+      "rev": "3172f40c16563db871a58f20d205c710ad782311",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-dap": {
@@ -77,8 +89,12 @@
       "rev": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6",
       "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
     },
+    "nvim-java": {
+      "rev": "db5536b4cb3da153084e50016596fd0e3a319aae",
+      "src": "https://github.com/nvim-java/nvim-java"
+    },
     "nvim-lspconfig": {
-      "rev": "d2011e1dd0c27569c551f16b688d86029ae015c9",
+      "rev": "ac062d0d01c019c0dbdb798968f3e5d8b35c3853",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-metals": {
@@ -95,16 +111,16 @@
       "version": "3.0.0 - 4.0.0"
     },
     "nvim-tree.lua": {
-      "rev": "b2aadda94b107480c48e548d6db51c6840b7b33c",
+      "rev": "355bcc85a48f45b3e728219f10b880d569928965",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "c9f9ed6c1892f629ea399f4ee7905f2686fa13f2",
+      "rev": "ca581c3436fc2b236847f5b739ebc263739e5ca6",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
     "nvim-treesitter-context": {
-      "rev": "f3061339b8eaf9fda873600bc425b8d2d8502533",
+      "rev": "8decd73460d26ef0a0befb745d022dd1fc2c38b8",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
     "nvim-treesitter-textobjects": {
@@ -113,11 +129,11 @@
       "version": "'main'"
     },
     "nvim-web-devicons": {
-      "rev": "2ae6958df7ced50baac5035cec0c15799eedfbf7",
+      "rev": "ec309a0eaff6ea967e58c275996155ab5c16938d",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "oil.nvim": {
-      "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
+      "rev": "d3733d933833a0e59b813ecec99341527adf0c28",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "plenary.nvim": {
@@ -125,20 +141,30 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
-      "rev": "4663eb3ecd538bd5062628fb6d95bbe6bdca78f6",
+      "rev": "8e8795368391036643b622875a6da6a51bcd33f4",
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
+    "scratch.nvim": {
+      "rev": "01e4fa9347941f5fe6bd0ec2581ffc12d3234d66",
+      "src": "https://github.com/LintaoAmons/scratch.nvim"
     },
     "scretch.nvim": {
       "rev": "4140e9326719399e584a6ac819aebb179889e6e2",
       "src": "https://github.com/agaro1121/scretch.nvim"
     },
     "smart-splits.nvim": {
-      "rev": "0fe3bbd99d48458ad188c4c262c31049fa9b018c",
-      "src": "https://github.com/mrjones2014/smart-splits.nvim"
+      "rev": "07dbad410256f755e69ffd31cb8d122bcd6b91f7",
+      "src": "https://github.com/mrjones2014/smart-splits.nvim",
+      "version": "'^3.0.0'"
     },
     "sonokai": {
       "rev": "b023c5280b16fe2366f5e779d8d2756b3e5ee9c3",
       "src": "https://github.com/sainnhe/sonokai"
+    },
+    "spring-boot.nvim": {
+      "rev": "218c0c26c14d99feca778e4d13f5ec3e8b1b60f0",
+      "src": "https://github.com/JavaHello/spring-boot.nvim",
+      "version": "'218c0c26c14d99feca778e4d13f5ec3e8b1b60f0'"
     },
     "teide.nvim": {
       "rev": "95041d1d78e786bd88be64bca3e1771f7b6236df",
@@ -162,8 +188,12 @@
       "src": "https://github.com/folke/tokyonight.nvim"
     },
     "treesitter-modules.nvim": {
-      "rev": "290eec96bfc43ed28264661dd30e894a60c4b99c",
+      "rev": "029af916ca137eee680bf58b5bb64f6e69ab6cca",
       "src": "https://github.com/MeanderingProgrammer/treesitter-modules.nvim"
+    },
+    "true-zen.nvim": {
+      "rev": "2b9e210e0d1a735e1fa85ec22190115dffd963aa",
+      "src": "https://github.com/agaro1121/true-zen.nvim"
     },
     "zen-mode.nvim": {
       "rev": "8564ce6d29ec7554eb9df578efa882d33b3c23a7",

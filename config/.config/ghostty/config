@@ -1,3 +1,4 @@
 font-size = 16
 cursor-style = block
 cursor-style-blink = false
+theme = Catppuccin Mocha

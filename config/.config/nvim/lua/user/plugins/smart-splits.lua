@@ -1,13 +1,20 @@
 vim.pack.add({
-  'https://github.com/mrjones2014/smart-splits.nvim'
+  { src = 'https://github.com/smart-splits-nvim/smart-splits.nvim', version = '^3.0.0' },
+  'https://github.com/smart-splits-nvim/backend-tmux',
 })
-  
+
 require('smart-splits').setup({
   ignored_filetypes = { 'NvimTree' },
-  -- the default number of lines/columns to resize by at a time
-  default_amount = 2,
-  -- enable or disable the tmux integration
-  multiplexer_integration = 'tmux'
+
+  resize = {
+    -- the default number of lines/columns to resize by at a time
+    amount = 2,
+  },
+
+  mux = {
+    -- enable or disable the tmux integration
+    backend = 'smart-splits-backend-tmux',
+  },
 })
 -- recommended mappings
 -- resizing splits
