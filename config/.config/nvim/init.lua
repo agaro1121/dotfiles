@@ -22,7 +22,6 @@ require("user.plugins.render-markdown")
 require("user.plugins.smart-splits")
 require("user.plugins.text-case")
 require("user.plugins.todo-comments")
-require("user.plugins.toggleterm")
 
 require("user.plugins.nvim-dap")
 require("user.plugins.lsp-config")

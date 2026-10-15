@@ -40,7 +40,7 @@ require('treesitter-modules').setup({
   auto_install = true,
   fold = { enable = true, disable = false },
   highlight = {
-    enable = false,
+    enable = true,
     -- setting this to true will run `:h syntax` and tree-sitter at the same time
     -- set this to `true` if you depend on 'syntax' being enabled
     -- using this option may slow down your editor, and duplicate highlights
