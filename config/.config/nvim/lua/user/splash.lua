@@ -57,11 +57,8 @@ define_highlights()
 -- a later :colorscheme clears custom groups, so define them again
 vim.api.nvim_create_autocmd("ColorScheme", { callback = define_highlights })
 
-local function show()
-  if vim.fn.argc() > 0 or vim.api.nvim_buf_get_name(0) ~= "" or vim.fn.line2byte("$") ~= -1 then
-    return
-  end
-
+-- builds the lines and highlights for the current screen size; safe to call repeatedly
+local function render(buf)
   local lines = vim.list_extend({}, header)
   for _ = 1, ART_MENU_GAP do
     table.insert(lines, "")
@@ -98,11 +95,11 @@ local function show()
   end
   lines = vim.list_extend(top, lines)
 
-  local buf = vim.api.nvim_get_current_buf()
-  vim.bo[buf].bufhidden, vim.bo[buf].buftype, vim.bo[buf].swapfile = "wipe", "nofile", false
+  vim.bo[buf].modifiable = true
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
 
   local ns = vim.api.nvim_create_namespace("splash")
+  vim.api.nvim_buf_clear_namespace(buf, ns, 0, -1) -- drop the previous draw's highlights
   -- ASCII art: yellow
   vim.api.nvim_buf_set_extmark(buf, ns, pad, 0, {
     end_row = pad + #header, hl_group = "SplashHeader", hl_eol = true, strict = false,
@@ -122,6 +119,15 @@ local function show()
     vim.api.nvim_buf_set_extmark(buf, ns, row, start + r.key_off, { end_col = start + r.key_off + 1, hl_group = "SplashMenuKey" })
   end
   vim.bo[buf].modifiable = false
+end
+
+local function show()
+  if vim.fn.argc() > 0 or vim.api.nvim_buf_get_name(0) ~= "" or vim.fn.line2byte("$") ~= -1 then
+    return
+  end
+
+  local buf = vim.api.nvim_get_current_buf()
+  vim.bo[buf].bufhidden, vim.bo[buf].buftype, vim.bo[buf].swapfile = "wipe", "nofile", false
   for _, w in ipairs({ "number", "relativenumber", "cursorline", "list" }) do
     vim.wo[w] = false
   end
@@ -129,6 +135,14 @@ local function show()
   for _, item in ipairs(menu) do
     vim.keymap.set("n", item.key, "<cmd>" .. item.cmd .. "<cr>", { buffer = buf, nowait = true })
   end
+
+  render(buf)
+
+  -- buffer-local, so it goes away when the splash buffer is wiped
+  vim.api.nvim_create_autocmd("VimResized", {
+    buffer = buf,
+    callback = function() render(buf) end,
+  })
 end
 
 vim.api.nvim_create_autocmd("VimEnter", { once = true, nested = true, callback = show })
