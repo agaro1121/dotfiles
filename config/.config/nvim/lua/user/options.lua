@@ -22,7 +22,6 @@ vim.opt.listchars:append 'tab:» '
 vim.opt.listchars:append 'trail: '
 vim.opt.clipboard='unnamedplus'
 vim.opt.autowriteall=true
-vim.opt.laststatus=0
 vim.opt.showmode=false                -- disables the '-- INSERT --' text under the status line
 vim.opt.mouse = ''                    -- disables mouse in neovim
 vim.opt.breakindent = true            -- Every wrapped line will continue visually indented. Makes for horizontal blocks.
