@@ -3,7 +3,7 @@ require("user.keybinds")
 
 
 require("user.plugins.colorscheme")
-require("user.plugins.dashboard-nvim")
+require("user.splash")
 require("user.plugins.fzf")
 require("user.plugins.nvim-tree")
 require("user.plugins.oil-nvim")
@@ -12,7 +12,7 @@ require("user.plugins.blink-cmp") -- Revisit once built-in completion is explore
 require("user.plugins.diffview")
 require("user.plugins.gitsigns")
 require("user.plugins.indent-blankline")
-require("user.plugins.lualine")
+require("user.statusline")
 require("user.plugins.neogit")
 require("user.plugins.nvim-autopairs")
 require("user.plugins.nvim-surround")

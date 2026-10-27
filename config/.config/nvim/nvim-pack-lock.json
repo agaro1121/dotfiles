@@ -17,10 +17,6 @@
       "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
       "src": "https://github.com/catppuccin/nvim"
     },
-    "dashboard-nvim": {
-      "rev": "f787e3462c2ee2b6117b17c1aa4ddf66cb6f57fe",
-      "src": "https://github.com/nvimdev/dashboard-nvim"
-    },
     "diffview-plus.nvim": {
       "rev": "2a2d89a07f5d5d3cef7f542b99c3e28050ca205c",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
@@ -52,10 +48,6 @@
     "lazydev.nvim": {
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim"
-    },
-    "lualine.nvim": {
-      "rev": "221ce6b2d999187044529f49da6554a92f740a96",
-      "src": "http://github.com/nvim-lualine/lualine.nvim"
     },
     "mason-lspconfig.nvim": {
       "rev": "00b5473cca4db5b410ff4bae724e3b6e21f2687f",
