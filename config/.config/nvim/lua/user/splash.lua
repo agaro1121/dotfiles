@@ -38,49 +38,65 @@ local menu = {
   { key = "q", desc = "Quit",      cmd = "quit" },
 }
 
+local ART_MENU_GAP = 2 -- blank lines between the art and the menu
+local KEY_GAP = 16     -- spaces between the longest label and the key
+local UP_OFFSET = 16   -- lines to nudge the whole block up from true center
+
+local function define_highlights()
+  -- ASCII art: yellow
+  vim.api.nvim_set_hl(0, "SplashHeader", { fg = "#f9e2af" })
+  -- footer quote: yellow, italic
+  vim.api.nvim_set_hl(0, "SplashFooter", { fg = "#f9e2af", italic = true })
+  -- menu: blue icon, green label, orange shortcut key
+  vim.api.nvim_set_hl(0, "SplashMenuIcon", { fg = "#89b4fa" })
+  vim.api.nvim_set_hl(0, "SplashMenuItem", { fg = "#a6e3a1" })
+  vim.api.nvim_set_hl(0, "SplashMenuKey", { fg = "#fab387" })
+end
+
+define_highlights()
+-- a later :colorscheme clears custom groups, so define them again
+vim.api.nvim_create_autocmd("ColorScheme", { callback = define_highlights })
+
 local function show()
   if vim.fn.argc() > 0 or vim.api.nvim_buf_get_name(0) ~= "" or vim.fn.line2byte("$") ~= -1 then
     return
   end
 
   local lines = vim.list_extend({}, header)
-  -- extra blank lines between the art and the menu
-  local gap = 2
-  for _ = 1, gap do
+  for _ = 1, ART_MENU_GAP do
     table.insert(lines, "")
   end
 
-  -- pad entries to one width so per-line centering keeps them aligned
-  local desc_width = 0
-  for _, item in ipairs(menu) do
-    item.label = icon .. " " .. item.desc
-    desc_width = math.max(desc_width, vim.fn.strdisplaywidth(item.label))
+  -- pad labels to one width so per-line centering keeps the keys aligned
+  local labels, label_width = {}, 0
+  for i, item in ipairs(menu) do
+    labels[i] = icon .. " " .. item.desc
+    label_width = math.max(label_width, vim.fn.strdisplaywidth(labels[i]))
   end
-  local key_gap = 16 -- spaces between the longest label and the key
-  local entries = {}
-  for _, item in ipairs(menu) do
-    local gap = (" "):rep(desc_width - vim.fn.strdisplaywidth(item.label))
-    table.insert(entries, ("%s%s%s%s"):format(item.label, gap, (" "):rep(key_gap), item.key))
-  end
-  local menu_width = 0
-  for _, e in ipairs(entries) do
-    menu_width = math.max(menu_width, vim.fn.strdisplaywidth(e))
-  end
-  for i, e in ipairs(entries) do
+  local menu_rows = {} -- per entry: line index, label length, key offset (bytes from the label start)
+  for i, item in ipairs(menu) do
     if i > 1 then
       table.insert(lines, "") -- blank line between entries
     end
-    table.insert(lines, e .. (" "):rep(menu_width - vim.fn.strdisplaywidth(e)))
+    local spacing = (" "):rep(label_width - vim.fn.strdisplaywidth(labels[i]) + KEY_GAP)
+    table.insert(lines, labels[i] .. spacing .. item.key)
+    menu_rows[i] = { idx = #lines, label_len = #labels[i], key_off = #labels[i] + #spacing }
   end
   vim.list_extend(lines, footer)
 
   -- center horizontally and vertically
   local width = vim.o.columns
-  local pad = math.max(0, math.floor((vim.o.lines - #lines) / 2) - 16) -- nudge up from true center
+  local pad = math.max(0, math.floor((vim.o.lines - #lines) / 2) - UP_OFFSET)
+  local indents = {}
   for i, l in ipairs(lines) do
-    lines[i] = (" "):rep(math.max(0, math.floor((width - vim.fn.strdisplaywidth(l)) / 2))) .. l
+    indents[i] = math.max(0, math.floor((width - vim.fn.strdisplaywidth(l)) / 2))
+    lines[i] = (" "):rep(indents[i]) .. l
   end
-  lines = vim.list_extend(vim.fn["repeat"]({ "" }, pad), lines)
+  local top = {}
+  for _ = 1, pad do
+    table.insert(top, "")
+  end
+  lines = vim.list_extend(top, lines)
 
   local buf = vim.api.nvim_get_current_buf()
   vim.bo[buf].bufhidden, vim.bo[buf].buftype, vim.bo[buf].swapfile = "wipe", "nofile", false
@@ -88,34 +104,22 @@ local function show()
 
   local ns = vim.api.nvim_create_namespace("splash")
   -- ASCII art: yellow
-  vim.api.nvim_set_hl(0, "SplashHeader", { fg = "#f9e2af" })
-  for row = pad, pad + #header - 1 do
-    vim.api.nvim_buf_set_extmark(buf, ns, row, 0, { line_hl_group = "SplashHeader" })
-  end
+  vim.api.nvim_buf_set_extmark(buf, ns, pad, 0, {
+    end_row = pad + #header, hl_group = "SplashHeader", hl_eol = true, strict = false,
+  })
 
   -- footer quote: yellow, italic
-  vim.api.nvim_set_hl(0, "SplashFooter", { fg = "#f9e2af", italic = true })
-  for row = #lines - #footer, #lines - 1 do
-    vim.api.nvim_buf_set_extmark(buf, ns, row, 0, { line_hl_group = "SplashFooter" })
-  end
+  vim.api.nvim_buf_set_extmark(buf, ns, #lines - #footer, 0, {
+    end_row = #lines, hl_group = "SplashFooter", hl_eol = true, strict = false,
+  })
 
   -- menu: blue icon, green label, orange shortcut key
-  vim.api.nvim_set_hl(0, "SplashMenuIcon", { fg = "#89b4fa" })
-  vim.api.nvim_set_hl(0, "SplashMenuItem", { fg = "#a6e3a1" })
-  vim.api.nvim_set_hl(0, "SplashMenuKey", { fg = "#fab387" })
-  for row = #lines - #footer - (2 * #menu - 1), #lines - #footer - 1, 2 do
-    -- line is "<indent><desc><spaces><key>"; keys are a single trailing character
-    local line = lines[row + 1]
-    local desc_start = #line:match("^%s*")
-    local key_col = #line:gsub("%s+$", "") - 1
-    local desc_end = #line:sub(1, key_col):gsub("%s+$", "")
-    local text_start = desc_start + #icon
-    -- icon (blue)
-    vim.api.nvim_buf_set_extmark(buf, ns, row, desc_start, { end_col = text_start, hl_group = "SplashMenuIcon" })
-    -- label (green)
-    vim.api.nvim_buf_set_extmark(buf, ns, row, text_start, { end_col = desc_end, hl_group = "SplashMenuItem" })
-    -- shortcut key (orange)
-    vim.api.nvim_buf_set_extmark(buf, ns, row, key_col, { end_col = key_col + 1, hl_group = "SplashMenuKey" })
+  for _, r in ipairs(menu_rows) do
+    local row, start = pad + r.idx - 1, indents[r.idx]
+    local text_start = start + #icon
+    vim.api.nvim_buf_set_extmark(buf, ns, row, start, { end_col = text_start, hl_group = "SplashMenuIcon" })
+    vim.api.nvim_buf_set_extmark(buf, ns, row, text_start, { end_col = start + r.label_len, hl_group = "SplashMenuItem" })
+    vim.api.nvim_buf_set_extmark(buf, ns, row, start + r.key_off, { end_col = start + r.key_off + 1, hl_group = "SplashMenuKey" })
   end
   vim.bo[buf].modifiable = false
   for _, w in ipairs({ "number", "relativenumber", "cursorline", "list" }) do
