@@ -129,7 +129,7 @@ local function show()
   local buf = vim.api.nvim_get_current_buf()
   vim.bo[buf].bufhidden, vim.bo[buf].buftype, vim.bo[buf].swapfile = "wipe", "nofile", false
   for _, w in ipairs({ "number", "relativenumber", "cursorline", "list" }) do
-    vim.wo[w] = false
+    vim.wo[0][0][w] = false -- local to the splash window; plain vim.wo[w] also changes the global default
   end
 
   for _, item in ipairs(menu) do
